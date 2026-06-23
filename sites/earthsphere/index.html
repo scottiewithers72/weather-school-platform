@@ -366,10 +366,13 @@ footer .fine{border-top:1px solid rgba(255,255,255,.12);margin-top:32px;padding-
       <p style="font-size:17px;color:#E4F2F0;max-width:520px">The exact map-reading method I teach
          on television — in a free illustrated guide your student can use today. Plus occasional
          course news for homeschool families. Unsubscribe anytime.</p>
-      <form onsubmit="event.preventDefault();this.innerHTML='<p style=\'font-size:17px\'>✅ Check your inbox — the guide is on its way!</p>'">
-        <input type="email" required placeholder="parent@email.com" aria-label="Email address">
+      <form id="esLeadForm" novalidate>
+        <input type="email" name="email_address" required placeholder="parent@email.com" aria-label="Email address">
         <button class="btn" type="submit">Send me the guide</button>
       </form>
+      <script>
+      (function(){var f=document.getElementById('esLeadForm');if(!f)return;f.addEventListener('submit',function(e){e.preventDefault();var em=(f.email_address.value||'').trim();if(!em)return;var d=new FormData();d.append('email_address',em);fetch('https://app.kit.com/forms/9601853/subscriptions',{method:'POST',body:d,mode:'no-cors'}).catch(function(){});f.innerHTML='<p style="font-size:17px;color:#fff">✅ Check your inbox — confirm your subscription and your free guide is on the way!</p>';});})();
+      </script>
     </div>
     <img src="assets/art/es-atmosphere.jpg" alt="View above the clouds"
          style="border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.35)" onerror="this.style.display='none'">
