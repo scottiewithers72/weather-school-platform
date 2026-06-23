@@ -371,7 +371,7 @@ footer .fine{border-top:1px solid rgba(255,255,255,.12);margin-top:32px;padding-
         <button class="btn" type="submit">Send me the guide</button>
       </form>
       <script>
-      (function(){var f=document.getElementById('esLeadForm');if(!f)return;f.addEventListener('submit',function(e){e.preventDefault();var em=(f.email_address.value||'').trim();if(!em)return;var d=new FormData();d.append('email_address',em);fetch('https://app.kit.com/forms/9601853/subscriptions',{method:'POST',body:d,mode:'no-cors'}).catch(function(){});f.innerHTML='<p style="font-size:17px;color:#fff">✅ Check your inbox — confirm your subscription and your free guide is on the way!</p>';});})();
+      (function(){var f=document.getElementById('esLeadForm');if(!f)return;f.addEventListener('submit',function(e){e.preventDefault();var em=(f.email_address.value||'').trim();if(!em)return;fetch('https://app.kit.com/forms/9601853/subscriptions',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'email_address='+encodeURIComponent(em)}).catch(function(){});f.innerHTML='<p style="font-size:17px;color:#fff">✅ Check your inbox — confirm your subscription and your free guide is on the way!</p>';});})();
       </script>
     </div>
     <img src="assets/art/es-atmosphere.jpg" alt="View above the clouds"
