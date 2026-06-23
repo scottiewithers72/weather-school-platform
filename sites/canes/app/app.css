@@ -1,0 +1,127 @@
+/* Companion app styles — shared engine. Each school sets CSS variables +
+   body.k4 / body.secondary for age-appropriate UX (config, not code). */
+:root {
+  --p: #1B6CA8; --deep: #0E3A5D; --accent: #FFB627; --bg: #EAF6FF; --card: #fff; --ink: #173A52;
+}
+* { box-sizing: border-box; margin: 0; padding: 0 }
+body { font-family: var(--font, 'Nunito', system-ui, sans-serif); background: var(--bg); color: var(--ink);
+       min-height: 100vh; -webkit-tap-highlight-color: transparent }
+button { font: inherit; cursor: pointer }
+a { color: var(--p) }
+
+.authbox { max-width: 420px; margin: 8vh auto; background: var(--card); border-radius: 24px;
+  padding: 34px 30px; box-shadow: 0 16px 50px rgba(14,58,93,.18); text-align: center }
+.logo { height: 64px; margin: 0 auto 14px }
+.authbox h1 { font-size: 24px; color: var(--deep); margin-bottom: 18px }
+.tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 18px }
+.tabs button { border: 2px solid var(--p); background: #fff; color: var(--p); border-radius: 99px;
+  padding: 8px 18px; font-weight: 700 }
+.tabs button.on { background: var(--p); color: #fff }
+form input { width: 100%; padding: 13px 15px; margin-bottom: 11px; border: 2px solid #D7E6F2;
+  border-radius: 12px; font: inherit }
+.cta { background: var(--accent); color: var(--deep); border: 0; border-radius: 99px; padding: 14px 26px;
+  font-weight: 800; font-size: 16px; width: 100%; margin-top: 6px }
+.cta.ghost { background: #fff; border: 2px solid var(--p); color: var(--p); width: auto }
+.hint { font-size: 13px; color: #5b7384; margin-top: 10px }
+.linkbtn { background: none; border: 0; color: var(--p); font-weight: 700; padding: 6px 0; text-decoration: underline }
+
+.profiles { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 10px 0 18px }
+.profile { background: var(--bg); border: 3px solid transparent; border-radius: 18px; padding: 18px 10px;
+  font-weight: 800; font-size: 16px; display: flex; flex-direction: column; align-items: center; gap: 8px }
+.profile:hover { border-color: var(--accent) }
+.profile .av { font-size: 38px }
+.profile.add { background: #fff; border: 3px dashed #C7DCEC; color: #5b7384 }
+
+.appbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 12px;
+  background: rgba(255,255,255,.95); backdrop-filter: blur(8px); padding: 10px 16px;
+  border-bottom: 2px solid #E3EEF7 }
+.appbar img { height: 40px }
+.appbar .who { margin-left: auto; font-weight: 800 }
+
+.page { max-width: 760px; margin: 0 auto; padding: 22px 18px 60px }
+.page h2 { color: var(--deep); margin: 12px 0 14px }
+.sub2 { font-size: 14px; color: #5b7384; display: block }
+.loading { text-align: center; padding: 50px 0; font-weight: 700 }
+
+.libgrid { display: grid; gap: 14px; margin-top: 14px }
+.libcard { position: relative; text-align: left; background: var(--card); border: 2px solid #E3EEF7;
+  border-radius: 18px; padding: 18px 20px; display: flex; flex-direction: column; gap: 7px }
+.libcard:hover { border-color: var(--p) }
+.libcard strong { font-size: 18px; color: var(--deep) }
+.gifttag { position: absolute; top: -10px; right: 14px; background: var(--accent); color: var(--deep);
+  font-size: 11.5px; font-weight: 800; padding: 4px 12px; border-radius: 99px }
+.bar { height: 9px; background: #E3EEF7; border-radius: 99px; overflow: hidden }
+.bar i { display: block; height: 100%; background: var(--p); border-radius: 99px; transition: width .4s }
+.redeem { margin-top: 22px; font-weight: 700; color: var(--p) }
+.codeform { margin-top: 10px }
+.codeform input { text-transform: uppercase; letter-spacing: 2px; text-align: center; font-weight: 800 }
+
+.lessons { display: grid; gap: 10px; margin-top: 14px }
+.lesson { display: flex; align-items: center; gap: 14px; text-align: left; background: var(--card);
+  border: 2px solid #E3EEF7; border-radius: 14px; padding: 13px 16px }
+.lesson:not(.locked):hover { border-color: var(--p) }
+.lesson.locked { opacity: .55 }
+.lesson .num { width: 38px; height: 38px; border-radius: 50%; background: var(--p); color: #fff;
+  font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none }
+.lesson.locked .num { background: #B9CEDD }
+.ltitle { font-weight: 700 } .ltitle small { display: block; font-weight: 600; color: #5b7384 }
+
+.lessontabs { display: flex; gap: 6px; margin: 18px 0 14px; flex-wrap: wrap }
+.lessontabs button { border: 2px solid #D7E6F2; background: #fff; border-radius: 99px; padding: 9px 14px;
+  font-weight: 700; font-size: 14px }
+.lessontabs button.on { background: var(--p); color: #fff; border-color: var(--p) }
+.placeholder { background: #fff; border: 2px dashed #C7DCEC; border-radius: 16px; padding: 36px 20px;
+  text-align: center; color: #5b7384; font-weight: 700 }
+.placeholder.big { font-size: 20px } .placeholder strong { display: block; font-size: 42px; color: var(--p) }
+
+.study { background: #fff; border-radius: 16px; padding: 24px 26px }
+.study h3 { color: var(--deep); margin: 14px 0 6px } .study h3:first-child { margin-top: 0 }
+
+.flash { background: var(--card); border-radius: 20px; min-height: 200px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 14px; padding: 28px; cursor: pointer;
+  box-shadow: 0 10px 30px rgba(14,58,93,.12); border: 3px solid var(--p); font-size: 21px; font-weight: 800;
+  text-align: center; transition: transform .18s }
+.flash.flip { background: var(--bg); transform: rotateX(8deg) scale(1.02) }
+.row { display: flex; gap: 10px; margin-top: 14px; justify-content: center }
+.row .cta { width: auto }
+
+.quiz .qq { font-size: 19px; font-weight: 800; color: var(--deep); margin-bottom: 14px }
+.choice { display: block; width: 100%; text-align: left; background: #fff; border: 2px solid #D7E6F2;
+  border-radius: 14px; padding: 14px 18px; margin-bottom: 9px; font-weight: 700; transition: all .15s }
+.choice:hover { border-color: var(--p) }
+.choice.right { background: #DDF5E7; border-color: #2E9E83 }
+.choice.wrong { background: #FDE3E3; border-color: #E84855 }
+
+.memory { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px }
+.memory.kidgrid { grid-template-columns: repeat(3, 1fr) }
+.mem { min-height: 84px; border-radius: 14px; border: 2px solid #D7E6F2; background: #fff; font-weight: 700;
+  font-size: 13.5px; padding: 6px; transition: all .2s }
+.mem.open { border-color: var(--accent); background: #FFF6E0 }
+.mem.matched { border-color: #2E9E83; background: #DDF5E7 }
+
+.installbar { margin-top: 18px; padding: 14px; background: var(--bg); border-radius: 14px;
+  font-size: 14px; text-align: center }
+.installbar .cta { width: auto; margin: 0 auto 6px }
+.installbar .hint { display: block }
+.shareicon { display: inline-block; border: 1.5px solid var(--p); color: var(--p); border-radius: 6px;
+  padding: 0 8px; font-weight: 800; font-size: 12.5px }
+
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--deep);
+  color: #fff; font-weight: 800; padding: 14px 24px; border-radius: 99px; z-index: 99;
+  box-shadow: 0 10px 30px rgba(0,0,0,.3); animation: pop .3s }
+@keyframes pop { from { transform: translateX(-50%) translateY(20px); opacity: 0 } }
+
+/* K-4 mode: bigger targets, rounder, friendlier */
+body.k4 { --font: 'Nunito', sans-serif }
+body.k4 .cta { font-size: 19px; padding: 17px 28px }
+body.k4 .lesson { padding: 17px 18px } body.k4 .lesson .num { width: 46px; height: 46px; font-size: 19px }
+body.k4 .lessontabs button { font-size: 16px; padding: 12px 18px }
+body.k4 .flash { font-size: 26px; min-height: 240px }
+body.k4 .choice { font-size: 17px; padding: 17px 20px }
+body.k4 .qq { font-size: 22px }
+
+/* 5-12 mode: tighter, more serious */
+body.secondary { --p: #0B3D54; --deep: #062536; --accent: #F2A33C; --bg: #EAF4F8;
+  --font: 'Inter', system-ui, sans-serif }
+body.secondary .cta { border-radius: 10px }
+body.secondary .profile, body.secondary .libcard, body.secondary .lesson { border-radius: 12px }

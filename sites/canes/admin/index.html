@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>School Admin — Weather School Platform</title>
+<style>
+  :root{--blue:#1B6CA8;--deep:#0E3A5D;--teal:#2E9E83;--amber:#F2A33C;--bg:#F2F6F9;--line:#D7E3EC}
+  *{box-sizing:border-box;margin:0}
+  body{font:15px/1.5 system-ui,sans-serif;background:var(--bg);color:#15303f}
+  header{background:var(--deep);color:#fff;padding:14px 22px;display:flex;align-items:center;gap:14px}
+  header h1{font-size:17px;font-weight:600}
+  header .pill{font-size:12px;background:rgba(255,255,255,.15);padding:3px 10px;border-radius:99px}
+  main{max-width:1100px;margin:24px auto;padding:0 16px;display:grid;gap:18px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+  .card h2{font-size:15px;margin-bottom:10px;color:var(--deep)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}
+  th{color:#5b7384;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  input,select,textarea{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;width:100%}
+  textarea{min-height:70px}
+  button{font:inherit;font-weight:600;padding:8px 14px;border:0;border-radius:8px;background:var(--blue);color:#fff;cursor:pointer}
+  button.ghost{background:#fff;color:var(--blue);border:1px solid var(--blue)}
+  button.warn{background:#C0392B}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+  .stat b{display:block;font-size:26px;color:var(--blue)}
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .tag{font-size:11px;padding:2px 8px;border-radius:99px;background:#E8F1F8;color:var(--deep)}
+  .tag.live{background:#E3F6EE;color:#1B7A57}.tag.presale{background:#FFF3DC;color:#9A6A00}
+  .tag.evergreen{background:#E8F8F4;color:#1B7A6B}.tag.draft{background:#eee;color:#666}
+  #login{max-width:380px;margin:80px auto}
+  .muted{color:#5b7384;font-size:13px}
+  dialog{border:1px solid var(--line);border-radius:14px;padding:22px;max-width:680px;width:92%}
+  dialog::backdrop{background:rgba(14,58,93,.45)}
+  label{font-size:12.5px;font-weight:600;color:#41607a;display:block;margin:8px 0 3px}
+  pre{background:#0E3A5D;color:#BDE3FF;padding:12px;border-radius:8px;overflow:auto;font-size:12.5px}
+</style>
+</head>
+<body>
+<header>
+  <h1>⛅ Weather School Platform — Admin</h1>
+  <span class="pill">Cane's Weather School</span>
+  <span class="pill">EarthSphere Academy</span>
+</header>
+
+<main id="login" class="card">
+  <h2>Admin sign-in</h2>
+  <label>Admin key</label>
+  <input id="adminKey" type="password" placeholder="ADMIN_PASSWORD">
+  <p style="margin-top:10px"><button onclick="signIn()">Enter</button></p>
+  <p class="muted" id="loginMsg"></p>
+</main>
+
+<main id="app" hidden>
+  <div class="stats" id="stats"></div>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between">
+      <h2>Classes</h2>
+      <button onclick="editClass(null)">+ Add class</button>
+    </div>
+    <table id="classTable"><thead>
+      <tr><th>School</th><th>Class</th><th>Grades</th><th>Lessons</th><th>Price</th><th>Status</th><th>Semester</th><th></th></tr>
+    </thead><tbody></tbody></table>
+    <p class="muted">“Flip evergreen” converts a finished fall cohort to start-anytime. The graduation-gift
+       class is marked 🎓 — exactly one EarthSphere class should carry it.</p>
+  </div>
+
+  <div class="card" id="lessonCard" hidden>
+    <div class="row" style="justify-content:space-between">
+      <h2 id="lessonTitle">Lessons</h2>
+      <button onclick="editLesson(null)">+ Add lesson</button>
+    </div>
+    <table id="lessonTable"><thead>
+      <tr><th>#</th><th>Title</th><th>Video ID</th><th>Min</th><th>App content</th><th></th></tr>
+    </thead><tbody></tbody></table>
+  </div>
+
+  <div class="card" id="codeCard" hidden>
+    <div class="row" style="justify-content:space-between">
+      <h2 id="codeTitle">Access codes</h2>
+      <span class="row">
+        <input id="codeCount" type="number" value="5" min="1" max="100" style="width:80px">
+        <button class="ghost" onclick="genCodes()">Generate manual codes</button>
+      </span>
+    </div>
+    <div id="newCodes"></div>
+    <table id="codeTable"><thead>
+      <tr><th>Code</th><th>Buyer</th><th>Created</th><th>Status</th></tr>
+    </thead><tbody></tbody></table>
+  </div>
+</main>
+
+<dialog id="classDlg">
+  <h2 style="margin-bottom:10px">Class</h2>
+  <div class="grid2">
+    <div><label>ID (slug, permanent)</label><input id="c_id" placeholder="cw-storms-101"></div>
+    <div><label>School</label><select id="c_school"><option value="canes">Cane's Weather School</option><option value="earthsphere">EarthSphere Academy</option></select></div>
+  </div>
+  <label>Title</label><input id="c_title">
+  <label>Subtitle</label><input id="c_subtitle">
+  <label>Description</label><textarea id="c_desc"></textarea>
+  <div class="grid3">
+    <div><label>Grade band</label><input id="c_grades" placeholder="K–2"></div>
+    <div><label>Price (USD)</label><input id="c_price" type="number" step="1" placeholder="99"></div>
+    <div><label>Credit value</label><input id="c_credit" type="number" step="0.5" value="0"></div>
+  </div>
+  <div class="grid3">
+    <div><label>Status</label><select id="c_status">
+      <option>draft</option><option>presale</option><option>live</option><option>evergreen</option><option>archived</option>
+    </select></div>
+    <div><label>Semester label</label><input id="c_sem" placeholder="Fall 2026"></div>
+    <div><label>Cohort start (drip anchor)</label><input id="c_start" type="date" value="2026-09-02"></div>
+  </div>
+  <div class="grid3">
+    <div><label>Shopify product ID</label><input id="c_shopify"></div>
+    <div><label>Sort order</label><input id="c_sort" type="number" value="100"></div>
+    <div><label>🎓 Graduation gift?</label><select id="c_gift"><option value="">No</option><option value="1">Yes — the free class</option></select></div>
+  </div>
+  <p class="row" style="margin-top:14px"><button onclick="saveClass()">Save class</button>
+     <button class="ghost" onclick="classDlg.close()">Cancel</button></p>
+</dialog>
+
+<dialog id="lessonDlg">
+  <h2 style="margin-bottom:10px">Lesson</h2>
+  <div class="grid2">
+    <div><label>Position (week #)</label><input id="l_pos" type="number" min="1" value="1"></div>
+    <div><label>Duration (min)</label><input id="l_min" type="number" placeholder="25"></div>
+  </div>
+  <label>Title</label><input id="l_title">
+  <label>Summary</label><textarea id="l_summary"></textarea>
+  <label>Bunny.net video GUID</label><input id="l_video" placeholder="paste after upload — leave blank until recorded">
+  <h2 style="margin:14px 0 4px;font-size:14px">Companion-app content (JSON)</h2>
+  <label>Kind</label>
+  <select id="lc_kind"><option value="study_guide">Study guide</option><option value="flashcards">Flash cards</option><option value="quiz">Quiz</option><option value="game">Game</option></select>
+  <label>Payload</label><textarea id="lc_payload" placeholder='e.g. {"cards":[{"front":"What is a hurricane?","back":"A giant spinning storm that forms over warm ocean water"}]}'></textarea>
+  <p class="row" style="margin-top:14px"><button onclick="saveLesson()">Save lesson</button>
+     <button class="ghost" onclick="saveContent()">Save content only</button>
+     <button class="ghost" onclick="lessonDlg.close()">Cancel</button></p>
+</dialog>
+
+<script>
+let KEY = sessionStorage.getItem('adminKey') || '';
+let classes = [], currentClass = null, currentLesson = null;
+
+async function api(action, payload = {}) {
+  const r = await fetch('/api/admin', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-admin-key': KEY },
+    body: JSON.stringify({ action, ...payload })
+  });
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.error || 'Request failed');
+  return j;
+}
+
+async function signIn() {
+  KEY = document.getElementById('adminKey').value;
+  try {
+    await api('stats');
+    sessionStorage.setItem('adminKey', KEY);
+    document.getElementById('login').hidden = true;
+    document.getElementById('app').hidden = false;
+    refresh();
+  } catch (e) { document.getElementById('loginMsg').textContent = e.message; }
+}
+
+async function refresh() {
+  const s = await api('stats');
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><b>${s.families}</b>Families</div>
+    <div class="stat"><b>${s.enrollments}</b>Enrollments</div>
+    <div class="stat"><b>${s.graduations}</b>🎓 Graduations</div>
+    <div class="stat"><b>${s.discounts}</b>Discounts earned</div>`;
+  const { classes: cs } = await api('list_classes');
+  classes = cs;
+  document.querySelector('#classTable tbody').innerHTML = cs.map(c => `
+    <tr>
+      <td>${c.school_id === 'canes' ? "Cane's" : 'EarthSphere'}</td>
+      <td><strong>${c.title}</strong>${c.is_graduation_gift ? ' 🎓' : ''}</td>
+      <td>${c.grade_band || ''}</td>
+      <td>${c.lesson_count}</td>
+      <td>$${(c.price_cents / 100).toFixed(0)}</td>
+      <td><span class="tag ${c.status}">${c.status}</span></td>
+      <td>${c.semester || ''}</td>
+      <td class="row">
+        <button class="ghost" onclick='editClass(${JSON.stringify(c.id)})'>Edit</button>
+        <button class="ghost" onclick='openLessons(${JSON.stringify(c.id)})'>Lessons</button>
+        <button class="ghost" onclick='openCodes(${JSON.stringify(c.id)})'>Codes</button>
+        ${c.status === 'live' ? `<button class="ghost" onclick='flip(${JSON.stringify(c.id)})'>Flip evergreen</button>` : ''}
+      </td>
+    </tr>`).join('');
+}
+
+function editClass(id) {
+  const c = classes.find(x => x.id === id) || {};
+  c_id.value = c.id || ''; c_id.disabled = !!c.id;
+  c_school.value = c.school_id || 'canes';
+  c_title.value = c.title || ''; c_subtitle.value = c.subtitle || '';
+  c_desc.value = c.description || ''; c_grades.value = c.grade_band || '';
+  c_price.value = c.price_cents ? c.price_cents / 100 : '';
+  c_credit.value = c.credit_value || 0;
+  c_status.value = c.status || 'draft'; c_sem.value = c.semester || '';
+  c_start.value = c.cohort_start ? c.cohort_start.slice(0, 10) : '2026-09-02';
+  c_shopify.value = c.shopify_product_id || ''; c_sort.value = c.sort_order || 100;
+  c_gift.value = c.is_graduation_gift ? '1' : '';
+  classDlg.showModal();
+}
+
+async function saveClass() {
+  await api('upsert_class', { class: {
+    id: c_id.value.trim(), school_id: c_school.value, title: c_title.value,
+    subtitle: c_subtitle.value, description: c_desc.value, grade_band: c_grades.value,
+    price_cents: Math.round(parseFloat(c_price.value || 0) * 100),
+    credit_value: parseFloat(c_credit.value || 0), status: c_status.value,
+    semester: c_sem.value, cohort_start: c_start.value || null,
+    shopify_product_id: c_shopify.value, sort_order: parseInt(c_sort.value || 100),
+    is_graduation_gift: c_gift.value === '1'
+  }});
+  classDlg.close(); refresh();
+}
+
+async function flip(id) {
+  if (confirm('Flip this class to evergreen (start anytime)?')) {
+    await api('flip_evergreen', { classId: id }); refresh();
+  }
+}
+
+let lessons = [];
+async function openLessons(id) {
+  currentClass = id;
+  const { lessons: ls } = await api('list_lessons', { classId: id });
+  lessons = ls;
+  document.getElementById('lessonCard').hidden = false;
+  document.getElementById('lessonTitle').textContent =
+    'Lessons — ' + (classes.find(c => c.id === id)?.title || id);
+  document.querySelector('#lessonTable tbody').innerHTML = ls.map(l => `
+    <tr><td>${l.position}</td><td>${l.title}</td>
+        <td>${l.video_id ? '✅' : '<span class="muted">not uploaded</span>'}</td>
+        <td>${l.duration_min || ''}</td>
+        <td>${(l.content_kinds || []).join(', ') || '<span class="muted">none</span>'}</td>
+        <td><button class="ghost" onclick="editLesson(${l.id})">Edit</button></td></tr>`).join('');
+  document.getElementById('lessonCard').scrollIntoView({ behavior: 'smooth' });
+}
+
+function editLesson(id) {
+  currentLesson = lessons.find(x => x.id === id) || null;
+  l_pos.value = currentLesson?.position || (lessons.length + 1);
+  l_min.value = currentLesson?.duration_min || '';
+  l_title.value = currentLesson?.title || '';
+  l_summary.value = currentLesson?.summary || '';
+  l_video.value = currentLesson?.video_id || '';
+  lc_payload.value = '';
+  lessonDlg.showModal();
+}
+
+async function saveLesson() {
+  const { lessonId } = await api('upsert_lesson', { lesson: {
+    class_id: currentClass, position: parseInt(l_pos.value),
+    title: l_title.value, summary: l_summary.value,
+    video_id: l_video.value || null, duration_min: parseInt(l_min.value) || null
+  }});
+  if (lc_payload.value.trim()) {
+    await api('upsert_content', { lessonId, kind: lc_kind.value, payload: JSON.parse(lc_payload.value) });
+  }
+  lessonDlg.close(); openLessons(currentClass); refresh();
+}
+
+async function saveContent() {
+  if (!currentLesson) return alert('Save the lesson first.');
+  await api('upsert_content', {
+    lessonId: currentLesson.id, kind: lc_kind.value, payload: JSON.parse(lc_payload.value)
+  });
+  lessonDlg.close(); openLessons(currentClass);
+}
+
+async function openCodes(id) {
+  currentClass = id;
+  document.getElementById('codeCard').hidden = false;
+  document.getElementById('codeTitle').textContent =
+    'Access codes — ' + (classes.find(c => c.id === id)?.title || id);
+  const { codes } = await api('list_codes', { classId: id });
+  document.querySelector('#codeTable tbody').innerHTML = codes.map(c => `
+    <tr><td><code>${c.code}</code></td><td>${c.order_email || ''}</td>
+        <td>${(c.created_at || '').slice(0, 10)}</td>
+        <td>${c.redeemed_at ? '🔒 redeemed' : '🟢 unused'}</td></tr>`).join('');
+  document.getElementById('codeCard').scrollIntoView({ behavior: 'smooth' });
+}
+
+async function genCodes() {
+  const { codes } = await api('generate_codes', {
+    classId: currentClass, count: parseInt(document.getElementById('codeCount').value || 1)
+  });
+  document.getElementById('newCodes').innerHTML = `<pre>${codes.join('\n')}</pre>`;
+  openCodes(currentClass);
+}
+
+if (KEY) signIn();
+</script>
+</body>
+</html>

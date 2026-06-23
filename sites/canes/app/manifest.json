@@ -1,0 +1,16 @@
+{
+  "name": "Cane's Class Companion",
+  "short_name": "Cane's Class",
+  "description": "Study guides, flash cards, games, and quizzes for Cane's Weather School classes.",
+  "start_url": "/app/",
+  "scope": "/app/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EAF6FF",
+  "theme_color": "#1B6CA8",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "../assets/logo-canes.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
