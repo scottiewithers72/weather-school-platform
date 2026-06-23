@@ -1,0 +1,35 @@
+{
+  "schoolId": "earthsphere",
+  "name": "EarthSphere Academy",
+  "domain": "earthsphereacademy.com",
+  "tagline": "Transcript-ready lab science, taught by a working broadcast meteorologist.",
+  "subTagline": "Meteorology and earth science for grades 5–12 — documented hours, real labs, and completion reports colleges respect.",
+  "grades": "5–12",
+  "uxMode": "secondary",
+  "mascot": null,
+  "brand": {
+    "primary": "#0B3D54",
+    "secondary": "#2E9E83",
+    "accent": "#F2A33C",
+    "sky": "#DCEFF5",
+    "deep": "#062536",
+    "paper": "#F7FBFC",
+    "font": "'Inter', 'Source Sans 3', system-ui, sans-serif",
+    "logo": "assets/logo-earthsphere.svg"
+  },
+  "appName": "EarthSphere Study Companion",
+  "appShortName": "EarthSphere",
+  "appThemeColor": "#0B3D54",
+  "links": {
+    "sister": { "label": "Cane's Weather School (K–4)", "url": "https://canesweatherschool.com" },
+    "wx": { "label": "ScottWithersWx.com", "url": "https://scottwitherswx.com" }
+  },
+  "graduation": {
+    "enabled": false,
+    "freeClassId": "es-weather-detectives",
+    "welcomeMessage": "Welcome, Cane's graduate! Your free class is unlocked and waiting."
+  },
+  "catalogFile": "catalog-earthsphere.json",
+  "fallStartDate": "2026-09-02",
+  "shopify": { "storefrontDomain": "REPLACE.myshopify.com", "channelTag": "earthsphere" }
+}

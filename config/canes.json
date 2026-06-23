@@ -1,0 +1,36 @@
+{
+  "schoolId": "canes",
+  "name": "Cane's Weather School",
+  "domain": "canesweatherschool.com",
+  "tagline": "Weather is the door. The planet is the classroom.",
+  "subTagline": "Live and on-demand science classes for grades K–4, taught by a four-time Emmy-winning meteorologist — with Cane the Weather Dog leading the way.",
+  "grades": "K–4",
+  "uxMode": "k4",
+  "mascot": "Cane the Weather Dog",
+  "brand": {
+    "primary": "#1B6CA8",
+    "secondary": "#FFB627",
+    "accent": "#E84855",
+    "sky": "#BDE3FF",
+    "deep": "#0E3A5D",
+    "paper": "#FFF9EF",
+    "font": "'Fredoka', 'Baloo 2', system-ui, sans-serif",
+    "logo": "assets/logo-canes.svg"
+  },
+  "appName": "Cane's Class Companion",
+  "appShortName": "Cane's Class",
+  "appThemeColor": "#1B6CA8",
+  "links": {
+    "sister": { "label": "EarthSphere Academy (Grades 5–12)", "url": "https://earthsphereacademy.com" },
+    "wx": { "label": "ScottWithersWx.com", "url": "https://scottwitherswx.com" },
+    "books": { "label": "Cane the Weather Dog Books", "url": "https://canetheweatherdog.com" }
+  },
+  "graduation": {
+    "enabled": true,
+    "message": "Finish every Cane's class and Cane has a graduation gift for you: a FREE EarthSphere Academy class!",
+    "targetSchool": "earthsphere"
+  },
+  "catalogFile": "catalog-canes.json",
+  "fallStartDate": "2026-09-02",
+  "shopify": { "storefrontDomain": "REPLACE.myshopify.com", "channelTag": "canes" }
+}

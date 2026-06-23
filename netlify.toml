@@ -1,0 +1,42 @@
+# Weather School Platform — Netlify configuration
+# Deploy this repo TWICE as two Netlify sites:
+#   Site 1: canesweatherschool.com   -> env SCHOOL_ID=canes,       publish sites/canes
+#   Site 2: earthsphereacademy.com   -> env SCHOOL_ID=earthsphere, publish sites/earthsphere
+# Both share the same functions/ backend and the same database.
+
+[build]
+  functions = "functions"
+  # Set per-site in Netlify UI: "sites/canes" or "sites/earthsphere"
+  publish = "sites/canes"
+
+[functions]
+  node_bundler = "esbuild"
+
+# API routes
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# PWA + SPA fallbacks
+[[redirects]]
+  from = "/app/*"
+  to = "/app/index.html"
+  status = 200
+
+[[headers]]
+  for = "/app/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+# Required environment variables (set in Netlify UI per site):
+#   SCHOOL_ID            = canes | earthsphere
+#   DATABASE_URL         = Neon/Postgres connection string (SAME for both sites)
+#   JWT_SECRET           = long random string (SAME for both sites — shared login)
+#   SHOPIFY_WEBHOOK_SECRET = from Shopify webhook settings
+#   SHOPIFY_ADMIN_TOKEN  = Admin API token (discount code creation)
+#   SHOPIFY_STORE_DOMAIN = yourstore.myshopify.com
+#   EMAIL_API_KEY        = Resend/Postmark API key for transactional email
+#   EMAIL_FROM           = e.g. hello@canesweatherschool.com
+#   ADMIN_PASSWORD       = admin panel access
+#   BUNNY_LIBRARY_ID / BUNNY_TOKEN_KEY = Bunny.net Stream token auth

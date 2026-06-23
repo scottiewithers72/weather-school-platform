@@ -1,0 +1,21 @@
+{
+  "name": "weather-school-platform",
+  "version": "1.0.0",
+  "description": "Shared platform for Cane's Weather School (K-4) and EarthSphere Academy (5-12). Build once, deploy twice.",
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "test": "node tests/run-tests.js",
+    "seed": "node scripts/seed.js",
+    "build:canes": "node scripts/build-site.js canes",
+    "build:earthsphere": "node scripts/build-site.js earthsphere"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  },
+  "author": "Scott Withers / SWL Publishing",
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,902 @@
+{
+  "_note": "EarthSphere Academy catalog — matches the 5-12 Program Blueprint exactly: Band A (5-6) Weather Detectives + Our Living Planet; Band B (7-8) Earth Science Foundations, Weather & Climate, Dynamic Earth; Band C (9-12) Meteorology flagship, Earth & Space Science, Severe Weather & Forecasting, Climate Science & Environmental Systems, Oceanography, Natural Hazards & Geology. Flagship lessons come from the built Units 1-15; other lesson lists are seeded drafts — edit in admin. Fall 2026 catalog limited to 4 classes per the handoff; the rest are 'Coming January'. Prices are blueprint-range placeholders. Designated graduation gift: es-weather-detectives.",
+  "classes": [
+    {
+      "id": "es-meteorology-sem1",
+      "title": "Meteorology: Lab Science — Semester 1",
+      "subtitle": "The flagship. Atmosphere, energy, pressure, maps, moisture, clouds, fronts, cyclones",
+      "description": "The first half of the flagship full-year lab science (grades 9–12), taught by a four-time Emmy-winning broadcast meteorologist. Units 1–8 with documented labs, reading guides, graded work, and a semester exam. Two semesters = 1.0 transcript-ready lab-science credit, parent-awarded with our Completion Report.",
+      "grade_band": "9–12",
+      "price_cents": 19900,
+      "semester": "Fall 2026",
+      "status": "presale",
+      "credit_value": 0.5,
+      "cohort_start": "2026-09-02",
+      "sort_order": 10,
+      "hero_image": "/assets/art/es-meteorology.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "Intro to Meteorology & the Atmosphere",
+          "duration_min": 30
+        },
+        {
+          "position": 2,
+          "title": "Energy, Heat & Temperature",
+          "duration_min": 30
+        },
+        {
+          "position": 3,
+          "title": "Air Pressure & Wind",
+          "duration_min": 30
+        },
+        {
+          "position": 4,
+          "title": "Reading Weather Maps",
+          "duration_min": 30
+        },
+        {
+          "position": 5,
+          "title": "Atmospheric Moisture & Humidity",
+          "duration_min": 30
+        },
+        {
+          "position": 6,
+          "title": "Clouds & Precipitation",
+          "duration_min": 30
+        },
+        {
+          "position": 7,
+          "title": "Air Masses & Fronts",
+          "duration_min": 30
+        },
+        {
+          "position": 8,
+          "title": "Mid-Latitude Cyclones + Semester Exam",
+          "duration_min": 35
+        }
+      ],
+      "shopify_product_id": "10526630019359",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/meteorology-lab-science-semester-1-grades-9-12-0-5-credit",
+      "was_cents": 21900,
+      "long_description": [
+        "This is the course EarthSphere Academy was built around: a true high-school lab science, taught start to finish by a four-time Emmy-winning broadcast meteorologist with a master's degree in environmental geoscience. Semester 1 covers Units 1–8 of the full-year sequence — the atmosphere, energy and temperature, air pressure and wind, weather-map analysis, atmospheric moisture, clouds and precipitation, air masses and fronts, and mid-latitude cyclones.",
+        "Every unit is a complete kit: a reading guide, a video lesson with real stories from the forecast desk, homework with answer keys, a quiz, and — the part homeschool families struggle to build at the kitchen table — a documented, hands-on lab using household materials, with a report sheet and grading rubric. Students don't just read about air pressure; they measure it, chart it, and write it up like scientists.",
+        "By the end of Semester 1 your student can read a surface weather map the way professionals do, and you have a paper trail — graded labs, quizzes, homework, and a semester exam — strong enough to put on a transcript with confidence. Pair it with Semester 2 for the full 1.0 lab-science credit."
+      ]
+    },
+    {
+      "id": "es-weather-detectives",
+      "title": "Weather Detectives",
+      "subtitle": "Intro meteorology for grades 5–6 — the step up from Cane, without the cartoon",
+      "description": "Band A's project-driven intro: observation skills, weather instruments, map reading, and your student's first real forecasts. 8 units. This is the class Cane gives FREE to families who finish every Cane's Weather School class.",
+      "grade_band": "5–6",
+      "price_cents": 14900,
+      "semester": "Fall 2026",
+      "status": "presale",
+      "credit_value": 0,
+      "cohort_start": "2026-09-02",
+      "sort_order": 20,
+      "is_graduation_gift": true,
+      "hero_image": "/assets/art/es-weather-detectives.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "Thinking Like a Scientist",
+          "duration_min": 25
+        },
+        {
+          "position": 2,
+          "title": "Weather Instruments & Your Home Station",
+          "duration_min": 25
+        },
+        {
+          "position": 3,
+          "title": "Reading the Sky: Clouds & Patterns",
+          "duration_min": 25
+        },
+        {
+          "position": 4,
+          "title": "Weather Maps for Real",
+          "duration_min": 25
+        },
+        {
+          "position": 5,
+          "title": "Track a Storm Week",
+          "duration_min": 25
+        },
+        {
+          "position": 6,
+          "title": "Severe Weather Science",
+          "duration_min": 25
+        },
+        {
+          "position": 7,
+          "title": "Climate vs. Weather",
+          "duration_min": 25
+        },
+        {
+          "position": 8,
+          "title": "Your First Forecast Project",
+          "duration_min": 30
+        }
+      ],
+      "shopify_product_id": "10526630052127",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/weather-detectives-intro-meteorology-grades-5-6",
+      "was_cents": 16900,
+      "long_description": [
+        "Weather Detectives is the bridge between elementary science and the real thing — built for 5th and 6th graders who are ready to stop watching the weather and start investigating it. It's a deliberate step up from our K–4 program at Cane's Weather School: same teacher, same science, no cartoon.",
+        "Across 8 project-driven units your student learns to think like a scientist: setting up a home weather station, reading the sky, decoding real weather maps, tracking a live storm across a week, and understanding severe weather and the difference between weather and climate. The course ends with their first real forecast project — observation, data, reasoning, prediction.",
+        "It's also the class Cane gives away: families who complete every Cane's Weather School class get Weather Detectives unlocked free, automatically, on the same family account. Whether your student arrives as a Cane's graduate or brand new, this is the on-ramp to the EarthSphere track that runs all the way to high-school lab-science credit."
+      ]
+    },
+    {
+      "id": "es-weather-climate-78",
+      "title": "Weather & Climate",
+      "subtitle": "Middle-school semester course — grades 7–8",
+      "description": "Band B's semester meteorology course: energy in the atmosphere, pressure and global circulation, storm systems, forecasting, and how weather becomes climate. Standards-aware, lab-light — the launchpad for the 9–12 lab-science track.",
+      "grade_band": "7–8",
+      "price_cents": 16900,
+      "semester": "Fall 2026",
+      "status": "presale",
+      "credit_value": 0,
+      "cohort_start": "2026-09-02",
+      "sort_order": 30,
+      "hero_image": "/assets/art/es-blizzard.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "The Atmosphere: Our Ocean of Air",
+          "duration_min": 28
+        },
+        {
+          "position": 2,
+          "title": "Solar Energy & the Seasons",
+          "duration_min": 28
+        },
+        {
+          "position": 3,
+          "title": "Pressure, Wind & Global Circulation",
+          "duration_min": 28
+        },
+        {
+          "position": 4,
+          "title": "Water in the Air",
+          "duration_min": 28
+        },
+        {
+          "position": 5,
+          "title": "Storm Systems & Fronts",
+          "duration_min": 28
+        },
+        {
+          "position": 6,
+          "title": "Severe Weather Deep Dive",
+          "duration_min": 28
+        },
+        {
+          "position": 7,
+          "title": "Forecasting: Radar, Satellites & Models",
+          "duration_min": 28
+        },
+        {
+          "position": 8,
+          "title": "From Weather to Climate + Review",
+          "duration_min": 30
+        }
+      ],
+      "shopify_product_id": "10526630084895",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/weather-climate-middle-school-semester-grades-7-8",
+      "was_cents": 18900,
+      "long_description": [
+        "Middle school is where science classes either earn a student's curiosity or lose it. Weather & Climate is a rigorous, standards-aware semester for grades 7–8 that uses the most relatable laboratory there is — the sky over your house — to teach real physical science.",
+        "Eight units move from the structure of the atmosphere through solar energy and the seasons, pressure and global circulation, moisture, storm systems and fronts, a severe-weather deep dive, and modern forecasting with radar, satellites, and models — finishing with how day-to-day weather adds up to climate. Lessons are taught on video by a broadcast meteorologist, with study guides, flash cards, and quizzes in the companion app reinforcing every unit.",
+        "It's deliberately built as the launchpad for our 9–12 lab-science track: a student who finishes Weather & Climate walks into high-school Meteorology already speaking the language."
+      ]
+    },
+    {
+      "id": "es-severe-weather",
+      "title": "Severe Weather & Forecasting",
+      "subtitle": "0.5-credit elective — the on-air specialty",
+      "description": "Tornadoes, supercells, hurricanes, blizzards, and the forecasting that saves lives — taught by the meteorologist who covers them on television. A half-credit high-school elective with real case studies from the anchor desk.",
+      "grade_band": "9–12",
+      "price_cents": 17900,
+      "semester": "Fall 2026",
+      "status": "presale",
+      "credit_value": 0.5,
+      "cohort_start": "2026-09-02",
+      "sort_order": 40,
+      "hero_image": "/assets/art/es-hurricane-space.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "Anatomy of Severe Weather",
+          "duration_min": 30
+        },
+        {
+          "position": 2,
+          "title": "Thunderstorms & Lightning",
+          "duration_min": 30
+        },
+        {
+          "position": 3,
+          "title": "Tornadoes & Supercells",
+          "duration_min": 30
+        },
+        {
+          "position": 4,
+          "title": "Hurricanes & Tropical Systems",
+          "duration_min": 30
+        },
+        {
+          "position": 5,
+          "title": "Winter Storms, Ice & Blizzards",
+          "duration_min": 30
+        },
+        {
+          "position": 6,
+          "title": "Radar, Satellite & Warning Science",
+          "duration_min": 30
+        },
+        {
+          "position": 7,
+          "title": "Case Studies from the Anchor Desk",
+          "duration_min": 30
+        },
+        {
+          "position": 8,
+          "title": "Forecast Capstone + Exam",
+          "duration_min": 35
+        }
+      ],
+      "shopify_product_id": "10526630117663",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/severe-weather-forecasting-0-5-credit-elective-grades-9-12",
+      "was_cents": 19900,
+      "long_description": [
+        "This is the elective taught from the anchor desk. Tornadoes, supercells, hurricanes, blizzards, ice storms — and the forecasting and warning science that saves lives — taught by the meteorologist who covers these storms on live television, with real case studies from his own broadcasts.",
+        "Eight units cover the anatomy of severe weather: how thunderstorms build and turn electric, how supercells spawn tornadoes, how hurricanes organize over warm oceans, how winter storms shut down cities, and how radar, satellites, and warning systems turn raw data into the alerts on your phone. The capstone is an applied forecast exercise with a final exam.",
+        "A half-credit (0.5) high-school elective with documented hours and a completion report — and for the student who's already weather-obsessed, the most fun credit on their transcript."
+      ]
+    },
+    {
+      "id": "es-meteorology-sem2",
+      "title": "Meteorology: Lab Science — Semester 2",
+      "subtitle": "Severe weather, hurricanes, forecasting, climate, capstone weathercast",
+      "description": "The second half of the flagship: thunderstorms and lightning, tornadoes and supercells, hurricanes, winter weather, forecasting with radar and models, climate systems, and the capstone — your student delivers a real weathercast. Completes the 1.0 lab-science credit.",
+      "grade_band": "9–12",
+      "price_cents": 19900,
+      "semester": "Coming January",
+      "status": "presale",
+      "credit_value": 0.5,
+      "cohort_start": "2027-01-11",
+      "sort_order": 50,
+      "hero_image": "/assets/art/es-meteorology2.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "Thunderstorms & Lightning",
+          "duration_min": 30
+        },
+        {
+          "position": 2,
+          "title": "Tornadoes & Supercells",
+          "duration_min": 30
+        },
+        {
+          "position": 3,
+          "title": "Hurricanes & Tropical Systems",
+          "duration_min": 30
+        },
+        {
+          "position": 4,
+          "title": "Winter Weather & Hazards",
+          "duration_min": 30
+        },
+        {
+          "position": 5,
+          "title": "Forecasting: Radar, Satellite & Models",
+          "duration_min": 30
+        },
+        {
+          "position": 6,
+          "title": "Climate & Climate Systems",
+          "duration_min": 30
+        },
+        {
+          "position": 7,
+          "title": "Capstone Part 1: Applied Forecasting",
+          "duration_min": 35
+        },
+        {
+          "position": 8,
+          "title": "Capstone Part 2: Your Weathercast + Final Exam",
+          "duration_min": 40
+        }
+      ],
+      "shopify_product_id": "10526630150431",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/meteorology-lab-science-semester-2-grades-9-12-0-5-credit",
+      "was_cents": 21900,
+      "long_description": [
+        "The second half of the flagship year is where the science gets dramatic: thunderstorms and lightning, tornadoes and supercells, hurricanes and tropical systems, winter weather, and modern forecasting with radar, satellite, and computer models — taught by someone who has covered all of it live on television.",
+        "The unit kits continue exactly as in Semester 1 — reading guides, video lessons, homework, quizzes, documented labs with rubrics — and the course adds its two biggest assessments: a cumulative final exam and the capstone every student remembers: researching, writing, and delivering their own real weathercast.",
+        "Completing both semesters earns the full 1.0 lab-science credit, with roughly 150–160 documented instructional hours, a grade calculated on a published weighting, and a fillable Completion Report for your homeschool transcript. This is the high-school science credit colleges expect to see — built by a working scientist."
+      ]
+    },
+    {
+      "id": "es-our-living-planet",
+      "title": "Our Living Planet",
+      "subtitle": "Intro Earth Science for grades 5–6 — rocks, water, atmosphere",
+      "description": "Band A's earth-science companion to Weather Detectives: 8 project-driven units across rocks and landforms, water, and the atmosphere — designed to feel like a real step up from elementary science.",
+      "grade_band": "5–6",
+      "price_cents": 14900,
+      "semester": "Coming January",
+      "status": "presale",
+      "credit_value": 0,
+      "cohort_start": "2027-01-11",
+      "sort_order": 60,
+      "hero_image": "/assets/art/es-living-planet.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "Planet Earth: The Big Picture",
+          "duration_min": 25
+        },
+        {
+          "position": 2,
+          "title": "Rocks, Minerals & Landforms",
+          "duration_min": 25
+        },
+        {
+          "position": 3,
+          "title": "The Restless Ground: Quakes & Volcanoes",
+          "duration_min": 25
+        },
+        {
+          "position": 4,
+          "title": "Water Shapes the World",
+          "duration_min": 25
+        },
+        {
+          "position": 5,
+          "title": "Oceans & Coasts",
+          "duration_min": 25
+        },
+        {
+          "position": 6,
+          "title": "The Atmosphere Above Us",
+          "duration_min": 25
+        },
+        {
+          "position": 7,
+          "title": "Ecosystems & Earth's Systems Together",
+          "duration_min": 25
+        },
+        {
+          "position": 8,
+          "title": "Explorer's Capstone Project",
+          "duration_min": 30
+        }
+      ],
+      "shopify_product_id": "10526630183199",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/our-living-planet-intro-earth-science-grades-5-6",
+      "was_cents": 16900,
+      "long_description": [
+        "Our Living Planet is the earth-science companion to Weather Detectives — intro geology, water, and atmosphere for grades 5–6, built as a genuine step up from elementary science without leaving curious kids behind.",
+        "Eight project-driven units explore the planet from the inside out: rocks, minerals, and landforms; earthquakes and volcanoes; how water carves the world; oceans and coasts; the atmosphere above; and how Earth's systems work together as one connected machine. Every unit pairs the video lesson with study guides, flash cards, and quizzes in the companion app.",
+        "The course closes with an explorer's capstone project where your student investigates one piece of their own local landscape and presents what they find — observation and evidence, the way real earth scientists work."
+      ]
+    },
+    {
+      "id": "es-earth-science-foundations-sem1",
+      "title": "Earth Science Foundations — Semester 1",
+      "subtitle": "Full-year middle-school core — grades 7–8",
+      "description": "Band B's full-year core science, first semester: the geosphere and hydrosphere — plate tectonics, rocks and minerals, surface processes, and Earth's water. Standards-aware and transcript-friendly for middle school records.",
+      "grade_band": "7–8",
+      "price_cents": 16900,
+      "semester": "Fall 2026",
+      "status": "presale",
+      "credit_value": 0,
+      "cohort_start": "2026-09-02",
+      "sort_order": 70,
+      "hero_image": "/assets/art/es-atmosphere.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "Earth as a System",
+          "duration_min": 28
+        },
+        {
+          "position": 2,
+          "title": "Inside the Earth & Plate Tectonics",
+          "duration_min": 28
+        },
+        {
+          "position": 3,
+          "title": "Earthquakes & Volcanoes",
+          "duration_min": 28
+        },
+        {
+          "position": 4,
+          "title": "Rocks, Minerals & the Rock Cycle",
+          "duration_min": 28
+        },
+        {
+          "position": 5,
+          "title": "Weathering, Erosion & Landscapes",
+          "duration_min": 28
+        },
+        {
+          "position": 6,
+          "title": "Rivers, Lakes & Groundwater",
+          "duration_min": 28
+        },
+        {
+          "position": 7,
+          "title": "The Ocean System",
+          "duration_min": 28
+        },
+        {
+          "position": 8,
+          "title": "Semester Review & Exam",
+          "duration_min": 30
+        }
+      ],
+      "shopify_product_id": "10526630215967",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/earth-science-foundations-semester-1-grades-7-8",
+      "was_cents": 18900,
+      "long_description": [
+        "Earth Science Foundations is the full-year middle-school core science — the backbone course for a 7th or 8th grader's year. Semester 1 covers the solid Earth and its water: Earth as a system, plate tectonics, earthquakes and volcanoes, rocks and minerals and the rock cycle, weathering and erosion, rivers and groundwater, and the ocean system.",
+        "Each unit is taught on video by a broadcast meteorologist and environmental geoscientist, with reading support, homework, and quizzes — standards-aware and transcript-friendly for middle-school records. The semester closes with a review and exam so you have a clean grade to record.",
+        "Pair with Semester 2 (atmosphere, climate, and space) for a complete middle-school earth-science year from one teacher, one platform, one family account."
+      ]
+    },
+    {
+      "id": "es-earth-science-foundations-sem2",
+      "title": "Earth Science Foundations — Semester 2",
+      "subtitle": "Full-year middle-school core, second semester — grades 7–8",
+      "description": "The second half of the full-year core: the atmosphere and weather, climate, the ocean-atmosphere connection, and Earth in space — the Moon, the solar system, and the stars. Completes the full-year middle-school science record.",
+      "grade_band": "7–8",
+      "price_cents": 16900,
+      "was_cents": 18900,
+      "semester": "Coming January",
+      "status": "presale",
+      "credit_value": 0,
+      "cohort_start": "2027-01-11",
+      "sort_order": 75,
+      "hero_image": "/assets/art/es-atmosphere.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "The Atmosphere & Weather Basics",
+          "duration_min": 30
+        },
+        {
+          "position": 2,
+          "title": "Storms & Severe Weather",
+          "duration_min": 30
+        },
+        {
+          "position": 3,
+          "title": "Climate & Climate Zones",
+          "duration_min": 30
+        },
+        {
+          "position": 4,
+          "title": "The Ocean–Atmosphere Connection",
+          "duration_min": 30
+        },
+        {
+          "position": 5,
+          "title": "Earth, Moon & Sun",
+          "duration_min": 30
+        },
+        {
+          "position": 6,
+          "title": "The Solar System",
+          "duration_min": 30
+        },
+        {
+          "position": 7,
+          "title": "Stars & Galaxies",
+          "duration_min": 30
+        },
+        {
+          "position": 8,
+          "title": "Semester Review & Exam",
+          "duration_min": 35
+        }
+      ],
+      "shopify_product_id": "10526885806367",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/earth-science-foundations-semester-2-grades-7-8",
+      "long_description": [
+        "The second semester of the middle-school core moves from the solid Earth to the sky and beyond: the atmosphere and weather, storms and severe weather, climate and climate zones, the ocean-atmosphere connection, and then out into space — Earth, Moon, and Sun mechanics, the solar system, and the stars.",
+        "The format continues from Semester 1: video lessons from a working broadcast meteorologist, reading support, homework, quizzes, and a semester review and exam — a complete, gradeable record for your homeschool files.",
+        "Together the two semesters give a 7th or 8th grader a full year of earth and space science that walks them right up to the door of the high-school lab-science track."
+      ]
+    },
+    {
+      "id": "es-dynamic-earth-78",
+      "title": "Dynamic Earth",
+      "subtitle": "Semester course — plate tectonics, volcanoes, earthquakes, natural hazards",
+      "description": "Band B's hazards semester: why the ground shakes, why mountains explode, and how scientists monitor a restless planet. Grades 7–8.",
+      "grade_band": "7–8",
+      "price_cents": 16900,
+      "semester": "Coming January",
+      "status": "presale",
+      "credit_value": 0,
+      "cohort_start": "2027-01-11",
+      "sort_order": 80,
+      "hero_image": "/assets/art/es-volcano.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "A Planet in Motion",
+          "duration_min": 28
+        },
+        {
+          "position": 2,
+          "title": "Plate Boundaries & What They Build",
+          "duration_min": 28
+        },
+        {
+          "position": 3,
+          "title": "Earthquakes & Seismic Waves",
+          "duration_min": 28
+        },
+        {
+          "position": 4,
+          "title": "Volcanoes: Types, Eruptions, Monitoring",
+          "duration_min": 28
+        },
+        {
+          "position": 5,
+          "title": "Tsunamis & Coastal Hazards",
+          "duration_min": 28
+        },
+        {
+          "position": 6,
+          "title": "Landslides, Floods & Wildfires",
+          "duration_min": 28
+        },
+        {
+          "position": 7,
+          "title": "Hazard Forecasting & Warning Systems",
+          "duration_min": 28
+        },
+        {
+          "position": 8,
+          "title": "Hazard Capstone + Review",
+          "duration_min": 30
+        }
+      ],
+      "shopify_product_id": "10526630248735",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/dynamic-earth-hazards-semester-grades-7-8",
+      "was_cents": 18900,
+      "long_description": [
+        "Dynamic Earth is the hazards semester — the course for the student who wants to know why the ground shakes, why mountains explode, and how scientists see it coming. Built for grades 7–8 as a standards-aware semester elective.",
+        "Eight units travel the restless planet: plate boundaries and what they build, earthquake mechanics and seismic waves, volcano types and the observatories that monitor them, tsunamis and coastal hazards, landslides, floods, and wildfires — and everywhere, the same thread your kids learned at Cane's: scientists monitor, warn, and protect. The capstone is a hazard-assessment project on a region of your student's choice.",
+        "Taught by an environmental geoscientist who has covered real disasters as a journalist — the science is rigorous, and the framing is always agency, not fear."
+      ]
+    },
+    {
+      "id": "es-earth-space-sem1",
+      "title": "Earth & Space Science — Semester 1",
+      "subtitle": "The required science credit — grades 9–12",
+      "description": "The broad earth-science survey that satisfies a required science credit on most state graduation frameworks. First semester: geology, plate tectonics, Earth's interior, rocks and minerals, and surface processes.",
+      "grade_band": "9–12",
+      "price_cents": 19900,
+      "semester": "Fall 2026",
+      "status": "presale",
+      "credit_value": 0.5,
+      "cohort_start": "2026-09-02",
+      "sort_order": 90,
+      "hero_image": "/assets/art/es-earthspace.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "Earth's Structure & Interior",
+          "duration_min": 30
+        },
+        {
+          "position": 2,
+          "title": "Plate Tectonics",
+          "duration_min": 30
+        },
+        {
+          "position": 3,
+          "title": "Earthquakes & Seismology",
+          "duration_min": 30
+        },
+        {
+          "position": 4,
+          "title": "Volcanism",
+          "duration_min": 30
+        },
+        {
+          "position": 5,
+          "title": "Rocks, Minerals & the Rock Cycle",
+          "duration_min": 30
+        },
+        {
+          "position": 6,
+          "title": "Weathering, Erosion & Soils",
+          "duration_min": 30
+        },
+        {
+          "position": 7,
+          "title": "Surface Water & Groundwater",
+          "duration_min": 30
+        },
+        {
+          "position": 8,
+          "title": "Geologic Time + Semester Exam",
+          "duration_min": 35
+        }
+      ],
+      "shopify_product_id": "10526630314271",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/earth-space-science-semester-1-grades-9-12-0-5-credit",
+      "was_cents": 21900,
+      "long_description": [
+        "Earth & Space Science is the survey course that satisfies a required science credit on most state graduation frameworks — and the most common course homeschool families need on a 9–12 transcript. Semester 1 is the solid Earth: its interior structure, plate tectonics, earthquakes and seismology, volcanism, rocks and minerals, surface processes, water, and geologic time.",
+        "Every unit is taught on video by a broadcast meteorologist and environmental geoscientist (M.S.), with reading guides, homework and keys, quizzes, and graded work throughout. The semester ends with a cumulative exam, and your records include documented hours and grading so the credit stands up.",
+        "Pair with Semester 2 — atmosphere, oceans, and astronomy — for the full 1.0 credit. If your student takes one science from us besides the Meteorology flagship, this is the one."
+      ]
+    },
+    {
+      "id": "es-earth-space-sem2",
+      "title": "Earth & Space Science — Semester 2",
+      "subtitle": "The required science credit — grades 9–12",
+      "description": "The second half of the survey: the atmosphere and weather, climate systems, the oceans, and astronomy — Earth-Moon-Sun mechanics, the solar system, stars, and galaxies. Completes the 1.0 credit with a final exam.",
+      "grade_band": "9–12",
+      "price_cents": 19900,
+      "was_cents": 21900,
+      "semester": "Coming January",
+      "status": "presale",
+      "credit_value": 0.5,
+      "cohort_start": "2027-01-11",
+      "sort_order": 95,
+      "hero_image": "/assets/art/es-earthspace.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "The Atmosphere & Energy",
+          "duration_min": 30
+        },
+        {
+          "position": 2,
+          "title": "Weather Systems & Forecasting",
+          "duration_min": 30
+        },
+        {
+          "position": 3,
+          "title": "Climate & Climate Change Science",
+          "duration_min": 30
+        },
+        {
+          "position": 4,
+          "title": "The World Ocean",
+          "duration_min": 30
+        },
+        {
+          "position": 5,
+          "title": "Earth, Moon & Sun",
+          "duration_min": 30
+        },
+        {
+          "position": 6,
+          "title": "The Solar System",
+          "duration_min": 30
+        },
+        {
+          "position": 7,
+          "title": "Stars, Galaxies & the Universe",
+          "duration_min": 30
+        },
+        {
+          "position": 8,
+          "title": "Final Exam & Course Wrap",
+          "duration_min": 35
+        }
+      ],
+      "shopify_product_id": "10526885839135",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/earth-space-science-semester-2-grades-9-12-0-5-credit",
+      "long_description": [
+        "Semester 2 of Earth & Space Science completes the survey: the atmosphere and weather, climate systems taught as rigorous science, the world ocean, and then astronomy — Earth-Moon-Sun mechanics, the solar system, stars, galaxies, and the structure of the universe.",
+        "The unit format continues from Semester 1: video lessons, reading guides, homework with keys, quizzes, and graded work, closing with a final exam and course wrap that completes the documentation for the full 1.0 credit.",
+        "Between the two semesters, your student covers every major Earth and space system — taught by one working scientist, with the paper trail a transcript needs."
+      ]
+    },
+    {
+      "id": "es-oceanography",
+      "title": "Oceanography",
+      "subtitle": "0.5-credit elective — grades 9–12",
+      "description": "Currents, waves, tides, marine geology, ocean-atmosphere interaction, and the sea's role in weather and climate. A half-credit high-school elective.",
+      "grade_band": "9–12",
+      "price_cents": 17900,
+      "semester": "Coming January",
+      "status": "presale",
+      "credit_value": 0.5,
+      "cohort_start": "2027-01-11",
+      "sort_order": 100,
+      "hero_image": "/assets/art/es-oceanography.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "The World Ocean & Sea-Floor Geology",
+          "duration_min": 30
+        },
+        {
+          "position": 2,
+          "title": "Seawater Chemistry & Structure",
+          "duration_min": 30
+        },
+        {
+          "position": 3,
+          "title": "Currents & Global Circulation",
+          "duration_min": 30
+        },
+        {
+          "position": 4,
+          "title": "Waves & Tides",
+          "duration_min": 30
+        },
+        {
+          "position": 5,
+          "title": "Ocean Meets Atmosphere: El Niño & Hurricanes",
+          "duration_min": 30
+        },
+        {
+          "position": 6,
+          "title": "Marine Life Zones",
+          "duration_min": 30
+        },
+        {
+          "position": 7,
+          "title": "Coasts, Tsunamis & Hazards",
+          "duration_min": 30
+        },
+        {
+          "position": 8,
+          "title": "Research Capstone + Exam",
+          "duration_min": 35
+        }
+      ],
+      "shopify_product_id": "10526630347039",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/oceanography-0-5-credit-elective-grades-9-12",
+      "was_cents": 19900,
+      "long_description": [
+        "Seventy percent of the planet gets its own course. Oceanography is a half-credit high-school elective covering the world ocean from the sea floor up: marine geology, seawater chemistry, currents and global circulation, waves and tides, and the ocean-atmosphere connection that drives El Niño and feeds hurricanes — a connection your instructor forecasts professionally.",
+        "Units on marine life zones and on coasts, tsunamis, and hazards round out the science, and the course closes with a research capstone and exam. Lessons stream on video with study guides, flash cards, and timed practice quizzes in the companion app.",
+        "A 0.5 high-school elective credit with documented hours and a completion report — an ideal pairing with the Meteorology flagship for the ocean-and-atmosphere minded student."
+      ]
+    },
+    {
+      "id": "es-natural-hazards",
+      "title": "Natural Hazards & Geology",
+      "subtitle": "0.5-credit elective — grades 9–12",
+      "description": "Earthquakes, volcanoes, faults, landslides, floods, and the geology underneath them — plus how monitoring science turns hazards into warnings. A half-credit high-school elective.",
+      "grade_band": "9–12",
+      "price_cents": 17900,
+      "semester": "Coming January",
+      "status": "presale",
+      "credit_value": 0.5,
+      "cohort_start": "2027-01-11",
+      "sort_order": 110,
+      "hero_image": "/assets/art/es-fault.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "Reading the Land: Geology Fundamentals",
+          "duration_min": 30
+        },
+        {
+          "position": 2,
+          "title": "Faults & Earthquake Mechanics",
+          "duration_min": 30
+        },
+        {
+          "position": 3,
+          "title": "Volcanic Hazards & Monitoring",
+          "duration_min": 30
+        },
+        {
+          "position": 4,
+          "title": "Mass Wasting: Landslides & Sinkholes",
+          "duration_min": 30
+        },
+        {
+          "position": 5,
+          "title": "Flood Science & Floodplain Mapping",
+          "duration_min": 30
+        },
+        {
+          "position": 6,
+          "title": "Risk, Vulnerability & Building Codes",
+          "duration_min": 30
+        },
+        {
+          "position": 7,
+          "title": "Case Studies: When Warnings Worked",
+          "duration_min": 30
+        },
+        {
+          "position": 8,
+          "title": "Hazard Assessment Capstone + Exam",
+          "duration_min": 35
+        }
+      ],
+      "shopify_product_id": "10526630379807",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/natural-hazards-geology-0-5-credit-elective-grades-9-12",
+      "was_cents": 19900,
+      "long_description": [
+        "Natural Hazards & Geology is the high-school version of the question every student asks: could it happen here? Earthquakes and fault mechanics, volcanic hazards and monitoring, landslides and sinkholes, flood science and floodplain mapping — and the risk analysis that decides building codes and evacuation zones.",
+        "The course leans hard on real case studies — disasters where warnings worked and where they didn't — taught by an environmental geoscientist who has reported on them. The capstone is a hazard assessment of a real region, done the way professionals do it: identify, map, rank, recommend.",
+        "A 0.5 high-school elective credit with documented hours and a completion report. For the student considering engineering, emergency management, or the geosciences, this is the spark."
+      ]
+    },
+    {
+      "id": "es-climate-science",
+      "title": "Climate Science & Environmental Systems",
+      "subtitle": "0.5-credit elective — grades 9–12",
+      "description": "Mechanisms, the carbon cycle, paleoclimate, observed data, and how climate modeling works — taught rigorously as science, without editorializing. A clearly-labeled half-credit elective.",
+      "grade_band": "9–12",
+      "price_cents": 17900,
+      "semester": "Coming January",
+      "status": "presale",
+      "credit_value": 0.5,
+      "cohort_start": "2027-01-11",
+      "sort_order": 120,
+      "hero_image": "/assets/art/es-climate.jpg",
+      "lessons": [
+        {
+          "position": 1,
+          "title": "The Climate System & Energy Balance",
+          "duration_min": 30
+        },
+        {
+          "position": 2,
+          "title": "The Carbon Cycle",
+          "duration_min": 30
+        },
+        {
+          "position": 3,
+          "title": "Paleoclimate: Reading Ice & Rock",
+          "duration_min": 30
+        },
+        {
+          "position": 4,
+          "title": "Observed Data: Instruments & Records",
+          "duration_min": 30
+        },
+        {
+          "position": 5,
+          "title": "How Climate Models Work",
+          "duration_min": 30
+        },
+        {
+          "position": 6,
+          "title": "Oceans, Ice & Feedback Loops",
+          "duration_min": 30
+        },
+        {
+          "position": 7,
+          "title": "Environmental Systems & Resources",
+          "duration_min": 30
+        },
+        {
+          "position": 8,
+          "title": "Data Analysis Capstone + Exam",
+          "duration_min": 35
+        }
+      ],
+      "shopify_product_id": "10526630412575",
+      "shopify_url": "https://shop.canetheweatherdog.com/products/climate-science-environmental-systems-0-5-credit-elective-grades-9-12",
+      "was_cents": 19900,
+      "long_description": [
+        "This course teaches climate the way a scientist approaches it: mechanisms, evidence, and how we know what we know. The climate system and Earth's energy balance, the carbon cycle, paleoclimate records in ice and rock, the instrument record, how climate models actually work, and the feedback loops that connect oceans, ice, and air.",
+        "It is deliberately taught as rigorous, neutral science — data and methods, without editorializing — so students learn to read evidence and evaluate claims for themselves. The capstone is a data-analysis project using real published climate datasets, followed by an exam.",
+        "A clearly-labeled 0.5 high-school elective credit with documented hours and a completion report, from an instructor with a master's degree in environmental geoscience."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-label="Cane's Weather School">
+  <defs>
+    <linearGradient id="sunG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFD166"/><stop offset="1" stop-color="#FFB627"/>
+    </linearGradient>
+    <linearGradient id="cloudG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D9ECFA"/>
+    </linearGradient>
+  </defs>
+  <!-- emblem: sun + cloud + lightning bolt -->
+  <g>
+    <circle cx="62" cy="48" r="26" fill="url(#sunG)"/>
+    <g stroke="#FFB627" stroke-width="5" stroke-linecap="round">
+      <line x1="62" y1="10" x2="62" y2="2"/><line x1="62" y1="86" x2="62" y2="94"/>
+      <line x1="24" y1="48" x2="16" y2="48"/><line x1="100" y1="48" x2="108" y2="48"/>
+      <line x1="35" y1="21" x2="29" y2="15"/><line x1="89" y1="75" x2="95" y2="81"/>
+      <line x1="89" y1="21" x2="95" y2="15"/><line x1="35" y1="75" x2="29" y2="81"/>
+    </g>
+    <g transform="translate(38,40)">
+      <ellipse cx="34" cy="34" rx="30" ry="20" fill="url(#cloudG)"/>
+      <circle cx="14" cy="28" r="16" fill="url(#cloudG)"/>
+      <circle cx="40" cy="20" r="20" fill="url(#cloudG)"/>
+      <circle cx="60" cy="30" r="14" fill="url(#cloudG)"/>
+      <path d="M36 40 L28 58 L36 56 L30 74 L50 50 L40 52 L48 40 Z" fill="#FFB627" stroke="#E8950C" stroke-width="1.5"/>
+    </g>
+  </g>
+  <!-- wordmark: real type, never AI-generated -->
+  <text x="135" y="56" font-family="'Fredoka','Baloo 2','Arial Rounded MT Bold',sans-serif"
+        font-size="40" font-weight="700" fill="#1B6CA8">Cane&#8217;s</text>
+  <text x="135" y="98" font-family="'Fredoka','Baloo 2','Arial Rounded MT Bold',sans-serif"
+        font-size="34" font-weight="600" fill="#0E3A5D">Weather School</text>
+</svg>
