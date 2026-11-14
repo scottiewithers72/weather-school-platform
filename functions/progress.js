@@ -56,7 +56,10 @@ export const handler = handle(async (event) => {
         INSERT INTO discount_grants (family_id, shopify_code, percent_off, expires_at, notified)
         VALUES (${session.familyId}, ${code}, 15, ${expiresAt}, true)
         ON CONFLICT (family_id) DO NOTHING`;
+      const [ls] = await db`SELECT c.school_id FROM lessons l JOIN classes c ON c.id=l.class_id WHERE l.id=${b.lessonId}`;
+      const school = ls?.school_id || 'canes';
       await sendEmail({
+        school,
         to: session.email,
         subject: "You've earned 15% off your next class",
         html: discountHtml({
@@ -115,7 +118,7 @@ export const handler = handle(async (event) => {
             giftClassName: gift.title,
             academyUrl: 'https://earthsphereacademy.com/app/'
           }),
-          template: 'graduation', ref: `family-${session.familyId}`
+          template: 'graduation', ref: `family-${session.familyId}`, school: 'earthsphere'
         });
         notices.push({ type: 'graduation', giftClass: gift.title });
       }

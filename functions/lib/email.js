@@ -1,7 +1,16 @@
 // Transactional email via Resend (swap the fetch URL for Postmark if preferred).
 import { sql } from './db.js';
 
-export async function sendEmail({ to, subject, html, template, ref }) {
+// Each school sends from its own verified domain:
+//   EMAIL_FROM_CANES="Cane's Weather School <hello@canesweatherschool.com>"
+//   EMAIL_FROM_EARTHSPHERE="EarthSphere Academy <hello@earthsphereacademy.com>"
+// Falls back to EMAIL_FROM until those are set.
+export function fromAddress(school) {
+  const key = school === 'earthsphere' ? 'EMAIL_FROM_EARTHSPHERE' : 'EMAIL_FROM_CANES';
+  return process.env[key] || process.env.EMAIL_FROM;
+}
+
+export async function sendEmail({ to, subject, html, template, ref, school = 'canes' }) {
   const db = sql();
   // idempotency: never send the same template+ref twice
   if (ref) {
@@ -14,7 +23,7 @@ export async function sendEmail({ to, subject, html, template, ref }) {
       Authorization: `Bearer ${process.env.EMAIL_API_KEY}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ from: process.env.EMAIL_FROM, to, subject, html })
+    body: JSON.stringify({ from: fromAddress(school), to, subject, html })
   });
   if (!res.ok) {
     console.error('Email send failed', await res.text());

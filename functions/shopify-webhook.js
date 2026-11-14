@@ -45,7 +45,8 @@ export const handler = handle(async (event) => {
         subject: `Your ${cls.title} access code (app included!)`,
         html: codeDeliveryHtml({ schoolName, className: cls.title, code, appUrl }),
         template: 'code_delivery',
-        ref
+        ref,
+        school: cls.school_id
       });
       results.push({ class: cls.id, code });
     }
