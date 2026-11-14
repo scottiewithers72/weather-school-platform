@@ -45,10 +45,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,249,239,.93);backdro
 
 /* ---------- animated sky hero ---------- */
 .hero{position:relative;overflow:hidden;
-      background:linear-gradient(rgba(126,200,247,.25),rgba(234,246,255,.1)),
-                 url('assets/bg/bg-meadow.jpg') center/cover no-repeat,
+      background:url('assets/art/canes-hero-meadow.jpg') center 30%/cover no-repeat,
                  linear-gradient(#7EC8F7 0%,var(--sky) 60%,#EAF6FF 100%);
-      padding:64px 0 56px;min-height:540px}
+      padding:64px 0 56px;min-height:clamp(540px,52vw,760px);display:flex;align-items:center}
+.hero > .wrap{width:100%}
+@media(max-width:860px){.hero{background-position:72% 30%}}
 .hero .wrap{position:relative;z-index:5;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
 .hero h1{font-size:clamp(34px,5.5vw,56px);color:var(--deep);line-height:1.08}
@@ -173,8 +174,6 @@ footer .fine{border-top:1px solid rgba(255,255,255,.15);margin-top:30px;padding-
 
 <!-- HERO -->
 <div class="hero">
-  <div class="sun"></div>
-  <div class="cloud c1"></div><div class="cloud c2"></div>
   <div class="wrap">
     <div class="copybox">
       <h1>Real science. Real fun.<br><span>Real meteorologist.</span></h1>
@@ -188,10 +187,8 @@ footer .fine{border-top:1px solid rgba(255,255,255,.15);margin-top:30px;padding-
         <span class="badge">📋 NGSS-aligned classes</span>
       </div>
     </div>
-    <img class="hero-cutout" src="assets/art/canes-cutout.png" alt="Cane the Weather Dog"
-         onerror="this.style.display='none'">
+    <div aria-hidden="true"></div>
   </div>
-  <div class="hill"></div>
 </div>
 
 <!-- WHY -->
