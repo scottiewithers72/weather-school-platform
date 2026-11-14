@@ -2,7 +2,8 @@
 // Auth: header  x-admin-key: $ADMIN_PASSWORD
 // Actions: list_classes, upsert_class, delete_class, list_lessons,
 //          upsert_lesson, delete_lesson, upsert_content, stats,
-//          list_codes, generate_codes, flip_evergreen
+//          list_codes, generate_codes, flip_evergreen,
+//          list_office_hours, upsert_office_hour, skip_office_hour, unskip_office_hour
 import crypto from 'node:crypto';
 import { sql } from './lib/db.js';
 import { handle, ok, bad, parseBody } from './lib/http.js';
@@ -111,6 +112,45 @@ export const handler = handle(async (event) => {
         FROM access_codes WHERE class_id=${b.classId}
         ORDER BY created_at DESC LIMIT 200`;
       return ok({ codes });
+    }
+    case 'list_office_hours': {
+      const officeHours = await db`
+        SELECT oh.*, c.title AS class_title,
+          COALESCE((SELECT json_agg(s.skip_date ORDER BY s.skip_date) FROM office_hours_skips s
+                    WHERE s.office_hour_id = oh.id AND s.skip_date >= CURRENT_DATE), '[]') AS skips
+        FROM office_hours oh LEFT JOIN classes c ON c.id = oh.class_id
+        ORDER BY oh.weekday, oh.start_time`;
+      return ok({ officeHours });
+    }
+    case 'upsert_office_hour': {
+      const o = b.officeHour;
+      if (!/^\d{2}:\d{2}$/.test(o.start_time || '')) return bad('Start time must be HH:MM (24-hour, Eastern)');
+      if (o.zoom_url && !/^https:\/\/([a-z0-9-]+\.)*zoom\.us\//i.test(o.zoom_url)) return bad('Zoom link must start with https:// and be a zoom.us link');
+      if (o.id) {
+        await db`UPDATE office_hours SET label=${o.label}, weekday=${o.weekday}, start_time=${o.start_time},
+                 duration_min=${o.duration_min || 30}, starts_on=${o.starts_on || null},
+                 zoom_url=${o.zoom_url || null}, active=${!!o.active}, class_id=${o.class_id || null},
+                 school_id=${o.school_id}, sort_order=${o.sort_order || 100}
+                 WHERE id=${o.id}`;
+        return ok({ saved: o.id });
+      }
+      const [row] = await db`
+        INSERT INTO office_hours (school_id, class_id, label, weekday, start_time, duration_min,
+                                  starts_on, zoom_url, active, sort_order)
+        VALUES (${o.school_id}, ${o.class_id || null}, ${o.label}, ${o.weekday}, ${o.start_time},
+                ${o.duration_min || 30}, ${o.starts_on || null}, ${o.zoom_url || null},
+                ${o.active !== false}, ${o.sort_order || 100})
+        RETURNING id`;
+      return ok({ saved: row.id });
+    }
+    case 'skip_office_hour': {
+      await db`INSERT INTO office_hours_skips (office_hour_id, skip_date)
+               VALUES (${b.id}, ${b.date}) ON CONFLICT DO NOTHING`;
+      return ok({ skipped: b.date });
+    }
+    case 'unskip_office_hour': {
+      await db`DELETE FROM office_hours_skips WHERE office_hour_id=${b.id} AND skip_date=${b.date}`;
+      return ok({ unskipped: b.date });
     }
     case 'stats': {
       const [families] = await db`SELECT count(*)::int AS n FROM families`;

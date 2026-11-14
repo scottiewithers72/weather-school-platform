@@ -70,6 +70,19 @@
        class is marked 🎓 — exactly one EarthSphere class should carry it.</p>
   </div>
 
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between">
+      <h2>🎥 Live office hours (Zoom)</h2>
+      <span class="muted">Times are Eastern. Families see them in their own time zone.</span>
+    </div>
+    <table id="ohTable"><thead>
+      <tr><th>Slot</th><th>Day</th><th>Start (ET)</th><th>First session</th><th>Zoom link</th><th>On</th><th>Skipped weeks</th><th></th></tr>
+    </thead><tbody></tbody></table>
+    <p class="muted">The Join button appears in the class app 10 minutes before each slot and disappears when it ends.
+      “Skip next” cancels the upcoming session for that slot only. If no one joins in the first 5 minutes, just end the meeting.</p>
+  </div>
+
   <div class="card" id="lessonCard" hidden>
     <div class="row" style="justify-content:space-between">
       <h2 id="lessonTitle">Lessons</h2>
@@ -178,6 +191,7 @@ async function refresh() {
     <div class="stat"><b>${s.discounts}</b>Discounts earned</div>`;
   const { classes: cs } = await api('list_classes');
   classes = cs;
+  loadOfficeHours();
   document.querySelector('#classTable tbody').innerHTML = cs.map(c => `
     <tr>
       <td>${c.school_id === 'canes' ? "Cane's" : 'EarthSphere'}</td>
@@ -194,6 +208,64 @@ async function refresh() {
         ${c.status === 'live' ? `<button class="ghost" onclick='flip(${JSON.stringify(c.id)})'>Flip evergreen</button>` : ''}
       </td>
     </tr>`).join('');
+}
+
+// ---------- office hours ----------
+const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+let officeHours = [];
+async function loadOfficeHours() {
+  try { ({ officeHours } = await api('list_office_hours')); }
+  catch (e) { document.querySelector('#ohTable tbody').innerHTML = `<tr><td colspan="8" class="muted">${e.message}</td></tr>`; return; }
+  document.querySelector('#ohTable tbody').innerHTML = officeHours.map(o => `
+    <tr data-id="${o.id}">
+      <td><strong>${o.label}</strong><br><span class="muted">${o.school_id === 'canes' ? "Cane's" : 'EarthSphere'}${o.class_title ? ' · ' + o.class_title : ' · all classes'}</span></td>
+      <td><select class="oh_day">${DAYS.map((d, i) => `<option value="${i}" ${i === o.weekday ? 'selected' : ''}>${d}</option>`).join('')}</select></td>
+      <td><input class="oh_time" type="time" value="${o.start_time}" style="width:110px"></td>
+      <td><input class="oh_start" type="date" value="${o.starts_on ? o.starts_on.slice(0, 10) : ''}"></td>
+      <td><input class="oh_zoom" placeholder="https://us06web.zoom.us/j/..." value="${o.zoom_url || ''}" style="width:220px"></td>
+      <td><input class="oh_active" type="checkbox" ${o.active ? 'checked' : ''}></td>
+      <td>${(o.skips || []).map(d => `<span class="tag">${String(d).slice(0, 10)}
+            <a href="#" onclick="unskipOH(${o.id}, '${String(d).slice(0, 10)}');return false">✕</a></span>`).join(' ') || '<span class="muted">—</span>'}</td>
+      <td class="row">
+        <button onclick="saveOH(${o.id})">Save</button>
+        <button class="ghost" onclick="skipNextOH(${o.id})">Skip next</button>
+      </td>
+    </tr>`).join('');
+}
+function nextDateFor(o) {
+  // next upcoming date (Eastern calendar) for this slot, not already skipped
+  const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
+  let d = new Date((o.starts_on && o.starts_on.slice(0, 10) > today ? o.starts_on.slice(0, 10) : today) + 'T12:00:00Z');
+  const skips = new Set((o.skips || []).map(x => String(x).slice(0, 10)));
+  for (let i = 0; i < 70; i++) {
+    const ds = d.toISOString().slice(0, 10);
+    if (d.getUTCDay() === o.weekday && !skips.has(ds)) return ds;
+    d.setUTCDate(d.getUTCDate() + 1);
+  }
+}
+async function saveOH(id) {
+  const o = officeHours.find(x => x.id === id);
+  const tr = document.querySelector(`#ohTable tr[data-id="${id}"]`);
+  try {
+    await api('upsert_office_hour', { officeHour: { ...o,
+      weekday: parseInt(tr.querySelector('.oh_day').value),
+      start_time: tr.querySelector('.oh_time').value,
+      starts_on: tr.querySelector('.oh_start').value || null,
+      zoom_url: tr.querySelector('.oh_zoom').value.trim(),
+      active: tr.querySelector('.oh_active').checked } });
+    loadOfficeHours();
+  } catch (e) { alert(e.message); }
+}
+async function skipNextOH(id) {
+  const o = officeHours.find(x => x.id === id);
+  const date = nextDateFor(o);
+  if (!date || !confirm(`Cancel the ${o.label} session on ${date}?`)) return;
+  await api('skip_office_hour', { id, date });
+  loadOfficeHours();
+}
+async function unskipOH(id, date) {
+  await api('unskip_office_hour', { id, date });
+  loadOfficeHours();
 }
 
 function editClass(id) {

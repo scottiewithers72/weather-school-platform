@@ -1,5 +1,5 @@
 // Service worker — app shell cache; API and video always go to network.
-const CACHE = 'canes-app-v1';
+const CACHE = 'canes-app-v2';
 const SHELL = ['/app/', '/app/index.html', '/app/app.css', '/app/app-engine.js',
                '/app/manifest.json', '/assets/logo-canes.svg'];
 

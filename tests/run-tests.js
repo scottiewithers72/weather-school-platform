@@ -2,7 +2,8 @@
 // Run: node tests/run-tests.js
 import {
   generateAccessCode, unlockedPositions, nextUnlockDate,
-  discountEligible, isGraduated, licenseExpiry
+  discountEligible, isGraduated, licenseExpiry,
+  zonedToUtc, nextSession
 } from '../functions/lib/core.js';
 
 let pass = 0, fail = 0;
@@ -60,6 +61,25 @@ t('best-student-per-class logic is callers responsibility (map holds max)', true
 console.log('License expiry');
 const exp = licenseExpiry(new Date('2026-07-01T12:00:00'));
 t('12-month license', exp.getFullYear() === 2027 && exp.getMonth() === 6);
+
+console.log('Office hours');
+// Winter (EST, UTC-5): 1:00 pm ET = 18:00 UTC
+t('ET->UTC in winter', zonedToUtc('2027-01-04', '13:00').toISOString() === '2027-01-04T18:00:00.000Z');
+// Summer (EDT, UTC-4): 1:00 pm ET = 17:00 UTC
+t('ET->UTC in summer', zonedToUtc('2027-06-07', '13:00').toISOString() === '2027-06-07T17:00:00.000Z');
+const mon = { weekday: 1, startTime: '13:00', durationMin: 30, startsOn: '2027-01-04' };
+let s1 = nextSession({ ...mon, now: new Date('2026-12-20T15:00:00Z') });
+t('before cohort -> first session Jan 4', s1.date === '2027-01-04' && !s1.joinable);
+let s2 = nextSession({ ...mon, now: new Date('2027-01-04T17:55:00Z') });
+t('10 min early -> joinable', s2.date === '2027-01-04' && s2.joinable);
+let s3 = nextSession({ ...mon, now: new Date('2027-01-04T17:45:00Z') });
+t('15 min early -> not joinable yet', !s3.joinable);
+let s4 = nextSession({ ...mon, now: new Date('2027-01-04T18:31:00Z') });
+t('after session -> next week', s4.date === '2027-01-11');
+let s5 = nextSession({ ...mon, skips: ['2027-01-11'], now: new Date('2027-01-05T12:00:00Z') });
+t('skipped week jumps ahead', s5.date === '2027-01-18');
+let s6 = nextSession({ weekday: 2, startTime: '13:00', startsOn: '2027-01-05', now: new Date('2027-01-04T20:00:00Z') });
+t('Tuesday slot -> Jan 5', s6.date === '2027-01-05');
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

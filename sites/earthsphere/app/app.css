@@ -125,3 +125,12 @@ body.secondary { --p: #0B3D54; --deep: #062536; --accent: #F2A33C; --bg: #EAF4F8
   --font: 'Inter', system-ui, sans-serif }
 body.secondary .cta { border-radius: 10px }
 body.secondary .profile, body.secondary .libcard, body.secondary .lesson { border-radius: 12px }
+
+/* live office hours */
+.officehours { margin: 22px 0; padding: 16px 18px; background: var(--card); border: 2px solid #E3EEF7; border-radius: 18px }
+.officehours h3 { margin: 0 0 4px; color: var(--deep) }
+.ohrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid #EDF3F8 }
+.ohrow strong { display: block }
+.ohrow small { display: block; color: #5b7384 }
+.ohrow .cta { white-space: nowrap; text-decoration: none }
+.ohsoon { text-align: right; max-width: 150px }

@@ -11,6 +11,7 @@
   let students = [];
   let activeStudent = JSON.parse(localStorage.getItem('wsp_student') || 'null');
   let library = [];
+  let officeHours = [];
 
   // ---------- tiny fetch helper ----------
   async function api(path, opts = {}) {
@@ -159,6 +160,8 @@
     screen(`<div class="page"><p class="loading">${say('Fetching your classes… 🐕', 'Loading your library…')}</p></div>`);
     try { library = (await api(`/library?school=${S.schoolId}`)).library; }
     catch (e) { return renderAuth(); }
+    try { officeHours = (await api(`/office-hours?school=${S.schoolId}`)).officeHours || []; }
+    catch (e) { officeHours = []; }
     const head = headerBar();
     if (!library.length) {
       return screen(`${head}
@@ -185,11 +188,36 @@
             </button>`;
           }).join('')}
         </div>
+        ${officeHoursBlock(officeHours)}
         <details class="redeem"><summary>＋ ${say('Add a new class code', 'Redeem another access code')}</summary>
           ${redeemForm()}</details>
       </div>`);
     document.querySelectorAll('.libcard').forEach(b => b.onclick = () => renderClass(library[b.dataset.i]));
     wireRedeem();
+  }
+
+
+  // ---------- live office hours (weekly Zoom Q&A) ----------
+  function fmtSession(iso) {
+    const d = new Date(iso);
+    return d.toLocaleString(undefined, { weekday: 'short', month: 'short', day: 'numeric',
+      hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+  }
+  function officeHoursBlock(list) {
+    if (!list || !list.length) return '';
+    return `
+      <div class="officehours">
+        <h3>🎥 ${say('Live Q&A with Scott', 'Live office hours with Scott')}</h3>
+        <p class="hint">${say('Bring your questions! A grown-up joins with you on Zoom.',
+          'Weekly 30-minute Zoom Q&A for your course. If no one joins in the first 5 minutes, that week’s session closes.')}</p>
+        ${list.map(o => `
+          <div class="ohrow">
+            <span><strong>${o.label}</strong><small>${o.start ? fmtSession(o.start) : 'Schedule coming soon'}</small></span>
+            ${o.joinable && o.zoomUrl
+              ? `<a class="cta" href="${o.zoomUrl}" target="_blank" rel="noopener">Join now</a>`
+              : `<small class="ohsoon">${o.linkReady || !o.start ? 'Join button appears 10 min before' : 'Link posted before the session'}</small>`}
+          </div>`).join('')}
+      </div>`;
   }
 
   const progressCache = {};
@@ -239,6 +267,7 @@
             </button>`).join('')}
         </div>
         ${c.nextUnlock ? `<p class="hint">📅 ${say('Next lesson opens', 'Next lesson unlocks')} ${c.nextUnlock}</p>` : ''}
+        ${officeHoursBlock(officeHours.filter(o => o.classId === c.classId || (!o.classId && c.schoolId === S.schoolId)))}
       </div>`);
     document.querySelectorAll('.lesson[data-id]').forEach(b => {
       const l = c.lessons.find(x => String(x.id) === b.dataset.id);

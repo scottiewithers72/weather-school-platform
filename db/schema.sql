@@ -160,3 +160,24 @@ CREATE INDEX IF NOT EXISTS idx_enroll_family     ON enrollments(family_id);
 CREATE INDEX IF NOT EXISTS idx_lessons_class     ON lessons(class_id);
 CREATE INDEX IF NOT EXISTS idx_progress_student  ON progress(student_id);
 CREATE INDEX IF NOT EXISTS idx_classes_school    ON classes(school_id, status);
+
+-- Weekly live Zoom office hours. Times are Eastern ("HH:MM"), weekday 0=Sun..6=Sat.
+-- class_id NULL = one shared slot for every class in that school (Cane's).
+CREATE TABLE IF NOT EXISTS office_hours (
+  id           SERIAL PRIMARY KEY,
+  school_id    TEXT NOT NULL CHECK (school_id IN ('canes','earthsphere')),
+  class_id     TEXT REFERENCES classes(id) ON DELETE CASCADE,
+  label        TEXT NOT NULL,
+  weekday      INT  NOT NULL CHECK (weekday BETWEEN 0 AND 6),
+  start_time   TEXT NOT NULL,
+  duration_min INT  NOT NULL DEFAULT 30,
+  starts_on    DATE,
+  zoom_url     TEXT,
+  active       BOOLEAN NOT NULL DEFAULT true,
+  sort_order   INT NOT NULL DEFAULT 100
+);
+CREATE TABLE IF NOT EXISTS office_hours_skips (
+  office_hour_id INT  NOT NULL REFERENCES office_hours(id) ON DELETE CASCADE,
+  skip_date      DATE NOT NULL,
+  PRIMARY KEY (office_hour_id, skip_date)
+);
