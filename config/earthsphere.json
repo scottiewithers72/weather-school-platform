@@ -30,6 +30,6 @@
     "welcomeMessage": "Welcome, Cane's graduate! Your free class is unlocked and waiting."
   },
   "catalogFile": "catalog-earthsphere.json",
-  "fallStartDate": "2026-09-02",
+  "fallStartDate": "2027-01-04",
   "shopify": { "storefrontDomain": "REPLACE.myshopify.com", "channelTag": "earthsphere" }
 }

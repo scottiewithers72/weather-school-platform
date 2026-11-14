@@ -58,7 +58,7 @@ t('empty catalog: never graduates', !isGraduated({ caneClasses: [], completionMa
 t('best-student-per-class logic is callers responsibility (map holds max)', true);
 
 console.log('License expiry');
-const exp = licenseExpiry(new Date('2026-07-01'));
+const exp = licenseExpiry(new Date('2026-07-01T12:00:00'));
 t('12-month license', exp.getFullYear() === 2027 && exp.getMonth() === 6);
 
 console.log(`\n${pass} passed, ${fail} failed`);

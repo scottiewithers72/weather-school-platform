@@ -113,8 +113,8 @@
     <div><label>Status</label><select id="c_status">
       <option>draft</option><option>presale</option><option>live</option><option>evergreen</option><option>archived</option>
     </select></div>
-    <div><label>Semester label</label><input id="c_sem" placeholder="Fall 2026"></div>
-    <div><label>Cohort start (drip anchor)</label><input id="c_start" type="date" value="2026-09-02"></div>
+    <div><label>Semester label</label><input id="c_sem" placeholder="Winter 2027"></div>
+    <div><label>Cohort start (drip anchor)</label><input id="c_start" type="date" value="2027-01-04"></div>
   </div>
   <div class="grid3">
     <div><label>Shopify product ID</label><input id="c_shopify"></div>
@@ -205,7 +205,7 @@ function editClass(id) {
   c_price.value = c.price_cents ? c.price_cents / 100 : '';
   c_credit.value = c.credit_value || 0;
   c_status.value = c.status || 'draft'; c_sem.value = c.semester || '';
-  c_start.value = c.cohort_start ? c.cohort_start.slice(0, 10) : '2026-09-02';
+  c_start.value = c.cohort_start ? c.cohort_start.slice(0, 10) : '2027-01-04';
   c_shopify.value = c.shopify_product_id || ''; c_sort.value = c.sort_order || 100;
   c_gift.value = c.is_graduation_gift ? '1' : '';
   classDlg.showModal();
