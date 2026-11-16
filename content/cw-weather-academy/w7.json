@@ -1,0 +1,151 @@
+{
+  "classId": "cw-weather-academy",
+  "week": 7,
+  "media": "/app/media/cw-weather-academy/w7/",
+  "study_guide": {
+    "title": "Cane and the Year That Turns",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog sat on his favorite hill and watched the world. \"Do you know the weather changes all year long? It goes through <b>four seasons</b> — and they happen in the same order, every single year!\" \"Let's take a trip around the year together,\" said Cane. \"Here we go!\"",
+        "ask": null,
+        "img": "story-01-hill.jpg"
+      },
+      {
+        "text": "First came <b>spring</b>. The air grew warm, flowers popped up, and little birds hatched. \"Spring is when everything wakes up!\" said Cane, sniffing a fresh flower.",
+        "ask": "Can you show me how a flower opens up with your hands?",
+        "img": "story-02-spring.jpg"
+      },
+      {
+        "text": "Then came <b>summer</b>. The Sun was high and bright, the days were long, and it was hot, hot, hot! \"Summer is the warmest season — great for splashing in water!\" said Cane, wearing his sun hat.",
+        "ask": null,
+        "img": "story-03-summer.jpg"
+      },
+      {
+        "text": "Next came <b>fall</b> — some people call it autumn. The air turned cool, and the leaves changed to red, orange, and yellow, then floated down. \"Fall is when the leaves put on a show!\" said Cane, catching a leaf.",
+        "ask": "Can you flutter your fingers down like falling leaves?",
+        "img": "story-04-fall.jpg"
+      },
+      {
+        "text": "Then came <b>winter</b>. The days were short, the air was cold, and snow drifted down. \"Winter is the coldest season — bundle up!\" said Cane in his cozy scarf. \"And then,\" said Cane, wagging his tail, \"spring comes again! The four seasons turn around and around, year after year.\" \"Now for the big question,\" said Cane. \"Why do we even <i>have</i> seasons? Here's the secret — our <b>Earth is tilted</b>, and it travels all the way <b>around the Sun</b> once a year.\" \"When our part of the Earth <b>leans toward the Sun</b>, the days are long and warm — that's <b>summer</b>. When our part <b>leans away</b>, the days are short and cold — that's <b>winter</b>!\" \"So remember,\" said Cane, \"each season needs its own kind of safe. Sunscreen and water in summer, a warm coat in winter, and layers in spring and fall. Always dress for the day!\" Cane looked out over his hill as a warm breeze blew. \"The year turns, the seasons change, and I'm ready for every one. And now, so are you!\" \"Great job, weather watcher,\" said Cane. \"You traveled all the way around the year. You are <b>weather-ready</b>!\"",
+        "ask": "Can you lean your body toward a sunny window, then lean away?",
+        "img": "story-05-winter.jpg"
+      }
+    ],
+    "rule": "The Earth's tilt and its trip around the Sun give us four seasons: spring, summer, fall, and winter."
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "Fall",
+        "def": "cools down; leaves change"
+      },
+      {
+        "word": "Season",
+        "def": "one of the four parts of the year"
+      },
+      {
+        "word": "Spring",
+        "def": "warms up; flowers bloom"
+      },
+      {
+        "word": "Summer",
+        "def": "hottest; long sunny days"
+      },
+      {
+        "word": "Winter",
+        "def": "coldest; short days & snow"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "How many seasons are there?",
+        "choices": [
+          "four",
+          "two",
+          "ten"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Which season is the hottest, with long sunny days?",
+        "choices": [
+          "summer",
+          "winter",
+          "fall"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "In which season do leaves change color and fall down?",
+        "choices": [
+          "fall",
+          "spring",
+          "summer"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Which season is the coldest, with short days and snow?",
+        "choices": [
+          "winter",
+          "summer",
+          "spring"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "In which season do flowers bloom and baby animals are born?",
+        "choices": [
+          "spring",
+          "winter",
+          "fall"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Why do we have seasons?",
+        "choices": [
+          "the Earth is tilted and travels around the Sun",
+          "the Sun turns off",
+          "the moon changes color"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "When your part of the Earth leans toward the Sun, it is ______.",
+        "choices": [
+          "summer",
+          "winter",
+          "always night"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What should you do to stay safe in each season?",
+        "choices": [
+          "dress for the season and the weather",
+          "wear a winter coat all summer",
+          "never check the weather"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Name the four seasons in order, starting with spring!",
+      "answer": "spring, summer, fall, winter"
+    }
+  },
+  "game": {
+    "words": [
+      "Fall",
+      "Season",
+      "Spring",
+      "Summer",
+      "Winter"
+    ]
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "classId": "cw-weather-academy",
+  "week": 6,
+  "media": "/app/media/cw-weather-academy/w6/",
+  "study_guide": {
+    "title": "Cane and the Invisible Air",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog sat outside when — <i>whoosh!</i> — his ears blew back. \"Did you feel that?\" said Cane. \"That was the <b>wind</b>! But here's a puzzle… where did it come from? Let's solve it!\" \"First,\" said Cane, \"a secret about <b>air</b>. Air is all around us, everywhere. You can't see it… but it's really there!\"",
+        "ask": "Can you wave your hand fast in front of your face? Do you feel that little push? That's air!",
+        "img": "story-01-whoosh.jpg"
+      },
+      {
+        "text": "\"Air is real,\" said Cane. \"It's invisible, but you can feel it. And when air <b>moves</b>, we have a special name for it — <b>wind</b>! Wind is just moving air.\"",
+        "ask": null,
+        "img": "story-02-balloon.jpg"
+      },
+      {
+        "text": "Cane wagged his tail. \"Now, the big question — what makes the air move? The answer is our old friend… the <b>Sun</b>!\" \"Here's how it works,\" said Cane. \"The Sun heats the ground. The air over the warm ground gets warm too, and warm air is light, so it <b>rises</b> up. Then cooler air rushes in to take its place. That rushing air is the <b>wind</b>!\"",
+        "ask": "Can you make a soft whooshing wind sound?",
+        "img": "story-03-sun.jpg"
+      },
+      {
+        "text": "Just then a gentle wind rustled the leaves. \"A soft, gentle wind like this is called a <b>breeze</b>,\" said Cane. \"It feels nice!\" Then — <i>WHOOSH!</i> — a sudden strong wind blew Cane's ears straight back. \"Whoa! A strong, sudden burst of wind like that is called a <b>gust</b>!\" \"Weather scientists even measure the wind,\" said Cane. \"A <b>wind vane</b> spins to show which way the wind blows. And a spinning cup tool called an anemometer measures how fast it goes.\"",
+        "ask": null,
+        "img": "story-04-leaves.jpg"
+      },
+      {
+        "text": "The wind grew stronger, and the big trees began to sway. Cane's ears perked up. \"When the wind gets really strong, we stay away from big trees and power lines, and we head inside. Strong wind means be weather-smart!\" Soon the gust passed, and only a gentle breeze was left. Cane lifted his nose into it and smiled. \"Air is invisible — but I can always feel the wind. And now, so can you!\" \"Great job, weather watcher,\" said Cane. \"You solved the puzzle of the wind. You are <b>weather-ready</b>!\"",
+        "ask": null,
+        "img": "story-05-trees.jpg"
+      }
+    ],
+    "rule": "Wind is moving air — and the Sun's heat is what makes it move."
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "Air",
+        "def": "invisible stuff all around us; it's real!"
+      },
+      {
+        "word": "Breeze",
+        "def": "A gentle, light wind"
+      },
+      {
+        "word": "Gust",
+        "def": "A strong, sudden wind"
+      },
+      {
+        "word": "Wind vane",
+        "def": "shows which way the wind blows"
+      },
+      {
+        "word": "Wind",
+        "def": "moving air you can feel"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "What is wind?",
+        "choices": [
+          "moving air",
+          "a kind of bird",
+          "a color"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Can you see air?",
+        "choices": [
+          "no — it's invisible, but you can feel it",
+          "yes — it's bright green",
+          "only at night"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What makes the wind move?",
+        "choices": [
+          "the Sun",
+          "the moon",
+          "a light switch"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "When the Sun heats the air, the warm air…",
+        "choices": [
+          "rises up",
+          "sinks down and stays",
+          "disappears"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "A gentle, light wind is called a ______.",
+        "choices": [
+          "breeze",
+          "gust",
+          "blizzard"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "A strong, sudden burst of wind is called a ______.",
+        "choices": [
+          "gust",
+          "breeze",
+          "puddle"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What does a wind vane show?",
+        "choices": [
+          "which way the wind is blowing",
+          "the temperature",
+          "the time"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "In a strong wind, you should…",
+        "choices": [
+          "stay away from trees and power lines, and go inside",
+          "climb the tallest tree",
+          "stand under a power line"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Finish Cane's big idea: \"Wind is moving ______.\"",
+      "answer": "air"
+    }
+  },
+  "game": {
+    "words": [
+      "Air",
+      "Breeze",
+      "Gust",
+      "Wind vane",
+      "Wind"
+    ]
+  }
+}

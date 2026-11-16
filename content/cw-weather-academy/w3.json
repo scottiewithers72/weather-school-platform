@@ -1,0 +1,141 @@
+{
+  "classId": "cw-weather-academy",
+  "week": 3,
+  "media": "/app/media/cw-weather-academy/w3/",
+  "study_guide": {
+    "title": "Cane Follows a Raindrop",
+    "pages": [
+      {
+        "text": "Down by the pond, Cane the Weather Dog watched the water sparkle in the sun. \"Did you know,\" said Cane, \"that this water goes on an amazing journey? It's called the <b>water cycle</b>!\"",
+        "ask": null,
+        "img": "story-01-pond.jpg"
+      },
+      {
+        "text": "Cane pointed a paw at the warm pond. \"Step one — <b>evaporation</b>. The Sun heats the water, and it turns into an invisible gas called <b>water vapor</b>. Up, up, up it floats into the sky!\"",
+        "ask": "Can you wiggle your fingers upward, like water floating up to the sky?",
+        "img": "story-02-evap.jpg"
+      },
+      {
+        "text": "Higher and higher the water vapor rose. \"Step two — <b>condensation</b>,\" said Cane. \"Way up high, the air is cold. The water vapor cools down and turns into teeny-tiny droplets. Millions of droplets bunch together and make a <b>cloud</b>!\"",
+        "ask": null,
+        "img": "story-03-cloud.jpg"
+      },
+      {
+        "text": "The cloud grew bigger and grayer. \"Step three — <b>precipitation</b>,\" said Cane. \"When the cloud gets heavy with water, the drops fall back down — as <b>rain</b>! In winter, it can fall as snow.\"",
+        "ask": "Can you tap your fingers on your legs like falling raindrops?",
+        "img": "story-04-rain.jpg"
+      },
+      {
+        "text": "The rain splished into the pond, the rivers, and the sea. \"Step four — <b>collection</b>,\" said Cane. \"All the water gathers back together in ponds, lakes, rivers, and oceans.\" Cane wagged his tail. \"And then… the Sun warms it again, and the whole journey starts over! Round and round, forever.\" \"Here's the most amazing part,\" Cane whispered. \"It's the <b>same water</b>, used over and over. The raindrop on your window might have been a cloud last week — or ocean water far, far away!\" \"So remember,\" said Cane, \"water is amazing — and powerful. Never play in flooded streets or fast water. If you see it, <b>Turn Around, Don't Drown</b>, and tell a grown-up.\" \"Great job, weather watcher,\" said Cane. \"You followed a raindrop all the way around the water cycle. You are <b>weather-ready</b>!\"",
+        "ask": null,
+        "img": "story-05-collect.jpg"
+      }
+    ],
+    "rule": "Water goes around and around forever: evaporation, condensation, precipitation, collection."
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "Condensation",
+        "def": "vapor cooling into droplets that form clouds"
+      },
+      {
+        "word": "Evaporation",
+        "def": "the Sun turning water into vapor that rises"
+      },
+      {
+        "word": "Precipitation",
+        "def": "water falling as rain, snow, sleet, or hail"
+      },
+      {
+        "word": "Water cycle",
+        "def": "water's never-ending journey around and around"
+      },
+      {
+        "word": "Water vapor",
+        "def": "water in its invisible gas form"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "What is the water cycle?",
+        "choices": [
+          "the never-ending journey water takes around and around",
+          "a kind of bicycle",
+          "a rainy day only"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What powers the water cycle?",
+        "choices": [
+          "the Sun",
+          "the moon",
+          "a light switch"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "When the Sun heats water and it rises into the sky, that is ______.",
+        "choices": [
+          "evaporation",
+          "bedtime",
+          "collection"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Water vapor cooling and forming clouds is called ______.",
+        "choices": [
+          "condensation",
+          "confusion",
+          "sunshine"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Rain and snow falling from clouds is called ______.",
+        "choices": [
+          "precipitation",
+          "evaporation",
+          "a shadow"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Here's the amazing part — is it new water each time, or the same water over and over?",
+        "choices": [
+          "the same water, over and over",
+          "brand-new water every time"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What should you do near flooded or fast-moving water?",
+        "choices": [
+          "Turn Around, Don't Drown — and tell a grown-up",
+          "jump right in",
+          "walk through it"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Name the four steps of the water cycle in order!",
+      "answer": "evaporation → condensation → precipitation → collection"
+    }
+  },
+  "game": {
+    "words": [
+      "Condensation",
+      "Evaporation",
+      "Precipitation",
+      "Water cycle",
+      "Water vapor"
+    ]
+  }
+}

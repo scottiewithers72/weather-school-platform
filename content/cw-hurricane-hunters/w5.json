@@ -1,0 +1,133 @@
+{
+  "classId": "cw-hurricane-hunters",
+  "week": 5,
+  "media": "/app/media/cw-hurricane-hunters/w5/",
+  "study_guide": {
+    "title": "Cane and the Rising Water",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog had learned a lot about hurricanes. But there was one more thing to know — and it was the most important safety lesson of all.",
+        "ask": null,
+        "img": "story-01-bowl.jpg"
+      },
+      {
+        "text": "\"When people think of a hurricane, they think of wind and rain,\" said Cane. \"But do you know what the <b>biggest</b> danger usually is? It's the <b>water</b> — and it comes in a special way. It's called <b>storm surge</b>.\" \"Here's how it works,\" said Cane. He pushed a bowl of water with his paw, and the water sloshed up and over the edge. \"When a hurricane blows toward the shore, its strong <b>wind pushes the ocean water up onto the land</b> — higher than normal. That rising water is the <b>storm surge</b>.\" \"The surge can come up fast,\" said Cane, \"and cover streets and yards that are usually dry. That's called a <b>flood</b>. Because the water is so powerful, storm surge is the part of a hurricane we have to be the most careful about.\"",
+        "ask": "Have you ever heard those two words — storm surge? Can you gently push some bath water and watch it pile up on one side?",
+        "img": "story-02-surge.jpg"
+      },
+      {
+        "text": "\"So here's the smart, safe thing we do,\" Cane said. \"When grown-ups say to <b>move away from the water</b>, we go — to <b>higher ground</b>. Higher ground is land that's up higher, where the surge can't reach.\" \"Weather people even have a saying,\" said Cane. \"<b>Run from the water. Hide from the wind.</b> It means: get <b>away</b> from storm surge, and stay <b>safe inside</b> from the wind.\"",
+        "ask": "Point to something up high in your room. That's like higher ground — up and away from the water!",
+        "img": "story-03-hill.jpg"
+      },
+      {
+        "text": "A big storm was coming. The grown-ups said it was time to <b>move away from the water</b> and go to a safer place on higher ground. Cane's family didn't panic — they had a plan, so they calmly packed up and went early. \"See?\" said Cane, safe on high, dry ground. \"The water is the biggest danger — so we move away from it, calm and early. That's how we stay safe. Great job, weather watcher!\"",
+        "ask": null,
+        "img": "story-04-leave.jpg"
+      }
+    ],
+    "rule": "Storm surge is ocean water pushed onto land — so we move away from the water to higher ground!"
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "coast",
+        "def": "where the land meets the ocean"
+      },
+      {
+        "word": "evacuate",
+        "def": "leave early and go somewhere safer"
+      },
+      {
+        "word": "flood",
+        "def": "water covering land that is usually dry"
+      },
+      {
+        "word": "higher ground",
+        "def": "land up high, away from the water"
+      },
+      {
+        "word": "ocean",
+        "def": "the big salty water by the coast"
+      },
+      {
+        "word": "storm surge",
+        "def": "ocean water pushed onto the land"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "What is storm surge?",
+        "choices": [
+          "ocean water the hurricane's wind pushes onto the land",
+          "a kind of ice cream",
+          "a song about the sea"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Storm surge is made mostly by…",
+        "choices": [
+          "the hurricane's strong wind pushing the ocean",
+          "a garden hose",
+          "melting snow"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What is the hurricane's biggest danger, that we must be most careful about?",
+        "choices": [
+          "the water (storm surge)",
+          "the color of the clouds",
+          "the sound of the wind"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "When there is a storm surge, where do we go to be safe?",
+        "choices": [
+          "higher ground, up and away from the water",
+          "down to the beach",
+          "into the ocean"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What does it mean to evacuate?",
+        "choices": [
+          "leave early and go somewhere safer",
+          "take a nap",
+          "go swimming"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Finish the saying: \"Run from the water. Hide from the ______.\"",
+        "choices": [
+          "wind",
+          "cookies",
+          "cat"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Say Cane's big rule!",
+      "answer": "Move away from the water — go to higher ground!"
+    }
+  },
+  "game": {
+    "words": [
+      "coast",
+      "evacuate",
+      "flood",
+      "higher ground",
+      "ocean",
+      "storm surge"
+    ]
+  }
+}

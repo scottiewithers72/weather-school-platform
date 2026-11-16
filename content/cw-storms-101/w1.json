@@ -1,0 +1,142 @@
+{
+  "classId": "cw-storms-101",
+  "week": 1,
+  "title": "Thunderstorms",
+  "media": "/app/media/cw-storms-101/w1/",
+  "study_guide": {
+    "title": "Cane and the Big Boom",
+    "pages": [
+      {
+        "img": "story-01-lookup.jpg",
+        "text": "The sky was turning dark and gray. Cane the Weather Dog looked up and sniffed the air. \"Something is coming,\" said Cane. \"A <b>thunderstorm</b>!\" A thunderstorm has three things. First, big <b>dark clouds</b>.",
+        "ask": "Can you point up high, like you're looking at a tall cloud?"
+      },
+      {
+        "img": "story-02-lightning.jpg",
+        "text": "Then — FLASH! — came the <b>lightning</b>. Lightning is a giant <b>spark of electricity</b> in the sky. It is bright and fast."
+      },
+      {
+        "img": "story-03-thunder.jpg",
+        "text": "Then — BOOM! — came the <b>thunder</b>. Thunder is the <b>sound</b> that lightning makes.",
+        "ask": "Can you make a soft \"boom\" sound?"
+      },
+      {
+        "img": "story-03-inside.jpg",
+        "text": "Cane was not scared. Cane was smart. He knew exactly what to do. \"When thunder roars,\" said Cane, \"we go indoors!\" Cane trotted inside where it was warm and dry. He waited for the storm to pass. He knew to stay inside until the thunder was gone for a long time."
+      },
+      {
+        "img": "story-04-rainbow.jpg",
+        "text": "Soon the clouds floated away. The sun peeked out. Cane wagged his tail. \"Great job, weather helper,\" said Cane. \"You know what to do when thunder roars. You are <b>weather-ready</b>!\""
+      }
+    ],
+    "rule": "When thunder roars, go indoors."
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "sky",
+        "def": "the big space above us where weather happens"
+      },
+      {
+        "word": "cloud",
+        "def": "where rain and storms come from"
+      },
+      {
+        "word": "rain",
+        "def": "water that falls from clouds"
+      },
+      {
+        "word": "wind",
+        "def": "moving air you can feel"
+      },
+      {
+        "word": "lightning",
+        "def": "a spark of electricity in the sky"
+      },
+      {
+        "word": "thunder",
+        "def": "the sound that lightning makes"
+      },
+      {
+        "word": "storm",
+        "def": "wild weather with clouds, rain, and wind"
+      },
+      {
+        "word": "sun",
+        "def": "a star in the sky that emits light and heat energy"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "What are the THREE things in a thunderstorm?",
+        "multi": true,
+        "choices": [
+          "☁️ dark clouds",
+          "⚡ lightning",
+          "🔊 thunder",
+          "☀️ sunshine"
+        ],
+        "answers": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "q": "Lightning is a giant spark of what?",
+        "choices": [
+          "water",
+          "electricity",
+          "snow"
+        ],
+        "answer": 1
+      },
+      {
+        "q": "Thunder is the ______ that lightning makes.",
+        "choices": [
+          "sound",
+          "smell",
+          "color"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What do you do when you hear thunder?",
+        "choices": [
+          "keep playing outside",
+          "go indoors",
+          "go swimming"
+        ],
+        "answer": 1
+      },
+      {
+        "q": "When it is safe again, who tells you?",
+        "choices": [
+          "a grown-up",
+          "nobody",
+          "the dog next door"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Finish Cane's rule: \"When thunder roars, ______ ______!\"",
+      "answer": "go indoors!"
+    }
+  },
+  "game": {
+    "words": [
+      "cloud",
+      "lightning",
+      "rain",
+      "storm",
+      "sun",
+      "wind"
+    ]
+  },
+  "locked": true
+}

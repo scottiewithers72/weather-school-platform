@@ -1,0 +1,132 @@
+{
+  "classId": "cw-storms-101",
+  "week": 3,
+  "media": "/app/media/cw-storms-101/w3/",
+  "study_guide": {
+    "title": "Cane and the Giant Storm",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog lives near the <b>ocean</b>, where the water is warm and blue. One day, far out over the ocean, a <b>giant spinning storm</b> was growing. It was a <b>hurricane</b>. \"A hurricane is born over the warm ocean,\" said Cane. \"The warm water is its food, and it grows very, very big.\" Right in the middle of the hurricane is a calm, quiet spot. It is called the <b>eye</b>. But Cane was not worried. Hurricanes take a long time to arrive, so there is plenty of time to get ready.",
+        "ask": "How big? So big you could see it from space! Can you spread your arms out wide, wide, wide?",
+        "img": "story-01-eye.jpg"
+      },
+      {
+        "text": "\"When a big storm is coming,\" said Cane, \"we make a plan early!\"",
+        "ask": null,
+        "img": "story-02-plan.jpg"
+      },
+      {
+        "text": "Cane helped his family pack a <b>prep kit</b>. In went <b>water</b>, a <b>flashlight</b>, <b>batteries</b>, and some <b>food</b>. They made a plan for where to go and how to stay together.",
+        "ask": "Can you name one thing to put in a prep kit?",
+        "img": "story-03-kit.jpg"
+      },
+      {
+        "text": "When Cane was ready, he felt calm and safe. He knew his family had a good plan. \"Great job, weather helper,\" said Cane. \"Getting ready early keeps us safe. You are <b>weather-ready</b>!\"",
+        "ask": null,
+        "img": "story-04-ready.jpg"
+      }
+    ],
+    "rule": "Big storms — we make a plan early!"
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "eye",
+        "def": "the calm, quiet center of a hurricane"
+      },
+      {
+        "word": "hurricane",
+        "def": "a giant spinning storm from the warm ocean"
+      },
+      {
+        "word": "ocean",
+        "def": "the big salty water where hurricanes are born"
+      },
+      {
+        "word": "prep kit",
+        "def": "a box of things to help a family stay safe"
+      },
+      {
+        "word": "prepare",
+        "def": "to get ready before something happens"
+      },
+      {
+        "word": "rain",
+        "def": "water that falls from clouds"
+      },
+      {
+        "word": "sky",
+        "def": "the big space above us where weather happens"
+      },
+      {
+        "word": "wind",
+        "def": "moving air you can feel"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "Where is a hurricane born?",
+        "choices": [
+          "over the warm ocean",
+          "in the desert",
+          "underground"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What makes a hurricane grow big?",
+        "choices": [
+          "warm ocean water",
+          "ice cubes",
+          "rocks"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What is the calm, quiet center of a hurricane called?",
+        "choices": [
+          "the eye",
+          "the ear",
+          "the nose"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Because hurricanes give us lots of warning, we should…",
+        "choices": [
+          "make a plan early",
+          "wait and do nothing",
+          "go to the beach"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Which one belongs in a prep kit?",
+        "choices": [
+          "a flashlight",
+          "an ice cream cone",
+          "a balloon"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Finish Cane's rule: \"Big storms — make a plan ______!\"",
+      "answer": "early!"
+    }
+  },
+  "game": {
+    "words": [
+      "eye",
+      "hurricane",
+      "ocean",
+      "prep kit",
+      "prepare",
+      "rain"
+    ]
+  }
+}

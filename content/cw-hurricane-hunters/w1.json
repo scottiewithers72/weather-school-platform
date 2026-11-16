@@ -1,0 +1,137 @@
+{
+  "classId": "cw-hurricane-hunters",
+  "week": 1,
+  "media": "/app/media/cw-hurricane-hunters/w1/",
+  "study_guide": {
+    "title": "Where the Storm Is Born",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog stood on the sunny beach and looked far, far out at the water. \"Do you know where the biggest storms in the world are born?\" he asked. \"Not on land. Way out here — over the <b>warm ocean</b>.\" Far away, near the middle of the Earth, the ocean is warm all year. This warm part is called the <b>tropics</b>. When the water gets to about <b>80 degrees</b> — as warm as a bathtub — it is ready to make a storm.",
+        "ask": "Put your hand out flat like the ocean. Can you feel warm sunshine on it?",
+        "img": "story-01-ocean.jpg"
+      },
+      {
+        "text": "\"Here is the secret,\" said Cane. \"When the sun warms the ocean, tiny bits of water float up into the sky. That is called <b>evaporating</b>. Now the air is warm and full of water. We call it <b>moist air</b>.\" The warm, moist air floated up, up, up. It made tall clouds. And those clouds gave the storm its power. \"Warm, moist air is the storm's <b>fuel</b>,\" said Cane. \"Fuel is what keeps something going — like food gives YOU energy to run and play.\"",
+        "ask": "What gives you energy to run? (Food!) What gives a hurricane energy? (Warm, moist air!)",
+        "img": "story-02-evaporate.jpg"
+      },
+      {
+        "text": "To build a hurricane, nature needs <b>three things</b> to come together, like a recipe: <b>1. Warm ocean water.</b>\n<b>2. Lots of moist air.</b>\n<b>3. Winds that come together and start it spinning.</b>",
+        "ask": null,
+        "img": "story-03-recipe.jpg"
+      },
+      {
+        "text": "When all three are ready, the little storm begins to <b>spin</b>. First it is a small <b>tropical storm</b>. If it keeps drinking up warm, moist air, it grows bigger and stronger — until it becomes a <b>hurricane</b>. \"But here is the best part,\" said Cane, wagging his tail. \"A hurricane is born <b>far, far away</b>. It takes <b>days</b> to travel across the ocean. That gives us lots of time to get our family ready. We are never surprised.\" Cane smiled at the sea. \"The ocean makes the storm. And smart scientists watch the whole time — so families stay safe. You're learning to be one of those weather watchers!\"",
+        "ask": "Can you spin in a slow circle like a growing storm?",
+        "img": "story-04-calm.jpg"
+      }
+    ],
+    "rule": "Hurricanes are born over warm ocean water — the warm water is their fuel!"
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "evaporate",
+        "def": "when warm water floats up into the air as vapor"
+      },
+      {
+        "word": "fuel",
+        "def": "what gives something energy to keep going"
+      },
+      {
+        "word": "hurricane season",
+        "def": "june 1–November 30 in the Atlantic"
+      },
+      {
+        "word": "hurricane",
+        "def": "a giant spinning storm born over the warm ocean"
+      },
+      {
+        "word": "moist air",
+        "def": "warm air full of water vapor"
+      },
+      {
+        "word": "tropical ocean",
+        "def": "the warm ocean near the middle of the Earth"
+      },
+      {
+        "word": "warm water",
+        "def": "the ocean's warm surface — the storm's fuel"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "Where are hurricanes born?",
+        "choices": [
+          "over the warm ocean",
+          "in the desert",
+          "on top of a mountain"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "About how warm does the ocean water need to be to make a hurricane?",
+        "choices": [
+          "about 80°F (as warm as a bathtub)",
+          "freezing cold",
+          "it doesn't matter"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What is a hurricane's fuel?",
+        "choices": [
+          "warm, moist air from the ocean",
+          "rocks and sand",
+          "ice cubes"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "When warm ocean water floats up into the air as vapor, that is called…",
+        "choices": [
+          "evaporating",
+          "freezing",
+          "sleeping"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Which of these is NOT one of the three ingredients a hurricane needs?",
+        "choices": [
+          "dry desert sand",
+          "warm ocean water",
+          "moist air"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Why do we have time to get ready for a hurricane?",
+        "choices": [
+          "it is born far away and takes days to travel",
+          "it appears with no warning",
+          "it only lasts one minute"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Finish the big idea: \"Hurricanes are born over warm ocean ______.\"",
+      "answer": "water!"
+    }
+  },
+  "game": {
+    "words": [
+      "evaporate",
+      "fuel",
+      "hurricane season",
+      "hurricane",
+      "moist air",
+      "tropical ocean"
+    ]
+  }
+}

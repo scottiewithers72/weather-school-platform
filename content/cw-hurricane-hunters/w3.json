@@ -1,0 +1,133 @@
+{
+  "classId": "cw-hurricane-hunters",
+  "week": 3,
+  "media": "/app/media/cw-hurricane-hunters/w3/",
+  "study_guide": {
+    "title": "Cane Meets the Hurricane Hunters",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog had a big question. \"We can see a hurricane from space,\" he said. \"But how do we find out what it's like <b>inside</b>?\" The answer made his ears stand straight up. \"There are brave people who fly airplanes <b>right into the hurricane</b> — on purpose! They are the <b>Hurricane Hunters</b>.\"",
+        "ask": "Can you believe it? Would you fly a plane into a giant storm?",
+        "img": "story-01-meet.jpg"
+      },
+      {
+        "text": "\"Their airplanes are big and strong,\" said Cane. \"One team of scientists flies planes named <b>Kermit</b> and <b>Miss Piggy</b>. Another team, the Air Force Hurricane Hunters, flies a plane called the <b>WC-130</b>. A whole <b>crew</b> works together — pilots, a navigator, and weather scientists.\" The planes fly through the roaring <b>eyewall</b>… all the way into the calm <b>eye</b>… and back out again — over and over.",
+        "ask": "Remember the eyewall and the eye from last week? Which one has the strongest winds?",
+        "img": "story-02-window.jpg"
+      },
+      {
+        "text": "\"Here's the coolest part,\" said Cane. \"As they fly, they drop a little tube of weather tools called a <b>dropsonde</b>.\" He said it slowly: <i>drop-sond.</i> The dropsonde falls down, down, down through the storm on a tiny parachute. As it falls, it measures the <b>wind</b>, the <b>temperature</b>, and the air <b>pressure</b>, and it radios all that <b>data</b> back to the scientists. \"Why do they do something so brave?\" Cane asked. \"Because a satellite can only see the <b>top</b> of the storm. Only the Hurricane Hunters can measure what's happening <b>inside</b>. Their facts make the <b>forecast</b> much better.\" \"And a better forecast means <b>you</b> get warned <b>earlier</b>,\" said Cane. \"So the Hurricane Hunters gather the facts… and our job is to <b>listen to the warnings</b> and follow our family plan.\"",
+        "ask": "Can you float your hand down slowly like a dropsonde falling through the storm?",
+        "img": "story-03-dropsonde.jpg"
+      },
+      {
+        "text": "Cane looked up at the sky and smiled. \"Thank you, Hurricane Hunters. You're the bravest weather watchers of all!\"",
+        "ask": null,
+        "img": "story-04-thanks.jpg"
+      }
+    ],
+    "rule": "Hurricane Hunters fly into the storm to measure it — so we get better, earlier warnings."
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "Aircraft",
+        "def": "a special, strong airplane"
+      },
+      {
+        "word": "Crew",
+        "def": "the team who fly the plane together"
+      },
+      {
+        "word": "Data",
+        "def": "the facts and numbers the scientists collect"
+      },
+      {
+        "word": "Dropsonde",
+        "def": "a tool dropped through the storm to measure it"
+      },
+      {
+        "word": "Forecast",
+        "def": "what the weather will do next"
+      },
+      {
+        "word": "Hurricane Hunter",
+        "def": "a pilot and scientist who flies into a hurricane"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "What do Hurricane Hunters do?",
+        "choices": [
+          "fly airplanes right into a hurricane to measure it",
+          "hunt for lost socks",
+          "sleep during storms"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What is a dropsonde?",
+        "choices": [
+          "a small tool dropped through the storm that measures it",
+          "a kind of sandwich",
+          "a dance move"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Which of these does a dropsonde measure?",
+        "choices": [
+          "wind, temperature, and air pressure",
+          "how many cookies you have",
+          "your favorite color"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Why do the Hurricane Hunters fly INTO the storm?",
+        "choices": [
+          "a satellite only sees the top — they measure what's inside",
+          "to take a nap",
+          "to go on vacation"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Their measurements help make a better ______.",
+        "choices": [
+          "forecast",
+          "pizza",
+          "bicycle"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "The Hurricane Hunters gather the facts. What is OUR job?",
+        "choices": [
+          "listen to the warnings and follow our plan",
+          "ignore the weather",
+          "run outside in the storm"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "What part of the storm do the planes fly through to reach the calm center?",
+      "answer": "the eyewall (into the eye)"
+    }
+  },
+  "game": {
+    "words": [
+      "Aircraft",
+      "Crew",
+      "Data",
+      "Dropsonde",
+      "Forecast",
+      "Hurricane Hunter"
+    ]
+  }
+}

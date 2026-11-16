@@ -1,0 +1,169 @@
+{
+  "classId": "cw-storms-101",
+  "week": 4,
+  "media": "/app/media/cw-storms-101/w4/",
+  "study_guide": {
+    "title": "Cane and the Big Snow",
+    "pages": [
+      {
+        "text": "The air turned very <b>cold</b>. White flakes began to fall from the sky. \"It's <b>snow</b>!\" said Cane the Weather Dog. Then the wind began to blow, harder and harder. \"When there's lots of snow AND strong wind,\" said Cane, \"we call it a <b>blizzard</b>.\" The wind blew the snow all around. There was so much blowing snow that Cane could barely see! And it was cold enough to <b>freeze</b> water into <b>ice</b>. But Cane knew exactly what to do. He did not need to be cold or scared.",
+        "ask": "Can you wiggle your fingers like falling, blowing snow?",
+        "img": "story-01-blizzard.jpg"
+      },
+      {
+        "text": "\"When it blizzards,\" said Cane, \"we stay warm inside!\"",
+        "ask": null,
+        "img": "story-02-inside.jpg"
+      },
+      {
+        "text": "Cane went inside where it was cozy and warm. He had a soft blanket and a warm snack. He watched the snow from the window. When Cane's family did go out, they bundled up — coat, hat, and gloves — and stayed together. Soon the snow stopped, and the world was white and quiet. Cane wagged his tail.",
+        "ask": "What would YOU bring to stay cozy inside?",
+        "img": "story-03-cozy.jpg"
+      },
+      {
+        "text": "\"You did it,\" said Cane. \"You know all four wild storms now. You are a <b>weather-ready</b> graduate!\"",
+        "ask": null,
+        "img": "story-04-graduate.jpg"
+      }
+    ],
+    "rule": "When it blizzards, stay warm inside!"
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "blizzard",
+        "def": "a snowstorm with strong wind and blowing snow"
+      },
+      {
+        "word": "cold",
+        "def": "a low temperature; time for coats and warm clothes"
+      },
+      {
+        "word": "freeze",
+        "def": "to get so cold that water turns into ice"
+      },
+      {
+        "word": "ice",
+        "def": "frozen water that is hard and slippery"
+      },
+      {
+        "word": "sky",
+        "def": "the big space above us where weather happens"
+      },
+      {
+        "word": "snow",
+        "def": "soft white frozen flakes that fall from clouds"
+      },
+      {
+        "word": "warm",
+        "def": "cozy and not cold"
+      },
+      {
+        "word": "wind",
+        "def": "moving air you can feel"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "A blizzard is a snowstorm with lots of strong ______.",
+        "choices": [
+          "wind",
+          "sunshine",
+          "sand"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "In a blizzard, there is so much blowing snow that you…",
+        "choices": [
+          "can't see far",
+          "get a suntan",
+          "can see everything perfectly"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "It is so cold in a blizzard that water can ______.",
+        "choices": [
+          "freeze into ice",
+          "turn into lemonade",
+          "disappear"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What do you do in a blizzard?",
+        "choices": [
+          "stay warm inside",
+          "go swimming",
+          "wear flip-flops"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "If you DO go outside in the cold, you should…",
+        "choices": [
+          "bundle up with a grown-up",
+          "go alone in shorts",
+          "stay out all day"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "🎓 What's the rule for a ⛈️ Thunderstorm?",
+        "choices": [
+          "go indoors",
+          "stay warm inside",
+          "make a plan early",
+          "lowest floor, cover your head"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "🎓 What's the rule for a 🌪️ Tornado?",
+        "choices": [
+          "lowest floor, cover your head",
+          "stay warm inside",
+          "make a plan early",
+          "go indoors"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "🎓 What's the rule for a 🌀 Hurricane?",
+        "choices": [
+          "make a plan early",
+          "stay warm inside",
+          "go indoors",
+          "lowest floor, cover your head"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "🎓 What's the rule for a ❄️ Blizzard?",
+        "choices": [
+          "stay warm inside",
+          "make a plan early",
+          "go indoors",
+          "lowest floor, cover your head"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": null
+  },
+  "game": {
+    "words": [
+      "blizzard",
+      "cold",
+      "freeze",
+      "ice",
+      "sky",
+      "snow"
+    ]
+  }
+}

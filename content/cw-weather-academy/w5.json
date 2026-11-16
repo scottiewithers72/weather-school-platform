@@ -1,0 +1,151 @@
+{
+  "classId": "cw-weather-academy",
+  "week": 5,
+  "media": "/app/media/cw-weather-academy/w5/",
+  "study_guide": {
+    "title": "Cane and the Falling Sky",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog looked up at a big gray cloud. \"Something is going to fall from the sky today,\" he said. \"When water falls from a cloud, it has a special name — <b>precipitation</b>!\" \"Precipitation,\" said Cane, \"is any water that falls from the sky. And guess what? It comes in <b>four</b> different kinds. Let's meet them all!\"",
+        "ask": null,
+        "img": "story-01-cloud.jpg"
+      },
+      {
+        "text": "Cane held out a paw and a drop landed on it. \"The first one you know well — <b>rain</b>! Rain is liquid water drops. Rain falls when the air is <b>warm</b>.\"",
+        "ask": "Can you wiggle your fingers down like falling rain? Pitter-patter!",
+        "img": "story-02-rain.jpg"
+      },
+      {
+        "text": "Then Cane pointed to a cold, snowy day. \"When the air is very <b>cold</b>, the water freezes into soft, fluffy ice crystals — <b>snow</b>! And here's a secret: every snowflake has <b>six sides</b>.\"",
+        "ask": "Can you show six fingers, like the six sides of a snowflake?",
+        "img": "story-03-snow.jpg"
+      },
+      {
+        "text": "\"Sometimes,\" said Cane, \"snow melts a little, then re-freezes on the way down into tiny icy pellets. That's called <b>sleet</b>. It goes tap-tap-tap on the window!\" \"And in big summer storms,\" Cane went on, \"the wind tosses raindrops up high where they freeze into little balls of ice — <b>hail</b>! Hail can even bounce when it lands.\" \"Rain, snow, sleet, and hail,\" said Cane. \"Four kinds of precipitation. And here's the big secret — the <b>temperature</b> decides which one falls. Warm air makes rain. Cold air makes snow!\" \"Remember the water cycle?\" Cane wagged his tail. \"Precipitation is the 'falling down' part. The water goes up, makes clouds, and falls back to us — watering the whole Earth!\" Then Cane looked serious for a moment. \"When it's wet or icy, the ground gets slippery. So we always <b>walk, don't run</b>. And in heavy rain, we stay away from flooded water — Turn Around, Don't Drown.\"",
+        "ask": null,
+        "img": "story-04-window.jpg"
+      },
+      {
+        "text": "The rain slowed, and a puddle sparkled at Cane's feet. He gave a happy splash. \"Great job, weather watcher,\" said Cane. \"You met all four kinds of precipitation. You are <b>weather-ready</b>!\"",
+        "ask": null,
+        "img": "story-05-puddle.jpg"
+      }
+    ],
+    "rule": "Precipitation is water falling from clouds — rain, snow, sleet, or hail — and temperature decides which one."
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "Hail",
+        "def": "hard ice balls from big storms"
+      },
+      {
+        "word": "Precipitation",
+        "def": "water falling as rain, snow, sleet, or hail"
+      },
+      {
+        "word": "Rain",
+        "def": "water that falls from clouds"
+      },
+      {
+        "word": "Sleet",
+        "def": "tiny frozen ice pellets"
+      },
+      {
+        "word": "Snow",
+        "def": "soft white frozen flakes that fall from clouds"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "What is precipitation?",
+        "choices": [
+          "any water that falls from clouds",
+          "a kind of car",
+          "a sunny day"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Which of these is NOT a kind of precipitation?",
+        "choices": [
+          "sunshine",
+          "rain",
+          "snow"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Rain falls when the air is ______.",
+        "choices": [
+          "warm",
+          "freezing cold",
+          "windy"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Snow falls when the air is ______.",
+        "choices": [
+          "cold",
+          "hot",
+          "sunny"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "How many sides does a snowflake have?",
+        "choices": [
+          "6",
+          "3",
+          "100"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Tiny frozen ice pellets that go tap-tap-tap are called ______.",
+        "choices": [
+          "sleet",
+          "rain",
+          "sunshine"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What decides whether rain or snow falls?",
+        "choices": [
+          "the temperature",
+          "the day of the week",
+          "your favorite color"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "On wet or icy ground, you should…",
+        "choices": [
+          "walk, don't run",
+          "run as fast as you can",
+          "close your eyes"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Name the four kinds of precipitation!",
+      "answer": "rain, snow, sleet, hail"
+    }
+  },
+  "game": {
+    "words": [
+      "Hail",
+      "Precipitation",
+      "Rain",
+      "Sleet",
+      "Snow"
+    ]
+  }
+}

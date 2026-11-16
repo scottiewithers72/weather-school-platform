@@ -1,0 +1,143 @@
+{
+  "classId": "cw-weather-academy",
+  "week": 1,
+  "media": "/app/media/cw-weather-academy/w1/",
+  "study_guide": {
+    "title": "Cane Becomes a Weather Watcher",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog woke up and stretched his four paws. \"Good morning, world!\" he said. \"I wonder… what is the <b>weather</b> today?\" Cane trotted to the window and looked outside. \"All around the Earth is a big blanket of air. Scientists call it the <b>atmosphere</b>,\" said Cane. \"<b>Weather</b> is what the atmosphere is doing right now. Let's find out together!\" First, Cane looked up at the sky. \"Is it <b>sunny</b> or <b>cloudy</b>?\" Then Cane opened the door and felt the air. \"Is it <b>hot</b> or <b>cold</b>?\" He gave a happy shiver. \"A little cool today!\" Cane held out a paw. \"Is it <b>wet</b> or <b>dry</b>? Is any rain falling?\" No rain today — the ground was dry. Then Cane's ears blew back. Whoosh! \"Is it <b>windy</b> or <b>calm</b>?\"",
+        "ask": "Can you look outside — what does the sky look like right now? Can you blow like the wind — whooosh?",
+        "img": "story-01-sky.jpg"
+      },
+      {
+        "text": "\"Sunny, cool, dry, and a little windy,\" said Cane. \"Now I know today's weather! When you look, and feel, and notice — that's called making an <b>observation</b>. That's what real scientists do.\"",
+        "ask": null,
+        "img": "story-02-feel.jpg"
+      },
+      {
+        "text": "Cane wagged his tail. \"A scientist who studies the weather has a special name — a <b>meteorologist</b>. And guess what? A weather watcher like YOU is a meteorologist too!\"",
+        "ask": null,
+        "img": "story-03-observe.jpg"
+      },
+      {
+        "text": "\"Here's a secret,\" Cane whispered. \"<b>Weather</b> is what's happening today. But when we watch a place for a long, long time, we learn its <b>climate</b> — what the weather is <i>usually</i> like. Weather is what you get today. Climate is what you expect.\"",
+        "ask": null,
+        "img": "story-04-puddle.jpg"
+      },
+      {
+        "text": "Cane grabbed his little notebook. \"Every day, I write down what the sky is doing. Sun, clouds, rain, wind — I watch it all. Will you be my weather-watching partner?\" \"Great job, weather watcher,\" said Cane. \"You looked, you felt, you noticed. You are <b>weather-ready</b>!\"",
+        "ask": null,
+        "img": "story-05-happy.jpg"
+      }
+    ],
+    "rule": "Weather is what the atmosphere is doing right now — and a weather watcher looks, feels, and notices."
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "atmosphere",
+        "def": "the blanket of air all around the Earth"
+      },
+      {
+        "word": "cloud",
+        "def": "where rain and storms come from"
+      },
+      {
+        "word": "observation",
+        "def": "something you notice by looking, feeling, or listening"
+      },
+      {
+        "word": "sun",
+        "def": "a star in the sky that emits light and heat energy"
+      },
+      {
+        "word": "temperature",
+        "def": "how hot or cold it is"
+      },
+      {
+        "word": "wind",
+        "def": "moving air you can feel"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "What is weather?",
+        "choices": [
+          "what the atmosphere is doing right now",
+          "a kind of animal",
+          "a game you play inside"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "The ______ is the blanket of air all around the Earth, where weather happens.",
+        "choices": [
+          "atmosphere",
+          "ocean",
+          "sidewalk"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Which of these do weather watchers check?",
+        "multi": true,
+        "choices": [
+          "☀️ the sky",
+          "🌡️ how hot or cold it is",
+          "💨 the wind",
+          "🍕 what's for dinner"
+        ],
+        "answers": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "q": "When you look, feel, and notice the weather, you are making an ______.",
+        "choices": [
+          "observation",
+          "sandwich",
+          "nap"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "A scientist who studies the weather is called a ______.",
+        "choices": [
+          "dentist",
+          "meteorologist",
+          "firefighter"
+        ],
+        "answer": 1
+      },
+      {
+        "q": "\"It is raining right now.\" Is that weather or climate?",
+        "choices": [
+          "weather (today)",
+          "climate (usually)"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Finish Cane's big idea: \"Weather is what the atmosphere is doing ______ ______.\"",
+      "answer": "right now"
+    }
+  },
+  "game": {
+    "words": [
+      "atmosphere",
+      "cloud",
+      "observation",
+      "sun",
+      "temperature",
+      "wind"
+    ]
+  }
+}

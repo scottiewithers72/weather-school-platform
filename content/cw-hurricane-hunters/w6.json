@@ -1,0 +1,118 @@
+{
+  "classId": "cw-hurricane-hunters",
+  "week": 6,
+  "media": "/app/media/cw-hurricane-hunters/w6/",
+  "study_guide": {
+    "title": "Cane Makes a Plan",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog had learned so much this season. He knew where hurricanes are born, what the calm eye is, who the brave Hurricane Hunters are, what watches and warnings mean, and why we move away from storm surge to higher ground.",
+        "ask": null,
+        "img": "story-01-kit.jpg"
+      },
+      {
+        "text": "\"Now for the best part,\" said Cane. \"When we put it all together, we get one calm, powerful thing — a <b>family plan</b>. A family plan means we already know what to do <i>before</i> a storm ever comes.\" \"A family plan has <b>three parts</b>,\" said Cane, holding up three paws (well, he tried!). \"Part one: <b>build a kit.</b>\" He opened a sturdy box and packed it: bottles of <b>water</b>, some <b>food</b> that won't spoil, a <b>flashlight</b> and <b>batteries</b>, a <b>weather radio</b> to hear watches and warnings, a little <b>first-aid kit</b>, any <b>medicines</b>, and — most important — his favorite squeaky toy. \"A comfort item helps too!\" he said. \"Part two: <b>make a plan,</b>\" said Cane. \"A good plan answers three questions.\" He wrote them down: <b>Where do we meet?</b> A meeting place the family picks, in case we get split up.\n<b>Who do we call?</b> An <b>emergency contact</b> — often someone out of town — everyone can check in with.\n<b>Where do we go?</b> To safe, <b>higher ground</b>, away from the water, if grown-ups say to leave.",
+        "ask": "Can you name one thing you learned about hurricanes this year? What one comfort item would YOU pack in your kit? Where is a good meeting spot at your house? (The big tree? The front porch?)",
+        "img": "story-02-plan.jpg"
+      },
+      {
+        "text": "\"And part three,\" said Cane, \"is the habit from last week: <b>go early.</b> Because we have a kit and a plan, we don't rush and we don't worry. We just calmly go, before the storm gets close.\"",
+        "ask": null,
+        "img": "story-03-goearly.jpg"
+      },
+      {
+        "text": "He looked at his finished box and his family's plan on the fridge and smiled. \"Water — check. Plan — check. Go early — check. We're <b>ready.</b>\" \"You did it,\" said Cane. \"You learned to think like a real weather scientist AND a safety helper. When you're ready before the storm, you get to stay calm — and calm keeps families safe. I'm so proud of you. You're officially a Hurricane Hunter!\"",
+        "ask": "Say Cane's big rule with him: \"We have a kit, a plan, and we go early!\"",
+        "img": "story-04-graduate.jpg"
+      }
+    ],
+    "rule": "Ready before the storm — our family has a kit, a plan, and we go early."
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "Emergency Kit",
+        "def": "a box of things we need to stay safe"
+      },
+      {
+        "word": "Family Plan",
+        "def": "what we do and where we go to be safe"
+      },
+      {
+        "word": "Go Early",
+        "def": "leave before the storm, not during it"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "A family hurricane plan has three parts. They are…",
+        "choices": [
+          "build a kit, make a plan, and go early",
+          "run, hide, and nap",
+          "swim, surf, and splash"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What goes in an emergency kit?",
+        "choices": [
+          "water, food, a flashlight, and batteries",
+          "ice cream and a beach ball",
+          "roller skates"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "A \"meeting place\" is…",
+        "choices": [
+          "a spot our family agrees to meet if we get separated",
+          "a place to buy snacks",
+          "a kind of cloud"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Who is an \"emergency contact\"?",
+        "choices": [
+          "a person (often out of town) everyone can call to check in",
+          "the mail carrier",
+          "a cartoon character"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "When should we leave if grown-ups say a big storm is coming?",
+        "choices": [
+          "early — calm, before the storm gets close",
+          "never",
+          "at the very last second"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Being \"ready\" before a storm helps us feel…",
+        "choices": [
+          "calm and safe",
+          "scared",
+          "hungry"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Say Cane's big rule!",
+      "answer": "We have a kit, a plan, and we go early!"
+    }
+  },
+  "game": {
+    "words": [
+      "Emergency Kit",
+      "Family Plan",
+      "Go Early"
+    ]
+  }
+}

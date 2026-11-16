@@ -144,3 +144,54 @@ body.secondary .profile, body.secondary .libcard, body.secondary .lesson { borde
 .docbtns{display:flex;gap:8px;flex-shrink:0}
 .docbtn{display:inline-block;padding:8px 14px;border-radius:999px;background:#1f6feb;color:#fff;text-decoration:none;font-weight:700;font-size:.9em}
 .docbtn.ghost{background:transparent;color:#1f6feb;border:2px solid #1f6feb}
+
+/* ---------- practice screens: storybook, flash cards, quiz, match ---------- */
+.book, .stage { background: #fff; border-radius: 20px; padding: 16px; text-align: center }
+.book-title { font-weight: 800; color: var(--deep); margin: 2px 0 10px }
+.book-art, .stage-art { width: 100%; border-radius: 14px; display: block; aspect-ratio: 16/10; object-fit: cover; background: var(--bg) }
+.book-text { font-size: 19px; line-height: 1.55; color: var(--ink); text-align: left; margin: 14px 4px }
+body.k4 .book-text { font-size: 21px }
+.ask { background: #FFF6E0; border: 2px dashed var(--accent); border-radius: 14px; padding: 12px 14px; text-align: left; margin: 10px 0; font-size: 17px }
+.ask b { color: #B07400; margin-right: 4px }
+.rule { background: var(--deep); color: #fff; border-radius: 16px; padding: 14px; margin: 12px 0; font-size: 14px; text-transform: uppercase; letter-spacing: .5px }
+.rule strong { display: block; font-size: 22px; text-transform: none; letter-spacing: 0; margin-top: 4px; color: var(--accent) }
+.book-nav { display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-top: 12px }
+.book-nav .cta { width: auto; flex: 0 0 auto }
+.book-nav .cta:disabled { opacity: .35 }
+.speak { background: var(--bg); border: 0; border-radius: 99px; padding: 10px 14px; font-weight: 800; color: var(--p); cursor: pointer; font-size: 14px }
+
+.fc { position: relative; width: 100%; aspect-ratio: 3/2; perspective: 1200px; cursor: pointer; margin-bottom: 4px }
+.fc-side { position: absolute; inset: 0; border-radius: 20px; overflow: hidden; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  transition: transform .5s cubic-bezier(.4,.2,.2,1); background: #fff; box-shadow: 0 8px 24px rgba(14,58,93,.15);
+  display: flex; flex-direction: column; align-items: center; justify-content: center }
+.fc-side img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover }
+.fc-back { transform: rotateY(180deg) }
+.fc.flipped .fc-front { transform: rotateY(-180deg) }
+.fc.flipped .fc-back { transform: rotateY(0) }
+.fc-q { position: absolute; bottom: 12px; left: 12px; right: 12px; background: rgba(255,255,255,.93); border-radius: 12px; padding: 10px; font-weight: 800; color: var(--deep); font-size: 17px }
+.fc-back img { filter: brightness(.55) }
+.fc-word { position: relative; font-size: 44px; font-weight: 900; color: #fff; text-shadow: 0 3px 10px rgba(0,0,0,.45); text-transform: capitalize; line-height: 1.1 }
+.fc-def { position: relative; font-size: 20px; font-weight: 700; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,.5); padding: 6px 18px; max-width: 92% }
+.fc-side:not(:has(img)) .fc-word, .fc-side:not(:has(img)) .fc-def { color: var(--deep); text-shadow: none }
+
+.stage h3 { color: var(--deep); font-size: 22px; margin: 14px 0 4px }
+.stage .cta { margin-top: 12px }
+.stars { font-size: 34px; margin-top: 10px; letter-spacing: 4px }
+.choices.four { display: grid; grid-template-columns: 1fr 1fr; gap: 8px }
+.choices.four .choice { margin: 0 }
+.choice { font-size: 18px; padding: 14px 16px }
+.choice.picked { border-color: var(--accent); background: #FFF6E0 }
+.choice:disabled { cursor: default }
+.cheer { min-height: 26px; font-size: 20px; font-weight: 900; color: #2E9E83; text-align: center; margin: 8px 0 0 }
+
+.mem { padding: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; aspect-ratio: 1; min-height: 0 }
+.mem.pic img { width: 100%; height: 100%; object-fit: cover }
+.mem.word span { font-size: 18px; font-weight: 900; color: var(--deep); text-transform: capitalize; padding: 4px }
+.mem .paw { font-size: 28px; opacity: .55 }
+.mem:not(.open):not(.matched) { background: linear-gradient(135deg, var(--p), var(--deep)); border-color: transparent }
+.mem.matched { opacity: .9 }
+.speak { white-space: nowrap }
+.memory.kidgrid { grid-template-columns: repeat(4, 1fr); gap: 7px }
+.mem .paw { color: #fff; opacity: .8; font-size: 24px }
+.mem.word span { font-size: 15px; overflow-wrap: anywhere; line-height: 1.15 }
+.mem .paw { opacity: 1; filter: drop-shadow(0 1px 2px rgba(0,0,0,.3)) }

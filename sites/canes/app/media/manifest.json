@@ -1,0 +1,313 @@
+{
+ "cw-weather-academy/w1": {
+  "words": [
+   "Atmosphere",
+   "Cloud",
+   "Observation",
+   "Sun",
+   "Temperature",
+   "Wind"
+  ],
+  "stories": [
+   "story-01-sky",
+   "story-02-feel",
+   "story-03-observe",
+   "story-04-puddle",
+   "story-05-happy"
+  ],
+  "start": true
+ },
+ "cw-weather-academy/w2": {
+  "words": [
+   "Day and Night",
+   "Energy",
+   "Heat",
+   "Star",
+   "Sun"
+  ],
+  "stories": [
+   "story-01-morning",
+   "story-02-feelsun",
+   "story-03-puddle",
+   "story-04-shadow",
+   "story-05-sunsafe"
+  ],
+  "start": true
+ },
+ "cw-weather-academy/w3": {
+  "words": [
+   "Condensation",
+   "Evaporation",
+   "Precipitation",
+   "Water Cycle",
+   "Water Vapor"
+  ],
+  "stories": [
+   "diagram-water-cycle",
+   "scene-beach-extra",
+   "story-01-pond",
+   "story-02-evap",
+   "story-03-cloud",
+   "story-04-rain",
+   "story-05-collect"
+  ],
+  "start": true
+ },
+ "cw-weather-academy/w4": {
+  "words": [
+   "Cirrus",
+   "Cloud",
+   "Cumulus",
+   "Storm Cloud",
+   "Stratus"
+  ],
+  "stories": [],
+  "start": true
+ },
+ "cw-weather-academy/w5": {
+  "words": [
+   "Hail",
+   "Precipitation",
+   "Rain",
+   "Sleet",
+   "Snow"
+  ],
+  "stories": [
+   "story-01-cloud",
+   "story-02-rain",
+   "story-03-snow",
+   "story-04-window",
+   "story-05-puddle"
+  ],
+  "start": true
+ },
+ "cw-weather-academy/w6": {
+  "words": [
+   "Air",
+   "Breeze",
+   "Gust",
+   "Wind Vane",
+   "Wind"
+  ],
+  "stories": [
+   "story-01-whoosh",
+   "story-02-balloon",
+   "story-03-sun",
+   "story-04-leaves",
+   "story-05-trees"
+  ],
+  "start": true
+ },
+ "cw-weather-academy/w7": {
+  "words": [
+   "Fall",
+   "Season",
+   "Spring",
+   "Summer",
+   "Winter"
+  ],
+  "stories": [
+   "story-01-hill",
+   "story-02-spring",
+   "story-03-summer",
+   "story-04-fall",
+   "story-05-winter"
+  ],
+  "start": true
+ },
+ "cw-weather-academy/w8": {
+  "words": [
+   "Forecast",
+   "Graduate",
+   "Measure",
+   "Meteorologist",
+   "Observe"
+  ],
+  "stories": [
+   "story-01-proud",
+   "story-02-observe",
+   "story-03-tools",
+   "story-04-predict",
+   "story-05-graduate"
+  ],
+  "start": true
+ },
+ "cw-storms-101/w1": {
+  "words": [
+   "Cloud",
+   "Lightning",
+   "Rain",
+   "Sky",
+   "Storm",
+   "Sun",
+   "Thunder",
+   "Wind"
+  ],
+  "stories": [
+   "story-01-lookup",
+   "story-02-lightning",
+   "story-03-inside",
+   "story-03-thunder",
+   "story-04-rainbow"
+  ],
+  "start": true
+ },
+ "cw-storms-101/w2": {
+  "words": [
+   "Cloud",
+   "Funnel",
+   "Safe Room",
+   "Sky",
+   "Spin",
+   "Tornado",
+   "Warning",
+   "Wind"
+  ],
+  "stories": [
+   "hero-tornado",
+   "story-01-truck",
+   "story-02-run",
+   "story-03-lay",
+   "story-04-rainbow"
+  ],
+  "start": true
+ },
+ "cw-storms-101/w3": {
+  "words": [
+   "Eye",
+   "Hurricane",
+   "Ocean",
+   "Prep Kit",
+   "Prepare",
+   "Rain",
+   "Sky",
+   "Wind"
+  ],
+  "stories": [
+   "story-01-eye",
+   "story-02-plan",
+   "story-03-kit",
+   "story-04-ready"
+  ],
+  "start": true
+ },
+ "cw-storms-101/w4": {
+  "words": [
+   "Blizzard",
+   "Cold",
+   "Freeze",
+   "Ice",
+   "Sky",
+   "Snow",
+   "Warm",
+   "Wind"
+  ],
+  "stories": [
+   "story-01-blizzard",
+   "story-02-inside",
+   "story-03-cozy",
+   "story-04-graduate"
+  ],
+  "start": true
+ },
+ "cw-hurricane-hunters/w1": {
+  "words": [
+   "Evaporate",
+   "Fuel",
+   "Hurricane Season",
+   "Hurricane",
+   "Moist Air",
+   "Tropical Ocean",
+   "Warm Water"
+  ],
+  "stories": [
+   "story-01-ocean",
+   "story-02-evaporate",
+   "story-03-recipe",
+   "story-04-calm"
+  ],
+  "start": true
+ },
+ "cw-hurricane-hunters/w2": {
+  "words": [
+   "Calm",
+   "Eye",
+   "Eyewall",
+   "Rain Bands",
+   "Spiral",
+   "Thunderstorm"
+  ],
+  "stories": [
+   "story-01-rainbands",
+   "story-02-eyewall",
+   "story-03-eye",
+   "story-04-inside"
+  ],
+  "start": true
+ },
+ "cw-hurricane-hunters/w3": {
+  "words": [
+   "Aircraft",
+   "Crew",
+   "Data",
+   "Dropsonde",
+   "Forecast",
+   "Hurricane Hunter"
+  ],
+  "stories": [
+   "story-01-meet",
+   "story-02-window",
+   "story-03-dropsonde",
+   "story-04-thanks"
+  ],
+  "start": true
+ },
+ "cw-hurricane-hunters/w4": {
+  "words": [
+   "Expected",
+   "Family Plan",
+   "Possible",
+   "Prepare",
+   "Warning",
+   "Watch"
+  ],
+  "stories": [
+   "story-01-tv",
+   "story-02-kit",
+   "story-03-dinner",
+   "story-04-plan"
+  ],
+  "start": true
+ },
+ "cw-hurricane-hunters/w5": {
+  "words": [
+   "Coast",
+   "Evacuate",
+   "Flood",
+   "Higher Ground",
+   "Ocean",
+   "Storm Surge"
+  ],
+  "stories": [
+   "story-01-bowl",
+   "story-02-surge",
+   "story-03-hill",
+   "story-04-leave"
+  ],
+  "start": true
+ },
+ "cw-hurricane-hunters/w6": {
+  "words": [
+   "Emergency Kit",
+   "Family Plan",
+   "Go Early"
+  ],
+  "stories": [
+   "story-01-kit",
+   "story-02-plan",
+   "story-03-goearly",
+   "story-04-graduate"
+  ],
+  "start": true
+ }
+}

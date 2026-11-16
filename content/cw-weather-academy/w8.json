@@ -1,0 +1,151 @@
+{
+  "classId": "cw-weather-academy",
+  "week": 8,
+  "media": "/app/media/cw-weather-academy/w8/",
+  "study_guide": {
+    "title": "Cane Makes a Meteorologist",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog stood tall and proud. \"You've come so far, weather watcher! You've learned about the Sun, the water cycle, the clouds, the rain and snow, the wind, and the seasons. Do you know what that makes you? A <b>meteorologist</b>!\" \"A meteorologist is a weather scientist,\" said Cane. \"And a great one does <b>four</b> important things. Let me show you!\"",
+        "ask": null,
+        "img": "story-01-proud.jpg"
+      },
+      {
+        "text": "Cane looked up at the sky. \"First, a meteorologist <b>observes</b> — that means look closely and notice. What do the clouds look like? Is the wind blowing?\"",
+        "ask": "Can you look outside right now and tell me one thing about the weather?",
+        "img": "story-02-observe.jpg"
+      },
+      {
+        "text": "\"Second, a meteorologist <b>measures</b>,\" said Cane, pointing to his tools. \"We use a <b>thermometer</b> for temperature, a <b>rain gauge</b> for rain, a <b>wind vane</b> for wind direction, and an <b>anemometer</b> for wind speed. Tools help us get the exact numbers!\"",
+        "ask": null,
+        "img": "story-03-tools.jpg"
+      },
+      {
+        "text": "\"Third,\" said Cane, \"a meteorologist <b>predicts.</b> We study all our clues and put them together to make a <b>forecast</b> — an educated prediction of what the weather will do next. Puffy clouds and a warm breeze? Probably a nice day. Tall, dark clouds? A storm might be coming!\" \"And fourth — the most important job of all,\" said Cane, \"a meteorologist <b>keeps people safe.</b> We warn everyone so they can get ready. Know your safe spot, listen for warnings, and never ignore them.\" Cane's tail wagged so hard it was a blur. \"Observe, measure, predict, and keep people safe. You can do all four now! You watched the sky all these weeks. You learned the science. You are ready.\"",
+        "ask": "If you saw a big, tall, dark cloud growing, what would you predict is coming?",
+        "img": "story-04-predict.jpg"
+      },
+      {
+        "text": "Then Cane picked up a shiny badge. \"So by the power of Cane's Weather Academy, I hereby name you… a real <b>weather scientist!</b> Congratulations, graduate!\" \"The sky is yours to read now,\" said Cane, looking up at the clouds with his new partner. \"Keep watching, keep wondering, and keep everyone safe. You did it!\" \"Great job, weather watcher,\" said Cane. \"You are a Weather Academy <b>graduate</b> — and you are <b>weather-ready</b> forever!\"",
+        "ask": "Can you give a big proud cheer — HOORAY?",
+        "img": "story-05-graduate.jpg"
+      }
+    ],
+    "rule": "A meteorologist observes, measures, predicts, and keeps people safe — and now YOU can too!"
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "Forecast",
+        "def": "what the weather will do next"
+      },
+      {
+        "word": "Graduate",
+        "def": "someone who finished the course — that's you!"
+      },
+      {
+        "word": "Measure",
+        "def": "use a tool to find out how much"
+      },
+      {
+        "word": "Meteorologist",
+        "def": "A scientist who studies the weather"
+      },
+      {
+        "word": "Observe",
+        "def": "look closely and notice"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "What is a meteorologist?",
+        "choices": [
+          "a scientist who studies the weather and keeps people safe",
+          "a kind of rock",
+          "a race car driver"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "When a meteorologist looks closely at the sky, they are…",
+        "choices": [
+          "observing",
+          "sleeping",
+          "cooking"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What tool measures temperature?",
+        "choices": [
+          "thermometer",
+          "rain gauge",
+          "wind vane"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "An educated prediction about what the weather will do next is called a ______.",
+        "choices": [
+          "forecast",
+          "sandwich",
+          "shadow"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "(Review!) What is the engine that powers all our weather?",
+        "choices": [
+          "the Sun",
+          "the moon",
+          "a car engine"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "(Review!) What are clouds made of?",
+        "choices": [
+          "tiny water droplets",
+          "cotton",
+          "marshmallows"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "(Review!) Wind is moving ______.",
+        "choices": [
+          "air",
+          "water",
+          "sand"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What is a meteorologist's MOST important job?",
+        "choices": [
+          "keeping people safe",
+          "picking a favorite cloud",
+          "taking naps"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Name the four jobs of a meteorologist!",
+      "answer": "observe, measure, predict, keep people safe"
+    }
+  },
+  "game": {
+    "words": [
+      "Forecast",
+      "Graduate",
+      "Measure",
+      "Meteorologist",
+      "Observe"
+    ]
+  }
+}

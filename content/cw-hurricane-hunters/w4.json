@@ -1,0 +1,133 @@
+{
+  "classId": "cw-hurricane-hunters",
+  "week": 4,
+  "media": "/app/media/cw-hurricane-hunters/w4/",
+  "study_guide": {
+    "title": "Watch and Warning",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog was watching the weather report with his family. He heard the reporter use two important words: <b>watch</b>… and <b>warning</b>. \"Those two words sound alike,\" said Cane, \"but they mean different things. Let's learn them, because knowing the difference helps keep us safe.\" First, a <b>watch</b>. \"A watch means a storm is <b>possible</b>,\" said Cane. \"It's a heads-up. When there's a watch, we <b>watch</b> the sky and start <b>getting ready</b> — calm and early.\" Then, a <b>warning</b>. \"A warning is stronger,\" said Cane. \"A warning means a storm is <b>expected</b> — it's really coming. When there's a warning, we <b>take action now</b> and do our family plan.\" \"Here's an easy way to remember it,\" Cane said with a smile. \"Think about dinner. When a grown-up says, 'We might eat soon — go wash your hands,' that's like a <b>watch</b>. Get ready! But when they say, 'Dinner is ready NOW — come sit down,' that's like a <b>warning</b>. Do it right away!\" Cane practiced the rule until he knew it by heart: <b>Watch = get ready. Warning = act now.</b>",
+        "ask": "Can you say it? A watch means… get ready! And a warning means… act now! Which one means 'right now' — a watch or a warning? (A warning!)",
+        "img": "story-01-tv.jpg"
+      },
+      {
+        "text": "A few days later, the weather people said a hurricane was far out at sea. First came a <b>watch</b>. Cane's family stayed calm and checked their prep kit and their plan.",
+        "ask": null,
+        "img": "story-02-kit.jpg"
+      },
+      {
+        "text": "Then the watch became a <b>warning</b>. \"The storm is expected now,\" said Cane. \"Time to do our plan.\" His family didn't panic — they just followed the steps they had practiced, and everyone was safe.",
+        "ask": null,
+        "img": "story-03-dinner.jpg"
+      },
+      {
+        "text": "\"See?\" said Cane. \"When you know what the words mean, big storms aren't so scary. You just listen, and you know exactly what to do. Great job, weather watcher!\"",
+        "ask": null,
+        "img": "story-04-plan.jpg"
+      }
+    ],
+    "rule": "Watch = get ready. Warning = act now!"
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "expected",
+        "def": "it is going to happen"
+      },
+      {
+        "word": "family plan",
+        "def": "what we do and where we go to be safe"
+      },
+      {
+        "word": "possible",
+        "def": "it might happen"
+      },
+      {
+        "word": "prepare",
+        "def": "get ready ahead of time"
+      },
+      {
+        "word": "warning",
+        "def": "a storm is expected — act now"
+      },
+      {
+        "word": "watch",
+        "def": "a storm is possible — get ready"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "What does a WATCH mean?",
+        "choices": [
+          "a storm is possible — get ready",
+          "there is no storm at all",
+          "it is time for a nap"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What does a WARNING mean?",
+        "choices": [
+          "a storm is expected and coming — act now",
+          "the storm is over",
+          "go play at the beach"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Which word means the storm is coming and it's time to ACT?",
+        "choices": [
+          "warning",
+          "watch",
+          "whistle"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "When there is a warning, what should your family do?",
+        "choices": [
+          "follow the family plan right away",
+          "wait and do nothing",
+          "go outside to watch the storm"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "A watch is a bit like a grown-up saying…",
+        "choices": [
+          "\"we might eat soon — go wash your hands\"",
+          "\"the storm is over\"",
+          "\"let's take a nap\""
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Finish Cane's rule: \"Watch = get ready. Warning = ______.\"",
+        "choices": [
+          "act now",
+          "go to sleep",
+          "do nothing"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Say the whole rule out loud!",
+      "answer": "Watch = get ready. Warning = act now."
+    }
+  },
+  "game": {
+    "words": [
+      "expected",
+      "family plan",
+      "possible",
+      "prepare",
+      "warning",
+      "watch"
+    ]
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "classId": "cw-hurricane-hunters",
+  "week": 2,
+  "media": "/app/media/cw-hurricane-hunters/w2/",
+  "study_guide": {
+    "title": "The Calm in the Middle",
+    "pages": [
+      {
+        "text": "Last week, Cane the Weather Dog learned <b>where</b> hurricanes are born. This week, he wanted to know what a hurricane looks like <b>inside</b>. \"A big hurricane has <b>three parts</b>,\" said Cane. \"Let's meet them one at a time.\" First come the <b>rain bands</b>. \"These are long, curving arms of rain that spiral out from the storm,\" said Cane. He wiggled his paw in a big curl. \"They bring waves of rain — first a little, then a lot, then a little again.\"",
+        "ask": "Can you draw a big spiral in the air with your finger?",
+        "img": "story-01-rainbands.jpg"
+      },
+      {
+        "text": "Next, closer to the middle, is the <b>eyewall</b>. \"This is a ring of tall, booming thunderstorms,\" said Cane. \"And here is the important part — the eyewall has the <b>strongest winds</b> of the whole storm. It is the most powerful part.\"",
+        "ask": "Can you make a big wind sound — WHOOOSH — for the eyewall?",
+        "img": "story-02-eyewall.jpg"
+      },
+      {
+        "text": "And then… right in the very center… something surprising. \"It goes <b>calm</b>,\" Cane whispered. \"This is the <b>eye</b>. In the eye, the air sinks down, so it is quiet. The wind slows, and sometimes you can even see <b>blue sky</b>.\" \"But listen closely, because this is Cane's big safety rule,\" said Cane, sitting up tall. \"When the eye passes over, it gets calm — but the storm is <b>NOT over</b>. On the other side of the eye is the eyewall <b>again</b>, with all that strong wind, coming back.\"",
+        "ask": "Isn't that strange? A calm, quiet spot right in the middle of a giant storm!",
+        "img": "story-03-eye.jpg"
+      },
+      {
+        "text": "\"So if it suddenly gets calm during a storm, we do <b>not</b> run outside. We <b>stay inside</b> and wait until a grown-up says it is really, truly safe.\" Cane smiled. \"Now you know a hurricane inside and out — the rain bands, the eyewall, and the calm eye. And you know the smart, safe thing to do. You're a real weather watcher!\"",
+        "ask": "What do we do if it gets suddenly calm? (Stay inside!)",
+        "img": "story-04-inside.jpg"
+      }
+    ],
+    "rule": "The eye is calm — but the eyewall around it has the strongest winds!"
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "calm",
+        "def": "quiet and still, with little or no wind"
+      },
+      {
+        "word": "eye",
+        "def": "the calm, quiet center of a hurricane"
+      },
+      {
+        "word": "eyewall",
+        "def": "the ring around the eye — strongest winds"
+      },
+      {
+        "word": "rain bands",
+        "def": "curving arms of rain that spiral out"
+      },
+      {
+        "word": "spiral",
+        "def": "a curving, winding shape"
+      },
+      {
+        "word": "thunderstorm",
+        "def": "heavy rain and strong wind, with thunder and lightning"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "What is the calm, quiet center of a hurricane called?",
+        "choices": [
+          "the eye",
+          "the tail",
+          "the door"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Which part of a hurricane has the STRONGEST winds?",
+        "choices": [
+          "the eyewall (the ring around the eye)",
+          "the calm eye",
+          "the parking lot"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What are the long, curving arms of rain that spiral out called?",
+        "choices": [
+          "rain bands",
+          "rubber bands",
+          "roads"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Why is the eye calm?",
+        "choices": [
+          "the air sinks there, so it is quiet",
+          "it is made of pillows",
+          "it is nighttime"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "During a storm it suddenly gets calm. What should you do?",
+        "choices": [
+          "stay inside — the storm may not be over",
+          "run outside to play",
+          "take a nap on the porch"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "When the calm eye passes over, what comes next?",
+        "choices": [
+          "the eyewall again, from the other side",
+          "nothing — the storm is done",
+          "a rainbow parade"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Name the three parts of a hurricane!",
+      "answer": "eye, eyewall, rain bands"
+    }
+  },
+  "game": {
+    "words": [
+      "calm",
+      "eye",
+      "eyewall",
+      "rain bands",
+      "spiral",
+      "thunderstorm"
+    ]
+  }
+}

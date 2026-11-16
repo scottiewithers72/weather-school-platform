@@ -1,0 +1,132 @@
+{
+  "classId": "cw-storms-101",
+  "week": 2,
+  "media": "/app/media/cw-storms-101/w2/",
+  "study_guide": {
+    "title": "Cane and the Spinning Wind",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog watched the sky from his safe red truck. The clouds were dark and low. Then Cane saw something spinning. Down from the cloud came a <b>funnel</b> — skinny at the bottom, wide at the top.",
+        "ask": null,
+        "img": "story-01-truck.jpg"
+      },
+      {
+        "text": "\"That is a <b>tornado</b>!\" said Cane. \"A tornado is a spinning column of very fast wind.\" A tornado spins like a top. The wind is very strong. But Cane knew exactly what to do. \"When there is a tornado <b>warning</b>,\" said Cane, \"we go to our <b>safe room</b>!\"",
+        "ask": "Can you spin your finger in a little circle? Round and round — just like a tornado!",
+        "img": "story-02-run.jpg"
+      },
+      {
+        "text": "Cane hurried to the safest spot: the <b>lowest floor</b>, the <b>smallest room</b> in the middle of the house, far away from any windows. Then Cane did one more thing. He <b>covered his head</b> with his paws to keep it safe. Cane stayed there, calm and cozy, until a grown-up said the tornado was gone.",
+        "ask": null,
+        "img": "story-03-lay.jpg"
+      },
+      {
+        "text": "Soon the spinning wind blew away. Cane peeked out and wagged his tail. \"Great job, weather helper,\" said Cane. \"You know just what to do. You are <b>weather-ready</b>!\"",
+        "ask": null,
+        "img": "story-04-rainbow.jpg"
+      }
+    ],
+    "rule": "Lowest floor, smallest room, cover your head!"
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "cloud",
+        "def": "where rain and storms come from"
+      },
+      {
+        "word": "funnel",
+        "def": "the cone shape of a tornado"
+      },
+      {
+        "word": "safe room",
+        "def": "the safest place in a building during a tornado"
+      },
+      {
+        "word": "sky",
+        "def": "the big space above us where weather happens"
+      },
+      {
+        "word": "spin",
+        "def": "to turn around and around, like a top"
+      },
+      {
+        "word": "tornado",
+        "def": "a spinning column of very fast wind"
+      },
+      {
+        "word": "warning",
+        "def": "experts telling us to go to our safe spot NOW"
+      },
+      {
+        "word": "wind",
+        "def": "moving air you can feel"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "A tornado is a spinning column of very fast ______.",
+        "choices": [
+          "wind",
+          "water",
+          "sand"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What shape is a tornado?",
+        "choices": [
+          "a flat pancake",
+          "a funnel (skinny at the bottom)",
+          "a square"
+        ],
+        "answer": 1
+      },
+      {
+        "q": "A tornado spins like a ______.",
+        "choices": [
+          "top",
+          "rock",
+          "puddle"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Where do you go when there is a tornado warning?",
+        "choices": [
+          "outside to watch",
+          "the lowest floor, smallest room in the middle",
+          "next to a big window"
+        ],
+        "answer": 1
+      },
+      {
+        "q": "What do you do with your head in your safe spot?",
+        "choices": [
+          "cover it with your arms",
+          "stick it out the window",
+          "nothing"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Finish Cane's rule: \"Lowest floor, smallest room, ______ ______ ______!\"",
+      "answer": "cover your head!"
+    }
+  },
+  "game": {
+    "words": [
+      "cloud",
+      "funnel",
+      "safe room",
+      "sky",
+      "spin",
+      "tornado"
+    ]
+  }
+}

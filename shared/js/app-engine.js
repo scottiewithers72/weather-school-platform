@@ -360,110 +360,241 @@
         'This material publishes with the lesson — check back soon.')}</div>`;
       return;
     }
-    if (kind === 'study_guide') {
-      el.innerHTML = `<div class="study">${(data.sections || []).map(s =>
-        `<h3>${s.heading}</h3><p>${s.text}</p>`).join('')}</div>`;
-    }
+    if (kind === 'study_guide') renderStudy(el, data, l);
     if (kind === 'flashcards') renderFlashcards(el, data, l);
     if (kind === 'quiz') renderQuiz(el, data, l);
     if (kind === 'game') renderGame(el, data, l);
   }
 
-  // ---------- flash cards ----------
-  function renderFlashcards(el, data, l) {
-    let i = 0, flipped = false;
-    const cards = data.cards || [];
+  // ---------- shared helpers for practice screens ----------
+  const esc = (t) => String(t ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const plain = (html) => { const d = document.createElement('div'); d.innerHTML = html; return d.textContent; };
+  function speak(text) {
+    try {
+      if (!('speechSynthesis' in window)) return;
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.rate = kid ? 0.88 : 1; u.pitch = 1.05;
+      speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+  const speakBtn = (id) => ('speechSynthesis' in window)
+    ? `<button class="speak" id="${id}" aria-label="Read aloud">🔊 ${say('Read to me', 'Listen')}</button>` : '';
+  const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const cheers = ['Pawsome! 🐾', 'You got it! ⭐', 'Weather genius! 🌦️', 'Cane is wagging! 🐕', 'Super smart! 🌟'];
+
+  // ---------- study guide: illustrated storybook ----------
+  function renderStudy(el, data, l) {
+    // legacy shape: { sections:[{heading,text}] }
+    if (!data.pages) {
+      el.innerHTML = `<div class="study">${(data.sections || []).map(s => `<h3>${s.heading}</h3><p>${s.text}</p>`).join('')}</div>`;
+      return;
+    }
+    const pages = data.pages; let i = 0;
     const draw = () => {
+      const pg = pages[i], last = i === pages.length - 1;
       el.innerHTML = `
-        <div class="flash ${flipped ? 'flip' : ''}" id="flashCard">
-          <div class="face">${flipped ? cards[i].back : cards[i].front}</div>
-          <span class="hint">${say('Tap to flip!', 'Tap card to flip')} · ${i + 1}/${cards.length}</span>
-        </div>
-        <div class="row">
-          <button class="cta ghost" id="prevC">←</button>
-          <button class="cta" id="nextC">${i === cards.length - 1 ? say('All done! 🌟', 'Finish deck') : 'Next →'}</button>
+        <div class="book">
+          <p class="book-title">📖 ${esc(data.title || '')}</p>
+          <img class="book-art" src="${pg.img}" alt="">
+          <p class="book-text">${pg.text}</p>
+          ${pg.ask ? `<div class="ask"><b>${say('Your turn!', 'Ask!')}</b> ${esc(pg.ask)}</div>` : ''}
+          ${last && data.rule ? `<div class="rule">🐾 ${say("Cane's big rule", 'The big rule')}<strong>${esc(data.rule)}</strong></div>` : ''}
+          <div class="book-nav">
+            <button class="cta ghost" id="bPrev" ${i === 0 ? 'disabled' : ''}>←</button>
+            ${speakBtn('bSpeak')}
+            <button class="cta" id="bNext">${last ? say('The end! 🌈', 'Finish') : 'Next →'}</button>
+          </div>
+          <p class="hint">${say('Page', 'Page')} ${i + 1} of ${pages.length}</p>
         </div>`;
-      $('#flashCard').onclick = () => { flipped = !flipped; draw(); };
-      $('#prevC').onclick = () => { i = Math.max(0, i - 1); flipped = false; draw(); };
+      $('#bPrev').onclick = () => { if (i > 0) { i--; draw(); } };
+      $('#bNext').onclick = () => { if (last) { speechSynthesis?.cancel?.(); i = 0; draw(); toast(say('Great reading! 📚', 'Reading complete')); } else { i++; draw(); } };
+      const sp = $('#bSpeak'); if (sp) sp.onclick = () => speak(plain(pg.text) + (pg.ask ? ' ' + pg.ask : '') + (last && data.rule ? ' ' + data.rule : ''));
+    };
+    draw();
+  }
+
+  // ---------- flash cards: picture front, word + meaning back ----------
+  function renderFlashcards(el, data, l) {
+    const cards = data.cards || [];
+    if (!cards.length) { el.innerHTML = '<div class="placeholder">No cards yet.</div>'; return; }
+    let i = 0, flipped = false;
+    const draw = () => {
+      const c = cards[i], last = i === cards.length - 1;
+      el.innerHTML = `
+        <div class="fc ${flipped ? 'flipped' : ''}" id="fc" role="button" tabindex="0">
+          ${c.front || c.img ? `
+            <div class="fc-side fc-front">
+              <img src="${c.front || c.img}" alt="">
+              <span class="fc-q">${say("What's this weather word? 🤔", 'What word is this?')}</span>
+            </div>
+            <div class="fc-side fc-back">
+              <img src="${c.back || c.front || c.img}" alt="">
+              <span class="fc-word">${esc(c.word)}</span>
+              <span class="fc-def">${esc(c.def)}</span>
+            </div>` : `
+            <div class="fc-side fc-front"><span class="fc-word">${c.front}</span></div>
+            <div class="fc-side fc-back"><span class="fc-def">${c.back}</span></div>`}
+        </div>
+        <p class="hint">${say('Tap the card to flip it!', 'Tap card to flip')} · ${i + 1}/${cards.length}</p>
+        <div class="book-nav">
+          <button class="cta ghost" id="prevC" ${i === 0 ? 'disabled' : ''}>←</button>
+          ${c.word ? speakBtn('fcSpeak') : ''}
+          <button class="cta" id="nextC">${last ? say('All done! 🌟', 'Finish deck') : 'Next →'}</button>
+        </div>`;
+      const flip = () => { flipped = !flipped; $('#fc').classList.toggle('flipped', flipped); if (flipped && c.word) speak(c.word); };
+      $('#fc').onclick = flip;
+      $('#fc').onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } };
+      $('#prevC').onclick = () => { if (i > 0) { i--; flipped = false; draw(); } };
+      const sp = $('#fcSpeak'); if (sp) sp.onclick = () => speak(`${c.word}. ${c.def}`);
       $('#nextC').onclick = () => {
-        if (i === cards.length - 1) saveProgress(l, { flashcardsDone: true }, say('Card champion! 🃏', 'Deck complete'));
+        if (last) { saveProgress(l, { flashcardsDone: true }, say('Card champion! 🃏', 'Deck complete')); i = 0; flipped = false; draw(); }
         else { i++; flipped = false; draw(); }
       };
     };
-    cards.length ? draw() : el.innerHTML = '<div class="placeholder">No cards yet.</div>';
+    draw();
   }
 
-  // ---------- quiz ----------
+  // ---------- quiz: start screen, cheers, finish screen ----------
   function renderQuiz(el, data, l) {
     const qs = data.questions || [];
-    let i = 0, right = 0;
+    if (!qs.length) { el.innerHTML = '<div class="placeholder">No quiz yet.</div>'; return; }
+    let i = -1, right = 0, picked = new Set();
     const timed = !kid && data.timedSeconds;
     const draw = () => {
+      if (i === -1) {
+        el.innerHTML = `<div class="stage">
+          ${data.start ? `<img class="stage-art" src="${data.start}" alt="">` : ''}
+          <h3>${esc(data.title || 'Quiz time!')}</h3>
+          <p>${say(`${qs.length} questions. Cane will cheer you on!`, `${qs.length} questions`)}</p>
+          <button class="cta" id="go">${say("Let's go! 🐾", 'Start quiz')}</button></div>`;
+        $('#go').onclick = () => { i = 0; draw(); };
+        return;
+      }
       if (i >= qs.length) {
         const score = Math.round(right / qs.length * 100);
-        el.innerHTML = `<div class="placeholder big">
-          ${score >= 70 ? say('🎉 WOW! Cane is SO proud!', '🎉 Passed!') : say('Good try! Watch again and re-quiz!', 'Keep studying — try again!')}
-          <strong>${score}%</strong></div>
-          <button class="cta" id="redo">${say('Play again', 'Retake quiz')}</button>`;
+        const stars = right === qs.length ? 3 : score >= 70 ? 2 : 1;
+        el.innerHTML = `<div class="stage">
+          ${data.finish ? `<img class="stage-art" src="${data.finish}" alt="">` : ''}
+          <div class="stars">${'⭐'.repeat(stars)}${'☆'.repeat(3 - stars)}</div>
+          <h3>${score >= 70 ? say(data.finalWeek ? '🎓 You did it, graduate!' : '🎉 WOW! Cane is SO proud!', '🎉 Passed!') : say('Good try! Watch again and play again!', 'Keep studying — try again!')}</h3>
+          <p><strong>${right} of ${qs.length}</strong> ${say('right!', 'correct')}</p>
+          ${data.bonus ? `<div class="ask"><b>${say('Bonus — say it out loud!', 'Bonus')}</b> ${esc(data.bonus.prompt)}
+             <button class="linkbtn" id="reveal">${say('Show me', 'Show answer')}</button><span id="bAns" hidden> <strong>${esc(data.bonus.answer)}</strong></span></div>` : ''}
+          <button class="cta" id="redo">${say('Play again', 'Retake quiz')}</button></div>`;
         $('#redo').onclick = () => { i = 0; right = 0; draw(); };
+        const rv = $('#reveal'); if (rv) rv.onclick = () => { $('#bAns').hidden = false; rv.remove(); speak(data.bonus.answer); };
         saveProgress(l, { quizScore: score }, score >= 70 ? say('Quiz star! ⭐', `Quiz passed: ${score}%`) : null);
         return;
       }
-      const q = qs[i];
+      // Shuffle answer order each time (most printed answers are "a"); keep True/False in order.
+      const src = qs[i];
+      const keep = src.choices.length === 2 && /^(true|yes)$/i.test(src.choices[0]);
+      const order = keep ? src.choices.map((_, k) => k) : shuffle(src.choices.map((_, k) => k));
+      const q = { ...src, choices: order.map(k => src.choices[k]),
+        answer: src.answer != null ? order.indexOf(src.answer) : undefined,
+        answers: src.answers ? src.answers.map(a => order.indexOf(a)) : undefined };
+      picked = new Set();
       el.innerHTML = `
         <div class="quiz">
-          <p class="qq">${i + 1}. ${q.q}</p>
-          ${q.choices.map((c, ci) => `<button class="choice" data-ci="${ci}">${c}</button>`).join('')}
-          <p class="hint">${i + 1} of ${qs.length}${timed ? ' · ⏱️ timed practice' : ''}</p>
+          <p class="qq">${i + 1}. ${esc(q.q)}</p>
+          ${q.multi ? `<p class="hint">${say(`Tap all ${q.answers.length}!`, `Select all that apply (${q.answers.length})`)}</p>` : ''}
+          <div class="choices ${q.choices.length === 4 ? 'four' : ''}">
+          ${q.choices.map((c, ci) => `<button class="choice" data-ci="${ci}">${esc(c)}</button>`).join('')}
+          </div>
+          ${q.multi ? `<button class="cta" id="check" disabled>${say('Check! ✅', 'Check answer')}</button>` : ''}
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <p class="hint">${i + 1} of ${qs.length}${timed ? ' · ⏱️ timed practice' : ''}</p>${speakBtn('qSpeak')}
+          </div>
+          <p class="cheer" id="cheer"></p>
         </div>`;
-      document.querySelectorAll('.choice').forEach(b => b.onclick = () => {
-        const correct = Number(b.dataset.ci) === q.answer;
-        if (correct) right++;
-        b.classList.add(correct ? 'right' : 'wrong');
-        setTimeout(() => { i++; draw(); }, 650);
-      });
+      const sp = $('#qSpeak'); if (sp) sp.onclick = () => speak(q.q + '. ' + q.choices.map(c => c.replace(/[^\p{L}\p{N}\s'-]/gu, '')).join(', '));
+      const next = (ok) => {
+        if (ok) { right++; $('#cheer').textContent = cheers[Math.floor(Math.random() * cheers.length)]; }
+        else $('#cheer').textContent = say('Nice try! 🐾', 'Not quite.');
+        setTimeout(() => { i++; draw(); }, ok ? 900 : 1300);
+      };
+      const btns = document.querySelectorAll('.choice');
+      if (!q.multi) {
+        btns.forEach(b => b.onclick = () => {
+          btns.forEach(x => x.disabled = true);
+          const ok = Number(b.dataset.ci) === q.answer;
+          b.classList.add(ok ? 'right' : 'wrong');
+          if (!ok) btns[q.answer].classList.add('right');
+          next(ok);
+        });
+      } else {
+        btns.forEach(b => b.onclick = () => {
+          const ci = Number(b.dataset.ci);
+          picked.has(ci) ? picked.delete(ci) : picked.add(ci);
+          b.classList.toggle('picked', picked.has(ci));
+          $('#check').disabled = picked.size === 0;
+        });
+        $('#check').onclick = () => {
+          const want = new Set(q.answers);
+          const ok = picked.size === want.size && [...picked].every(x => want.has(x));
+          btns.forEach((b, ci) => { b.disabled = true; if (want.has(ci)) b.classList.add('right'); else if (picked.has(ci)) b.classList.add('wrong'); });
+          $('#check').disabled = true;
+          next(ok);
+        };
+      }
     };
-    qs.length ? draw() : el.innerHTML = '<div class="placeholder">No quiz yet.</div>';
+    draw();
   }
 
-  // ---------- game: memory match built from flashcards/pairs ----------
+  // ---------- game: picture-word memory match ----------
   function renderGame(el, data, l) {
-    const pairs = (data.pairs || data.cards || []).slice(0, kid ? 6 : 8);
+    let pairs = data.pairs || (data.cards || []).map(c => ({ a: c.front, b: c.back }));
+    pairs = pairs.slice(0, kid ? 6 : 8);
     if (!pairs.length) { el.innerHTML = '<div class="placeholder">No game yet.</div>'; return; }
-    let deck = [];
-    pairs.forEach((p, i) => {
-      deck.push({ id: i, label: p.front || p.a }, { id: i, label: p.back || p.b });
-    });
-    deck.sort(() => Math.random() - 0.5);
-    let open = [], matched = new Set(), lock = false;
+    const deck = shuffle(pairs.flatMap((p, id) => [
+      p.img ? { id, img: p.img } : { id, label: p.a },
+      { id, label: p.word || p.b }
+    ]));
+    let open = [], matched = new Set(), lock = false, tries = 0;
+    const start = () => {
+      el.innerHTML = `<div class="stage">
+        ${data.start ? `<img class="stage-art" src="${data.start}" alt="">` : ''}
+        <h3>${say('Weather Word Match! 🐾', 'Memory match')}</h3>
+        <p>${say('Flip two cards. Find each picture and its word!', 'Match each picture with its word')}</p>
+        <button class="cta" id="go">${say('Play! 🎮', 'Start')}</button></div>`;
+      $('#go').onclick = draw;
+    };
+    const tile = (c, idx) => {
+      const show = matched.has(c.id) || open.includes(idx);
+      const face = c.img ? `<img src="${c.img}" alt="">` : `<span>${esc(c.label)}</span>`;
+      return `<button class="mem ${matched.has(c.id) ? 'matched' : ''} ${open.includes(idx) ? 'open' : ''} ${c.img ? 'pic' : 'word'}"
+        data-idx="${idx}">${show ? face : '<span class="paw">⛅</span>'}</button>`;
+    };
     const draw = () => {
-      el.innerHTML = `<p class="hint">${say('Match the pairs! 🐾', 'Match each term with its meaning')}</p>
-        <div class="memory ${kid ? 'kidgrid' : ''}">
-          ${deck.map((c, idx) => `
-            <button class="mem ${matched.has(c.id) ? 'matched' : ''} ${open.includes(idx) ? 'open' : ''}"
-              data-idx="${idx}">${matched.has(c.id) || open.includes(idx) ? c.label : '❓'}</button>`).join('')}
-        </div>`;
+      el.innerHTML = `<p class="hint">${say('Find the matches!', 'Match the pairs')} · ${matched.size}/${pairs.length} · ${tries} ${say('tries', 'tries')}</p>
+        <div class="memory ${kid ? 'kidgrid' : ''}">${deck.map(tile).join('')}</div>`;
       document.querySelectorAll('.mem').forEach(b => b.onclick = () => {
         const idx = Number(b.dataset.idx);
         if (lock || open.includes(idx) || matched.has(deck[idx].id)) return;
         open.push(idx);
+        if (!deck[idx].img) speak(deck[idx].label);
         if (open.length === 2) {
-          lock = true;
+          lock = true; tries++;
           const [a, b2] = open;
           setTimeout(() => {
-            if (deck[a].id === deck[b2].id) {
-              matched.add(deck[a].id);
-              if (matched.size === pairs.length) {
-                saveProgress(l, { gameDone: true }, say('You matched them ALL! 🏆', 'Game complete!'));
-              }
-            }
-            open = []; lock = false; draw();
-          }, 700);
+            if (deck[a].id === deck[b2].id) matched.add(deck[a].id);
+            open = []; lock = false;
+            if (matched.size === pairs.length) {
+              el.innerHTML = `<div class="stage">
+                ${data.finish ? `<img class="stage-art" src="${data.finish}" alt="">` : ''}
+                <h3>${say('You matched them ALL! 🏆', 'Game complete!')}</h3>
+                <p>${tries} ${say('tries', 'tries')}</p>
+                <button class="cta" id="again">${say('Play again', 'Play again')}</button></div>`;
+              $('#again').onclick = () => renderGame(el, data, l);
+              saveProgress(l, { gameDone: true }, say('Match master! 🏆', 'Game complete!'));
+            } else draw();
+          }, 800);
         }
         draw();
       });
     };
-    draw();
+    start();
   }
 
   // ---------- progress ----------

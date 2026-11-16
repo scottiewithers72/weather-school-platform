@@ -1,0 +1,156 @@
+{
+  "classId": "cw-weather-academy",
+  "week": 4,
+  "media": "/app/media/cw-weather-academy/w4/",
+  "study_guide": {
+    "title": "Cane Reads the Clouds",
+    "pages": [
+      {
+        "text": "Cane the Weather Dog flopped onto the soft green grass and looked up at the sky. \"Do you know my favorite thing to do? <b>Read the clouds!</b>\" \"First,\" said Cane, \"here's a secret. Clouds are not made of cotton or fluff. They are made of <b>millions of tiny water droplets</b> — the same droplets from the water cycle, all floating together!\" \"Now, let's learn their names. Clouds come in different shapes, and each shape tells us something.\"",
+        "ask": "Can you point up at a cloud in the sky?",
+        "img": "pic-cloud.jpg"
+      },
+      {
+        "text": "Cane pointed to a big puffy cloud. \"That fluffy one, like a cotton ball, is a <b>cumulus</b> cloud. Cumulus clouds usually mean a nice, fair day. Perfect for playing outside!\"",
+        "ask": null,
+        "img": "pic-cumulus.jpg"
+      },
+      {
+        "text": "Then Cane pointed low and wide. \"See that flat, gray one, spreading across the whole sky? That's a <b>stratus</b> cloud. Stratus clouds can bring a little drizzle, so you might want an umbrella.\"",
+        "ask": "Can you spread your arms out wide and flat, like a stratus cloud?",
+        "img": "pic-stratus.jpg"
+      },
+      {
+        "text": "Cane looked way, way up high. \"And those thin, wispy ones, like feathers? Those are <b>cirrus</b> clouds. They are very high up, and usually mean fair weather too.\" \"Cumulus, stratus, cirrus,\" said Cane happily. \"Puffy, flat, and wispy. Once you know them, you can read the sky like a real weather scientist!\"",
+        "ask": null,
+        "img": "pic-cirrus.jpg"
+      },
+      {
+        "text": "Then Cane's ears perked up. Off in the distance, a cloud was growing <b>tall and dark</b>. \"Uh oh,\" said Cane. \"That big, tall, dark cloud is a <b>storm cloud</b>. When you see one growing like that, a thunderstorm might be coming.\" Cane stood up. \"So here's the smart thing to do. When a storm cloud grows tall and dark, tell a grown-up and be ready to go inside. Remember — when thunder roars, go indoors!\"",
+        "ask": "Can you name the tall, dark cloud that brings storms?",
+        "img": "pic-storm-cloud.jpg"
+      },
+      {
+        "text": "The tall cloud drifted far away, and the sky filled with puffy cumulus again. Cane wagged his tail. \"The clouds are the sky's weather report. And now, YOU can read them!\" \"Great job, weather watcher,\" said Cane. \"You learned to read the clouds. You are <b>weather-ready</b>!\"",
+        "ask": null,
+        "img": "pic-cumulus.jpg"
+      }
+    ],
+    "rule": "Clouds are made of tiny water droplets, and their shape tells us what weather is coming."
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "Cirrus",
+        "def": "thin wispy clouds, very high up"
+      },
+      {
+        "word": "Cloud",
+        "def": "where rain and storms come from"
+      },
+      {
+        "word": "Cumulus",
+        "def": "puffy cotton-ball clouds; fair weather"
+      },
+      {
+        "word": "Storm cloud",
+        "def": "tall and dark; a storm may be coming"
+      },
+      {
+        "word": "Stratus",
+        "def": "flat gray layer; can drizzle"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "What are clouds made of?",
+        "choices": [
+          "millions of tiny water droplets",
+          "cotton and fluff",
+          "marshmallows"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What are puffy, cotton-ball clouds called?",
+        "choices": [
+          "cumulus",
+          "pizza",
+          "cirrus"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Flat, gray clouds that cover the whole sky are called ______.",
+        "choices": [
+          "stratus",
+          "cumulus",
+          "sunshine"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Thin, wispy clouds very high in the sky are called ______.",
+        "choices": [
+          "cirrus",
+          "stratus",
+          "storm clouds"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Puffy white cumulus clouds usually mean…",
+        "choices": [
+          "a nice, fair day",
+          "a blizzard",
+          "nighttime"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What does a tall, dark storm cloud tell you to do?",
+        "choices": [
+          "go inside",
+          "go swimming",
+          "keep playing outside"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Clouds are the same water droplets from which cycle?",
+        "choices": [
+          "the water cycle",
+          "the bicycle",
+          "no cycle at all"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Match the sky: flat and gray covering everything might bring…",
+        "choices": [
+          "a little drizzle",
+          "bright sunshine only",
+          "snow every time"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Name the three cloud shapes!",
+      "answer": "cumulus, stratus, cirrus"
+    }
+  },
+  "game": {
+    "words": [
+      "Cirrus",
+      "Cloud",
+      "Cumulus",
+      "Storm cloud",
+      "Stratus"
+    ]
+  }
+}

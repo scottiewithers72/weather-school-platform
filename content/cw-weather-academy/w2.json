@@ -1,0 +1,156 @@
+{
+  "classId": "cw-weather-academy",
+  "week": 2,
+  "media": "/app/media/cw-weather-academy/w2/",
+  "study_guide": {
+    "title": "Cane and the Great Big Star",
+    "pages": [
+      {
+        "text": "One bright morning, warm sunshine tickled Cane the Weather Dog's nose. He opened one eye, then the other, and smiled. \"Good morning, Sun!\" said Cane. \"Do you know what the <b>Sun</b> really is? It's a <b>star</b> — a giant ball of hot, glowing gas. It's our very own star!\"",
+        "ask": null,
+        "img": "story-01-morning.jpg"
+      },
+      {
+        "text": "Cane stretched in the warm light. \"The Sun is far, far away — millions of miles. But it is so big and so bright that its warmth reaches all the way here to you and me.\" \"Here's the best part,\" said Cane. \"The Sun is the <b>engine</b> of all our weather. That means the Sun makes the weather go!\" \"How?\" Cane wagged his tail. \"The Sun sends down <b>energy</b> we can feel as <b>heat</b>. It warms the ground. It warms the water. It warms the air. And when the air gets warm, the weather starts to move!\"",
+        "ask": "Can you feel warm sunshine on your hand right now?",
+        "img": "story-02-feelsun.jpg"
+      },
+      {
+        "text": "Cane pointed a paw at a puddle. \"Watch — the Sun even dries up puddles. Its heat turns the water into the air, little by little.\"",
+        "ask": "Have you ever seen a puddle disappear on a sunny day?",
+        "img": "story-03-puddle.jpg"
+      },
+      {
+        "text": "Then Cane noticed his shadow on the ground. \"Look! A <b>shadow</b>! The Sun's light travels in a straight line, so when I stand in the way, I make a shadow. In the morning it's long… and later it moves. My shadow is proof the Sun is shining on me!\" \"And the Sun gives us <b>day and night</b>,\" said Cane. \"Our Earth spins like a slow, giant top. When our side faces the Sun — it's <b>day</b>, bright and warm. When our side turns away — it's <b>night</b>, dark and cool.\"",
+        "ask": "Can you spin slowly like the Earth?",
+        "img": "story-04-shadow.jpg"
+      },
+      {
+        "text": "Cane put on his little sun hat and sunglasses. \"The Sun is wonderful — but it's powerful, too. So I wear my hat and sunglasses, put on sunscreen, and drink my water. And I NEVER look straight at the Sun. We enjoy it — we don't stare at it!\" \"Great job, weather watcher,\" said Cane. \"You met the great big star that powers our whole world. You are <b>weather-ready</b>!\"",
+        "ask": null,
+        "img": "story-05-sunsafe.jpg"
+      }
+    ],
+    "rule": "The Sun is a giant star, and its heat is the engine that powers all our weather."
+  },
+  "flashcards": {
+    "cards": [
+      {
+        "word": "Day & night",
+        "def": "day faces the Sun; night faces away"
+      },
+      {
+        "word": "Energy",
+        "def": "the power to make things happen"
+      },
+      {
+        "word": "Heat",
+        "def": "warmth we feel from the Sun"
+      },
+      {
+        "word": "Star",
+        "def": "A huge ball of hot, glowing gas"
+      },
+      {
+        "word": "Sun",
+        "def": "a star in the sky that emits light and heat energy"
+      }
+    ]
+  },
+  "quiz": {
+    "title": "What Did You Learn?",
+    "start": "start.jpg",
+    "questions": [
+      {
+        "q": "What is the Sun?",
+        "choices": [
+          "a giant star",
+          "a big cloud",
+          "a kind of rock"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "The Sun gives Earth light and ______.",
+        "choices": [
+          "heat",
+          "snow",
+          "rain only"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "The Sun is the ______ of our weather — it makes the weather go.",
+        "choices": [
+          "engine",
+          "enemy",
+          "nap"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "What does the Sun heat up?",
+        "multi": true,
+        "choices": [
+          "☀️ the land",
+          "💧 the water",
+          "💨 the air",
+          "🍎 nothing"
+        ],
+        "answers": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "q": "When your side of Earth faces the Sun, it is ______.",
+        "choices": [
+          "day",
+          "night",
+          "winter only"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "A shadow appears when something blocks the Sun's ______.",
+        "choices": [
+          "light",
+          "sound",
+          "smell"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Which is a smart way to be Sun-Safe?",
+        "choices": [
+          "wear sunscreen, a hat, and sunglasses",
+          "stare right at the Sun",
+          "skip your water on a hot day"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "True or false: You should never look straight at the Sun.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": 0
+      }
+    ],
+    "bonus": {
+      "prompt": "Finish Cane's big idea: \"The Sun is a ______ that powers our weather.\"",
+      "answer": "star"
+    }
+  },
+  "game": {
+    "words": [
+      "Day & night",
+      "Energy",
+      "Heat",
+      "Star",
+      "Sun"
+    ]
+  }
+}
