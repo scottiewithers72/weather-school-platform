@@ -21,10 +21,10 @@ export function unlockedPositions({ releaseMode, dripStart, lessonCount, now = n
   if (releaseMode === 'all_now') {
     return Array.from({ length: lessonCount }, (_, i) => i + 1);
   }
-  const start = new Date(dripStart + 'T00:00:00');
-  if (now < start) return [];
-  const weeksElapsed = Math.floor((now - start) / (7 * 864e5));
-  const unlocked = Math.min(weeksElapsed + 1, lessonCount);
+  // Calendar days in Eastern time, so a new week opens at midnight ET.
+  const days = daysBetween(dripStart, dateInZone(now));
+  if (days < 0) return [];
+  const unlocked = Math.min(Math.floor(days / 7) + 1, lessonCount);
   return Array.from({ length: unlocked }, (_, i) => i + 1);
 }
 
@@ -32,9 +32,11 @@ export function nextUnlockDate({ releaseMode, dripStart, lessonCount, now = new 
   if (releaseMode === 'all_now') return null;
   const open = unlockedPositions({ releaseMode, dripStart, lessonCount, now }).length;
   if (open >= lessonCount) return null;
-  const start = new Date(dripStart + 'T00:00:00');
-  const next = new Date(start.getTime() + open * 7 * 864e5);
-  return next.toISOString().slice(0, 10);
+  return addDays(dripStart, open * 7);
+}
+
+function daysBetween(a, b) {
+  return Math.round((Date.parse(b + 'T12:00:00Z') - Date.parse(a + 'T12:00:00Z')) / 864e5);
 }
 
 // ---------- Engagement discount trigger ----------
@@ -82,6 +84,15 @@ export function zonedToUtc(dateStr, timeStr, tz = 'America/New_York') {
   t = guess - tzOffsetMs(t, tz); // second pass handles DST boundaries
   return new Date(t);
 }
+// Rolling enrollment: a family's Week 1 opens on the later of the class's
+// first-cohort date and the day they redeem (Eastern time). Weeks then unlock
+// every 7 days from that personal start date.
+export function personalDripStart(cohortStart, now = new Date()) {
+  const today = dateInZone(now);
+  if (!cohortStart) return today;
+  return cohortStart > today ? cohortStart : today;
+}
+
 export function dateInZone(now, tz = 'America/New_York') {
   return new Intl.DateTimeFormat('en-CA', { timeZone: tz }).format(now); // YYYY-MM-DD
 }

@@ -1,7 +1,7 @@
 // Unit tests for the pure business logic (functions/lib/core.js).
 // Run: node tests/run-tests.js
 import {
-  generateAccessCode, unlockedPositions, nextUnlockDate,
+  generateAccessCode, unlockedPositions, nextUnlockDate, personalDripStart,
   discountEligible, isGraduated, licenseExpiry,
   zonedToUtc, nextSession
 } from '../functions/lib/core.js';
@@ -80,6 +80,17 @@ let s5 = nextSession({ ...mon, skips: ['2027-01-11'], now: new Date('2027-01-05T
 t('skipped week jumps ahead', s5.date === '2027-01-18');
 let s6 = nextSession({ weekday: 2, startTime: '13:00', startsOn: '2027-01-05', now: new Date('2027-01-04T20:00:00Z') });
 t('Tuesday slot -> Jan 5', s6.date === '2027-01-05');
+
+console.log('Rolling enrollment');
+t('rolling: December buyer starts on cohort date', personalDripStart('2027-01-04', new Date('2026-12-20T15:00:00Z')) === '2027-01-04');
+t('rolling: February buyer starts the day they redeem (ET)', personalDripStart('2027-01-04', new Date('2027-02-17T15:00:00Z')) === '2027-02-17');
+t('rolling: late-evening ET purchase counts as that ET day', personalDripStart('2027-01-04', new Date('2027-02-18T03:30:00Z')) === '2027-02-17');
+const feb = { releaseMode: 'drip', dripStart: '2027-02-17', lessonCount: 8 };
+t('rolling: Feb 17 start -> week 1 only on day one', unlockedPositions({ ...feb, now: new Date('2027-02-17T15:00:00Z') }).length === 1);
+t('rolling: week 2 opens Feb 24 (ET midnight)', unlockedPositions({ ...feb, now: new Date('2027-02-24T05:30:00Z') }).length === 2);
+t('rolling: still week 1 late Feb 23 ET', unlockedPositions({ ...feb, now: new Date('2027-02-24T03:00:00Z') }).length === 1);
+t('rolling: next unlock shown as Feb 24', nextUnlockDate({ ...feb, now: new Date('2027-02-17T15:00:00Z') }) === '2027-02-24');
+t('rolling: March buyer does NOT get everything at once', unlockedPositions({ releaseMode: 'drip', dripStart: personalDripStart('2027-01-04', new Date('2027-03-01T15:00:00Z')), lessonCount: 8, now: new Date('2027-03-01T16:00:00Z') }).length === 1);
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

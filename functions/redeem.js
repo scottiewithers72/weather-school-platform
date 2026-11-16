@@ -3,7 +3,7 @@
 import { sql } from './lib/db.js';
 import { requireFamily } from './lib/auth.js';
 import { handle, ok, bad, parseBody } from './lib/http.js';
-import { licenseExpiry } from './lib/core.js';
+import { licenseExpiry, personalDripStart } from './lib/core.js';
 
 export const handler = handle(async (event) => {
   if (event.httpMethod !== 'POST') return bad('POST only', 405);
@@ -27,12 +27,11 @@ export const handler = handle(async (event) => {
   const classId = claimed[0].class_id;
   const [cls] = await db`SELECT * FROM classes WHERE id=${classId}`;
 
-  // Cohort classes drip from the class's cohort_start (school calendar date);
-  // evergreen classes unlock everything immediately.
+  // Rolling enrollment: Week 1 opens on the later of the class start date and
+  // today, then one week at a time. Evergreen classes unlock everything at once.
   const releaseMode = cls.status === 'evergreen' ? 'all_now' : 'drip';
-  const dripStart = cls.cohort_start
-    ? new Date(cls.cohort_start).toISOString().slice(0, 10)
-    : new Date().toISOString().slice(0, 10);
+  const dripStart = personalDripStart(
+    cls.cohort_start ? new Date(cls.cohort_start).toISOString().slice(0, 10) : null);
 
   await db`
     INSERT INTO enrollments (family_id, class_id, source, release_mode, drip_start, expires_at)
