@@ -8,6 +8,8 @@
 
 [build]
   functions = "functions"
+  # Ship weekly class PDFs as deploy-scoped Netlify Blobs (read by functions/documents.js)
+  command = "node scripts/stage-docs.js"
 
 [functions]
   node_bundler = "esbuild"

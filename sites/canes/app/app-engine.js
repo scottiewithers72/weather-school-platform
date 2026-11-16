@@ -288,6 +288,7 @@
           <button data-t="flashcards">🃏 ${say('Cards', 'Flash Cards')}</button>
           <button data-t="quiz">⭐ Quiz</button>
           <button data-t="game">🎮 ${say('Play', 'Game')}</button>
+          <button data-t="documents">📄 ${say('Print', 'Printables')}</button>
         </nav>
         <div id="tabBody"></div>
       </div>`);
@@ -319,10 +320,40 @@
     showTab('video', content, l);
   }
 
+  // ---------- weekly printables ----------
+  async function renderDocuments(el, l) {
+    el.innerHTML = `<p class="loading">${say('Finding your papers…', 'Loading documents…')}</p>`;
+    let documents = [];
+    try { ({ documents } = await api(`/documents?lessonId=${l.id}`)); }
+    catch (e) { el.innerHTML = `<div class="placeholder">${e.message}</div>`; return; }
+    if (!documents.length) {
+      el.innerHTML = `<div class="placeholder">${say('Cane is still printing this week\'s papers! 🐕', 'This week\'s documents publish soon.')}</div>`;
+      return;
+    }
+    const row = d => `
+      <div class="docrow">
+        <span class="docname">${d.kind === 'certificate' ? '🎓' : '📄'} ${d.label}${d.kb ? `<small>${d.kb} KB · PDF</small>` : ''}</span>
+        <span class="docbtns">
+          <a class="docbtn ghost" href="${d.viewUrl}" target="_blank" rel="noopener">Open</a>
+          <a class="docbtn" href="${d.url}" download="${d.fileName}">Download</a>
+        </span>
+      </div>`;
+    const parent = documents.filter(d => d.group === 'parent');
+    const student = documents.filter(d => d.group !== 'parent');
+    el.innerHTML = `<div class="docs">
+      ${student.length ? `<h3>${say('🖍️ For Students', 'Student materials')}</h3>${student.map(row).join('')}` : ''}
+      ${parent.length ? `<h3>👨‍👩‍👧 For Parents & Teachers</h3>
+        <p class="hint">${say('Grown-ups: answers and teaching tips are in here.', 'Includes answer keys and teaching notes.')}</p>
+        ${parent.map(row).join('')}` : ''}
+      <p class="hint">Links refresh each time you open this tab.</p>
+    </div>`;
+  }
+
   function showTab(kind, content, l) {
     const el = $('#tabBody');
     $('#player').style.display = kind === 'video' ? '' : 'none';
     if (kind === 'video') { el.innerHTML = ''; return; }
+    if (kind === 'documents') { renderDocuments(el, l); return; }
     const data = content[kind];
     if (!data) {
       el.innerHTML = `<div class="placeholder">${say('Coming soon! Cane is still working on this part. 🐕',

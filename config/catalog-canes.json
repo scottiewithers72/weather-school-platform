@@ -4,10 +4,10 @@
     {
       "id": "cw-storms-101",
       "title": "Storms 101",
-      "subtitle": "Thunder, lightning, and how we stay safe",
-      "description": "Cane's classic first class, expanded into a video mini-course. What makes a storm, why thunder booms, and the safety steps every weather hero knows. Every lesson ends on 'here's how we stay safe' — never on the scary part.",
+      "subtitle": "Thunderstorms, tornadoes, hurricanes & blizzards — and how we stay safe",
+      "description": "Four wild-weather weeks: thunderstorms, tornadoes, hurricanes and blizzards. What makes each storm special and the one safety rule every kid should know — every lesson ends on 'here's how we stay safe,' never on the scary part.",
       "grade_band": "K–2",
-      "price_cents": 5900,
+      "price_cents": 4900,
       "semester": "Winter 2027",
       "status": "presale",
       "credit_value": 0,
@@ -17,42 +17,32 @@
       "lessons": [
         {
           "position": 1,
-          "title": "Meet the Sky: What Is Weather?",
+          "title": "Thunderstorms: When Thunder Roars, Go Indoors",
           "duration_min": 20
         },
         {
           "position": 2,
-          "title": "Clouds Are Clues",
+          "title": "Tornadoes: The Spinning Storm",
           "duration_min": 20
         },
         {
           "position": 3,
-          "title": "BOOM! Why Thunder Happens",
+          "title": "Hurricanes: Giant Storms From the Ocean",
           "duration_min": 20
         },
         {
           "position": 4,
-          "title": "Lightning: Nature's Spark",
-          "duration_min": 20
-        },
-        {
-          "position": 5,
-          "title": "Rain, Hail, and Wild Wind",
-          "duration_min": 20
-        },
-        {
-          "position": 6,
-          "title": "Be a Weather Hero: Our Storm Safety Plan",
+          "title": "Blizzards: Snow, Wind & Staying Warm — Graduation!",
           "duration_min": 25
         }
       ],
       "shopify_product_id": "10526629691679",
       "shopify_url": "https://shop.canetheweatherdog.com/products/storms-101-online-class-grades-k-2",
-      "was_cents": 6900,
+      "was_cents": 5900,
       "long_description": [
-        "Some kids hide from thunder. Cane teaches them to understand it instead. Storms 101 is the class that started Cane's Weather School — six short video lessons where Cane the Weather Dog and his daddy (a real TV meteorologist and Four-Time National Emmy Award Winner!) explore what makes a storm: why clouds are clues, why thunder booms, where lightning comes from, and what hail and wild wind are really doing up there.",
-        "Every lesson is sized for K–2 attention spans — about 20 minutes — and every single one ends the same way: \"here's how we stay safe.\" That's a promise we make to parents. Kids leave this class less afraid of storms, not more, because scary noises stop being scary once you understand them. The final lesson turns your child into an official Weather Hero with a storm safety plan for your whole family.",
-        "After each lesson, Cane's Class Companion app (included free) keeps the learning going with picture study guides, flash cards, a matching game, and a quiz where Cane cheers them on. One price covers up to 4 kids in your house — perfect for siblings who want to learn together."
+        "Some kids hide from thunder. Cane teaches them to understand it instead. Storms 101 is four short weekly video lessons where Cane the Weather Dog and his daddy (a real TV meteorologist and Four-Time National Emmy Award Winner!) meet the four big storms: thunderstorms, tornadoes, hurricanes and blizzards — what makes each one special, and the one safety rule every kid should know for each.",
+        "Every lesson is sized for K–2 attention spans and every single one ends the same way: \"here's how we stay safe.\" That's a promise we make to parents. Kids leave this class less afraid of storms, not more, because scary noises stop being scary once you understand them. The final week reviews all four storms and their safety rules, and your child earns an official Storms 101 graduation diploma.",
+        "Each week also comes with six printables: a parent & teacher guide, a reading, homework, an activity sheet, a student handout and a quiz. One price covers up to 4 kids in your house — perfect for siblings who want to learn together."
       ],
       "shopify_variant_id": "52612974313759"
     },
@@ -115,7 +105,7 @@
       "id": "cw-weather-academy",
       "title": "Cane's Weather Academy",
       "subtitle": "The full weather adventure — 8 weeks",
-      "description": "Cane's flagship K–4 course: a full semester-unit journey through everything weather — sun, clouds, rain, storms, seasons, and forecasting like a real meteorologist.",
+      "description": "Cane's flagship K–4 course: an eight-week journey through everything weather — the sun, the water cycle, clouds, rain and snow, wind, the seasons, and forecasting like a real meteorologist.",
       "grade_band": "K–4",
       "price_cents": 9900,
       "semester": "Winter 2027",
@@ -127,42 +117,42 @@
       "lessons": [
         {
           "position": 1,
-          "title": "What Makes Weather? The Sun Starts It All",
+          "title": "What Is Weather?",
           "duration_min": 25
         },
         {
           "position": 2,
-          "title": "The Water Cycle: Nature's Recycling",
+          "title": "The Sun: Our Weather Engine",
           "duration_min": 25
         },
         {
           "position": 3,
-          "title": "Cloud Detectives",
+          "title": "The Water Cycle",
           "duration_min": 25
         },
         {
           "position": 4,
-          "title": "Wind: Air on the Move",
+          "title": "Clouds",
           "duration_min": 25
         },
         {
           "position": 5,
-          "title": "Wild Storms and Staying Safe",
+          "title": "Rain, Snow & Precipitation",
           "duration_min": 25
         },
         {
           "position": 6,
-          "title": "The Four Seasons and Why They Change",
+          "title": "Wind & Air",
           "duration_min": 25
         },
         {
           "position": 7,
-          "title": "Forecast Like a Meteorologist",
+          "title": "The Four Seasons",
           "duration_min": 25
         },
         {
           "position": 8,
-          "title": "Graduation Weathercast: Your Turn On Camera!",
+          "title": "Be a Meteorologist — Graduation!",
           "duration_min": 30
         }
       ],
@@ -170,9 +160,9 @@
       "shopify_url": "https://shop.canetheweatherdog.com/products/canes-weather-academy-8-week-online-course-grades-k-4",
       "was_cents": 11900,
       "long_description": [
-        "This is Cane's flagship — the full weather adventure. Eight weeks, eight video lessons, one big journey through everything the sky does: how the Sun starts it all, the water cycle, clouds, wind, storms and storm safety, the four seasons, and finally how real meteorologists put it all together to make a forecast.",
-        "Each week unlocks a new lesson — about 25 minutes of Cane and his daddy exploring, with companion activities in the free app: study guides written for young readers, flash cards, learning games, and quizzes with instant cheers. The pacing matches a homeschool planner perfectly: one lesson, one week, no falling behind.",
-        "And the finale is something special: the Graduation Weathercast, where your child plans and performs their own weather report — just like Cane's daddy does on TV. Parents tell us it's the moment the science clicks and the confidence shows. It's also a big step toward Cane's graduation gift: finish every Cane's class and your family unlocks a free EarthSphere Academy class for grades 5–12."
+        "This is Cane's flagship — the full weather adventure. Eight weeks, eight video lessons, one big journey through everything the sky does: what weather is, how the Sun drives it, the water cycle, clouds, rain and snow, wind and air, the four seasons, and finally how real meteorologists put it all together to make a forecast.",
+        "Each week unlocks a new lesson with Cane and his daddy, plus six printables: a parent & teacher guide, a reading, homework, an activity sheet, a student handout and a quiz. The pacing matches a homeschool planner perfectly: one lesson, one week, no falling behind.",
+        "And the finale is something special: Be a Meteorologist, where your child uses real weather tools and everything from Weeks 1–7 to make their own forecast — just like Cane's daddy does on TV — and earns a Weather Academy graduation certificate. It's also a big step toward Cane's graduation gift: finish every Cane's class and your family unlocks a free EarthSphere Academy class for grades 5–12."
       ],
       "shopify_variant_id": "52612974969119"
     },

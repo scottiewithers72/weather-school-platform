@@ -3,11 +3,13 @@
 // Actions: list_classes, upsert_class, delete_class, list_lessons,
 //          upsert_lesson, delete_lesson, upsert_content, stats,
 //          list_codes, generate_codes, flip_evergreen,
-//          list_office_hours, upsert_office_hour, skip_office_hour, unskip_office_hour
+//          list_office_hours, upsert_office_hour, skip_office_hour, unskip_office_hour,
+//          list_documents, upload_document
 import crypto from 'node:crypto';
 import { sql } from './lib/db.js';
 import { handle, ok, bad, parseBody } from './lib/http.js';
 import { generateAccessCode } from './lib/core.js';
+import { connectLambda, getStore } from '@netlify/blobs';
 
 function requireAdmin(event) {
   const key = event.headers['x-admin-key'] || event.headers['X-Admin-Key'] || '';
@@ -151,6 +153,35 @@ export const handler = handle(async (event) => {
     case 'unskip_office_hour': {
       await db`DELETE FROM office_hours_skips WHERE office_hour_id=${b.id} AND skip_date=${b.date}`;
       return ok({ unskipped: b.date });
+    }
+    case 'list_documents': {
+      const documents = await db`
+        SELECT d.id, l.class_id, l.position, l.title AS lesson_title, d.kind, d.file_name, d.bytes, d.updated_at
+        FROM lesson_documents d JOIN lessons l ON l.id = d.lesson_id
+        WHERE (${b.classId || null}::text IS NULL OR l.class_id = ${b.classId || null})
+        ORDER BY l.class_id, l.position, d.kind`;
+      return ok({ documents });
+    }
+    case 'upload_document': {
+      // { classId, position, kind, fileBase64, fileName? } — replaces or adds a week's PDF
+      const kinds = ['parent-guide','reading','homework','activity-sheet','student-handout','quiz','certificate'];
+      if (!kinds.includes(b.kind)) return bad('Unknown document type');
+      const [lesson] = await db`SELECT id FROM lessons WHERE class_id=${b.classId} AND position=${Number(b.position)}`;
+      if (!lesson) return bad('No such class/week');
+      const buf = Buffer.from(b.fileBase64 || '', 'base64');
+      if (buf.subarray(0, 4).toString() !== '%PDF') return bad('Please upload a PDF');
+      const key = `${b.classId}/w${Number(b.position)}/${b.kind}.pdf`;
+      connectLambda(event);
+      await getStore('course-docs').set(key, buf);
+      const [existing] = await db`SELECT file_name FROM lesson_documents WHERE lesson_id=${lesson.id} AND kind=${b.kind}`;
+      const fileName = (b.fileName || existing?.file_name || `${b.classId}-Week-${b.position}-${b.kind}.pdf`)
+        .replace(/[^A-Za-z0-9._-]+/g, '-').replace(/-DESIGNED/gi, '');
+      await db`
+        INSERT INTO lesson_documents (lesson_id, kind, blob_key, file_name, bytes)
+        VALUES (${lesson.id}, ${b.kind}, ${key}, ${fileName}, ${buf.length})
+        ON CONFLICT (lesson_id, kind) DO UPDATE SET blob_key=EXCLUDED.blob_key,
+          file_name=EXCLUDED.file_name, bytes=EXCLUDED.bytes, updated_at=now()`;
+      return ok({ saved: key, fileName, bytes: buf.length });
     }
     case 'stats': {
       const [families] = await db`SELECT count(*)::int AS n FROM families`;
