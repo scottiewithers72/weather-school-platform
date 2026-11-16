@@ -364,6 +364,9 @@
     Object.values(content).forEach(ct => JSON.stringify(ct || {}).replace(/"(\/app\/media\/[^"]+\.jpg)"/g, (_, u) => imgs.add(u)));
     let n = 0;
     await Promise.all([...imgs].map(u => fetch(u).then(() => { n++; }).catch(() => {})));
+    const clips = new Set();
+    Object.values(content).forEach(ct => JSON.stringify(ct || {}).replace(/"word":"([^"]+)"/g, (_, w) => { const u = wordClip(w); if (u) clips.add(u); }));
+    await Promise.all([...clips].map(u => fetch(u).catch(() => {})));
     if (line()) line().innerHTML = `✅ ${say('Ready to play offline!', 'Ready offline')} <small>${lessons.length} ${lessons.length === 1 ? 'week' : 'weeks'} · ${n} pictures</small>`;
   }
 
@@ -565,12 +568,37 @@
     draw();
   }
 
+  // ---------- recorded voice clips (same "Initiative" voice as the weather-word videos) ----------
+  const VO_WORDS = new Set(["air", "aircraft", "atmosphere", "blizzard", "breeze", "calm", "cirrus", "cloud", "coast", "cold", "condensation", "crew", "cumulus", "data", "day-and-night", "dropsonde", "emergency-kit", "energy", "evacuate", "evaporate", "evaporation", "expected", "eye", "eyewall", "fall", "family-plan", "flood", "forecast", "freeze", "fuel", "funnel", "go-early", "graduate", "gust", "hail", "heat", "higher-ground", "hurricane", "hurricane-hunter", "hurricane-season", "ice", "lightning", "measure", "meteorologist", "moist-air", "observation", "observe", "ocean", "possible", "precipitation", "prep-kit", "prepare", "rain", "rain-bands", "safe-room", "season", "sky", "sleet", "snow", "spin", "spiral", "spring", "star", "storm", "storm-cloud", "storm-surge", "stratus", "summer", "sun", "temperature", "thunder", "thunderstorm", "tornado", "tropical-ocean", "warm", "warm-water", "warning", "watch", "water-cycle", "water-vapor", "wind", "wind-vane", "winter"]);
+  const voSlug = (w) => String(w || '').toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const wordClip = (w) => S.schoolId === 'canes' && VO_WORDS.has(voSlug(w)) ? `/app/media/vo/words/${voSlug(w)}.mp3` : null;
+  const clipUrls = {};           // url -> blob: URL (blob URLs play reliably on iPhone, online or offline)
+  function preloadClips(urls) {
+    urls.filter(u => u && !clipUrls[u]).forEach(u => {
+      clipUrls[u] = 'pending';
+      fetch(u).then(r => r.ok ? r.blob() : Promise.reject()).then(b => { clipUrls[u] = URL.createObjectURL(b); })
+        .catch(() => { delete clipUrls[u]; });
+    });
+  }
+  let nowPlaying = null;
+  function stopAudio() { try { nowPlaying && nowPlaying.pause(); } catch (e) {} nowPlaying = null; try { speechSynthesis.cancel(); } catch (e) {} }
+  function playClip(url, fallbackText) {
+    stopAudio();
+    const src = url && clipUrls[url] && clipUrls[url] !== 'pending' ? clipUrls[url] : url;
+    if (!src) return speak(fallbackText);
+    try {
+      const a = new Audio(src); nowPlaying = a;
+      a.play().catch(() => speak(fallbackText));
+    } catch (e) { speak(fallbackText); }
+  }
   // ---------- flash cards: picture front, word + meaning back ----------
   function renderFlashcards(el, data, l) {
     const cards = data.cards || [];
     if (!cards.length) { el.innerHTML = '<div class="placeholder">No cards yet.</div>'; return; }
+    preloadClips(cards.map(c => wordClip(c.word)));
     let i = 0, flipped = false;
     const draw = () => {
+      stopAudio();
       const c = cards[i], last = i === cards.length - 1;
       el.innerHTML = `
         <div class="fc ${flipped ? 'flipped' : ''}" id="fc" role="button" tabindex="0">
@@ -593,11 +621,11 @@
           ${c.word ? speakBtn('fcSpeak') : ''}
           <button class="cta" id="nextC">${last ? say('All done! 🌟', 'Finish deck') : 'Next →'}</button>
         </div>`;
-      const flip = () => { flipped = !flipped; $('#fc').classList.toggle('flipped', flipped); if (flipped && c.word) speak(c.word); };
+      const flip = () => { flipped = !flipped; $('#fc').classList.toggle('flipped', flipped); if (flipped && c.word) playClip(wordClip(c.word), c.word); };
       $('#fc').onclick = flip;
       $('#fc').onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } };
       $('#prevC').onclick = () => { if (i > 0) { i--; flipped = false; draw(); } };
-      const sp = $('#fcSpeak'); if (sp) sp.onclick = () => speak(`${c.word}. ${c.def}`);
+      const sp = $('#fcSpeak'); if (sp) sp.onclick = () => playClip(wordClip(c.word), `${c.word}. ${c.def}`);
       $('#nextC').onclick = () => {
         if (last) { saveProgress(l, { flashcardsDone: true }, say('Card champion! 🃏', 'Deck complete')); i = 0; flipped = false; draw(); }
         else { i++; flipped = false; draw(); }
