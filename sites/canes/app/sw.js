@@ -1,6 +1,6 @@
 // Companion app service worker: app shell + lesson pictures cached for offline practice.
 // Activity text is stored by the app itself (localStorage); API calls always go to the network.
-const SHELL_CACHE = 'companion-shell-v6';
+const SHELL_CACHE = 'companion-shell-v7';
 const MEDIA_CACHE = 'companion-media-v1';
 const SHELL = ['/app/', '/app/index.html', '/app/app.css', '/app/app-engine.js', '/app/manifest.json',
                '/app/icon-192.png', '/app/icon-512.png', '/app/media/common/finish-week.jpg',

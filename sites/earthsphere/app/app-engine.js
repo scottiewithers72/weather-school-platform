@@ -62,8 +62,15 @@
     if (!COMPANION) return `<p class="hint appplug">📲 Practice on the go: <a href="${APP_URL}">get the free ${S.appName || 'Companion App'}</a></p>`;
     if (isInstalled()) return '';
     if (isIOS()) {
-      return `<div class="installbar">📲 <strong>Install this app:</strong> tap the
-        <span class="shareicon">Share</span> button below, then <strong>"Add to Home Screen."</strong></div>`;
+      return `<div class="installbar">📲 <strong>Install this app (Safari):</strong>
+        <ol class="iossteps">
+          <li>Tap Safari's <strong>Share</strong> icon — the square with an arrow pointing up
+            <svg width="16" height="20" viewBox="0 0 16 20" aria-hidden="true" style="vertical-align:-3px"><path d="M8 1v11M4 5l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 8H2v11h12V8h-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            (bottom of the screen on iPhone, top right on iPad)</li>
+          <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+          <li>Open the app from the new Cane icon</li>
+        </ol>
+        <small>Don't see Share? Open this page in Safari first (not inside Mail, Messages or Facebook).</small></div>`;
     }
     return `<div class="installbar">
       <button class="cta" id="installBtn" ${deferredInstall ? '' : 'hidden'}>📲 Install the app</button>

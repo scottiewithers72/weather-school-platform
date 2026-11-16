@@ -206,3 +206,5 @@ body.companion .appbar { position: sticky; top: 0; z-index: 5 }
 .choice:disabled { color: var(--ink); opacity: 1 }
 .choice.picked.right, .choice.right { background: #DDF5E7; border-color: #2E9E83 }
 .choice.picked.wrong, .choice.wrong { background: #FDE3E3; border-color: #E84855 }
+.iossteps { text-align: left; margin: 8px 0 6px 18px; padding: 0; font-size: 14px; line-height: 1.45 }
+.installbar small { display: block; opacity: .75; font-size: 12px }
