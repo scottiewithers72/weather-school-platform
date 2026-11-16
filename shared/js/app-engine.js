@@ -98,7 +98,7 @@
         <h1>${COMPANION ? say('Hi! Ready to practice? 🐾', 'Sign in') : say('Hi! Ready to learn? 🐾', 'Family Sign-In')}</h1>
         ${COMPANION ? `<p class="hint">Use the same email and password as the ${S.name} Classroom.
           New family? <a href="${CLASSROOM_URL}">Start in the Classroom →</a></p>` : ''}
-        <div class="tabs" ${COMPANION ? 'hidden' : ''}>
+        <div class="tabs" ${COMPANION ? 'style="display:none"' : ''}>
           <button class="${mode === 'login' ? 'on' : ''}" id="tabLogin">Sign in</button>
           <button class="${mode === 'register' ? 'on' : ''}" id="tabReg">New family</button>
         </div>
