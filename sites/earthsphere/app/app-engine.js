@@ -64,13 +64,11 @@
     if (isIOS()) {
       return `<div class="installbar">📲 <strong>Install this app (Safari):</strong>
         <ol class="iossteps">
-          <li>Tap Safari's <strong>Share</strong> icon — the square with an arrow pointing up
-            <svg width="16" height="20" viewBox="0 0 16 20" aria-hidden="true" style="vertical-align:-3px"><path d="M8 1v11M4 5l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 8H2v11h12V8h-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-            (bottom of the screen on iPhone, top right on iPad)</li>
-          <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
-          <li>Open the app from the new Cane icon</li>
+          <li>In Safari, tap <strong>•••</strong> (bottom right, next to the web address) — or the <strong>Share</strong> icon if you see it</li>
+          <li>Tap <strong>Share</strong>, then scroll down and tap <strong>"Add to Home Screen"</strong></li>
+          <li>Open the app from the new Cane icon and sign in with your Classroom email and password</li>
         </ol>
-        <small>Don't see Share? Open this page in Safari first (not inside Mail, Messages or Facebook).</small></div>`;
+        <small>Don't see •••? Tap the bottom edge of the screen, or open this page in Safari itself (not inside Mail, Messages or Facebook).</small></div>`;
     }
     return `<div class="installbar">
       <button class="cta" id="installBtn" ${deferredInstall ? '' : 'hidden'}>📲 Install the app</button>
