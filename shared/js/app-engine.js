@@ -499,12 +499,33 @@
   // ---------- shared helpers for practice screens ----------
   const esc = (t) => String(t ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const plain = (html) => { const d = document.createElement('div'); d.innerHTML = html; return d.textContent; };
+  // Pick the most natural English voice the device has (Premium/Enhanced/Siri-quality first).
+  let _voice = null;
+  function bestVoice() {
+    if (_voice) return _voice;
+    const vs = (speechSynthesis.getVoices() || []).filter(v => /^en[-_]US/i.test(v.lang) || /^en/i.test(v.lang));
+    if (!vs.length) return null;
+    const score = (v) => {
+      const n = v.name.toLowerCase(); let sc = 0;
+      if (/premium/.test(n)) sc += 50; if (/enhanced/.test(n)) sc += 40;
+      if (/natural|neural|siri/.test(n)) sc += 35;
+      if (/google us english/.test(n)) sc += 25;
+      if (/samantha|ava|allison|evan|zoe|nicky|joelle|nathan/.test(n)) sc += 15;
+      if (/en[-_]us/i.test(v.lang)) sc += 5;
+      if (/compact|novelty|bells|bad news|boing|bubbles|cellos|whisper|zarvox|trinoids|albert|fred|junior|ralph|kathy|organ|superstar|wobble|jester|grandma|grandpa|rocko|shelley|flo|eddy|reed|sandy/.test(n)) sc -= 100;
+      return sc;
+    };
+    _voice = vs.sort((a, b) => score(b) - score(a))[0];
+    return _voice;
+  }
+  try { speechSynthesis.onvoiceschanged = () => { _voice = null; }; } catch (e) {}
   function speak(text) {
     try {
       if (!('speechSynthesis' in window)) return;
       speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(text);
-      u.rate = kid ? 0.88 : 1; u.pitch = 1.05;
+      const v = bestVoice(); if (v) { u.voice = v; u.lang = v.lang; }
+      u.rate = kid ? 0.9 : 1; u.pitch = 1;
       speechSynthesis.speak(u);
     } catch (e) {}
   }
