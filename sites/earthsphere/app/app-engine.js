@@ -366,6 +366,7 @@
     await Promise.all([...imgs].map(u => fetch(u).then(() => { n++; }).catch(() => {})));
     const clips = new Set();
     Object.values(content).forEach(ct => JSON.stringify(ct || {}).replace(/"word":"([^"]+)"/g, (_, w) => { const u = wordClip(w); if (u) clips.add(u); }));
+    Object.values(content).forEach(ct => ((ct && ct.study_guide && ct.study_guide.pages) || []).forEach((p, k) => { const u = pageClip(p, k + 1); if (u) clips.add(u); }));
     await Promise.all([...clips].map(u => fetch(u).catch(() => {})));
     if (line()) line().innerHTML = `✅ ${say('Ready to play offline!', 'Ready offline')} <small>${lessons.length} ${lessons.length === 1 ? 'week' : 'weeks'} · ${n} pictures</small>`;
   }
@@ -545,7 +546,9 @@
       return;
     }
     const pages = data.pages; let i = 0;
+    preloadClips(pages.map((p, k) => pageClip(p, k + 1)));
     const draw = () => {
+      stopAudio();
       const pg = pages[i], last = i === pages.length - 1;
       el.innerHTML = `
         <div class="book">
@@ -562,8 +565,8 @@
           <p class="hint">${say('Page', 'Page')} ${i + 1} of ${pages.length}</p>
         </div>`;
       $('#bPrev').onclick = () => { if (i > 0) { i--; draw(); } };
-      $('#bNext').onclick = () => { if (last) { speechSynthesis?.cancel?.(); i = 0; draw(); toast(say('Great reading! 📚', 'Reading complete')); } else { i++; draw(); } };
-      const sp = $('#bSpeak'); if (sp) sp.onclick = () => speak(plain(pg.text) + (pg.ask ? ' ' + pg.ask : '') + (last && data.rule ? ' ' + data.rule : ''));
+      $('#bNext').onclick = () => { if (last) { stopAudio(); i = 0; draw(); toast(say('Great reading! 📚', 'Reading complete')); } else { i++; draw(); } };
+      const sp = $('#bSpeak'); if (sp) sp.onclick = () => playClip(pageClip(pg, i + 1), plain(pg.text) + (pg.ask ? ' ' + pg.ask : '') + (last && data.rule ? ' ' + data.rule : ''));
     };
     draw();
   }
@@ -580,6 +583,12 @@
         .catch(() => { delete clipUrls[u]; });
     });
   }
+  // Storybook page narration lives next to the page art: /app/media/<class>/w<N>/vo-page-<n>.mp3
+  const STORY_VO = new Set(['cw-storms-101/w1', 'cw-storms-101/w2', 'cw-storms-101/w3', 'cw-storms-101/w4']);
+  const pageClip = (pg, n) => {
+    const m = String(pg && pg.img || '').match(/^(\/app\/media\/([^/]+\/w\d+))\//);
+    return m && STORY_VO.has(m[2]) ? `${m[1]}/vo-page-${n}.mp3` : null;
+  };
   let nowPlaying = null;
   function stopAudio() { try { nowPlaying && nowPlaying.pause(); } catch (e) {} nowPlaying = null; try { speechSynthesis.cancel(); } catch (e) {} }
   function playClip(url, fallbackText) {
