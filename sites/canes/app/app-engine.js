@@ -586,6 +586,42 @@
     if (!qs.length) { el.innerHTML = '<div class="placeholder">No quiz yet.</div>'; return; }
     let i = -1, right = 0, picked = new Set();
     const timed = !kid && data.timedSeconds;
+    const drawOrder = (src) => {
+      const tiles = shuffle(src.order.map((t, k) => ({ t, k })));
+      let picked = [];
+      const paint = () => {
+        el.innerHTML = `
+          <div class="quiz">
+            <p class="qq">${i + 1}. ${esc(src.q)}</p>
+            <p class="hint">${say('Tap them in order: 1, 2, 3, 4!', 'Tap the steps in order')}</p>
+            <div class="choices">${tiles.map((x, n) => {
+              const pos = picked.indexOf(n);
+              return `<button class="choice ${pos >= 0 ? 'picked' : ''}" data-n="${n}">${pos >= 0 ? `<b>${pos + 1}.</b> ` : ''}${esc(x.t)}</button>`;
+            }).join('')}</div>
+            <div class="row" style="justify-content:space-between;align-items:center">
+              <button class="linkbtn" id="ordReset">↺ ${say('Start over', 'Reset')}</button>
+              <p class="hint">${i + 1} of ${qs.length}</p>
+            </div>
+            <p class="cheer" id="cheer"></p>
+          </div>`;
+        $('#ordReset').onclick = () => { picked = []; paint(); };
+        document.querySelectorAll('.choice').forEach(b => b.onclick = () => {
+          const n = Number(b.dataset.n);
+          if (picked.includes(n)) return;
+          picked.push(n); paint();
+          if (picked.length === tiles.length) {
+            const ok = picked.every((n2, idx) => tiles[n2].k === idx);
+            document.querySelectorAll('.choice').forEach((b2, n3) => {
+              b2.disabled = true; b2.classList.add(tiles[n3].k === picked.indexOf(n3) ? 'right' : 'wrong');
+            });
+            if (ok) { right++; $('#cheer').textContent = cheers[Math.floor(Math.random() * cheers.length)]; }
+            else $('#cheer').textContent = say('Nice try! The order is: ', 'Correct order: ') + src.order.join(' → ');
+            setTimeout(() => { i++; draw(); }, ok ? 1000 : 2600);
+          }
+        });
+      };
+      paint();
+    };
     const draw = () => {
       if (i === -1) {
         el.innerHTML = `<div class="stage">
@@ -614,6 +650,7 @@
       }
       // Shuffle answer order each time (most printed answers are "a"); keep True/False in order.
       const src = qs[i];
+      if (src.order) return drawOrder(src);
       const keep = src.choices.length === 2 && /^(true|yes)$/i.test(src.choices[0]);
       const order = keep ? src.choices.map((_, k) => k) : shuffle(src.choices.map((_, k) => k));
       const q = { ...src, choices: order.map(k => src.choices[k]),

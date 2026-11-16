@@ -203,3 +203,6 @@ body.k4 .book-text { font-size: 21px }
 .lessontabs.four button { padding: 9px 4px }
 .appplug { margin-top: 18px; text-align: center }
 body.companion .appbar { position: sticky; top: 0; z-index: 5 }
+.choice:disabled { color: var(--ink); opacity: 1 }
+.choice.picked.right, .choice.right { background: #DDF5E7; border-color: #2E9E83 }
+.choice.picked.wrong, .choice.wrong { background: #FDE3E3; border-color: #E84855 }

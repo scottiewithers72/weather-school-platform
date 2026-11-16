@@ -68,6 +68,19 @@ def quiz(path):
         note = re.match(r"^\((.+?)\)\s*", rest)
         if note: rest = rest[note.end():]
         kl = keylines.get(n, "")
+        if rest.strip().startswith("___"):
+            items = [plain(x) for x in re.split(r"_{3,}", rest) if plain(x)]
+            ranks = {}
+            for part in plain(kl).split(","):
+                m2 = re.search(r"(.+?)=\s*(\d+)", part)
+                if m2: ranks[re.sub(r"^\(.*?\)\s*", "", m2.group(1)).strip().lower()] = int(m2.group(2))
+            def rank(it):
+                for k2, v2 in ranks.items():
+                    if it.lower().startswith(k2[:10]) or k2.startswith(it.lower()[:10]): return v2
+                return None
+            if items and all(rank(i) for i in items):
+                qs.append({"q": q, "order": sorted(items, key=rank)})
+            continue
         if re.search(r"(^|\s)a\)", rest):
             choices = [plain(c) for c in re.split(r"\s*(?:^|\s{2,}|\n)\s*[a-d]\)\s*", " " + rest) if plain(c)]
             km = re.search(r"\b([a-d])\)", kl)

@@ -107,6 +107,15 @@
         "answer": 0
       },
       {
+        "q": "Put the water cycle in order. Start with rain!",
+        "order": [
+          "rain falls",
+          "water gathers in the lake",
+          "Sun heats the water",
+          "vapor makes a cloud"
+        ]
+      },
+      {
         "q": "Here's the amazing part — is it new water each time, or the same water over and over?",
         "choices": [
           "the same water, over and over",
