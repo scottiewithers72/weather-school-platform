@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Gift Certificate — Cane's Weather School</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/cane-logo.png">
+<style>
+:root{--blue:#1B6CA8;--deep:#0E3A5D;--amber:#FFB627;--red:#B3262E;--green:#1F6B4F;--paper:#FFF9EF;--ink:#173A52;--line:#F3E3C2}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',system-ui,sans-serif;color:var(--ink);background:#E9EEF2;padding:24px}
+.bar{max-width:1000px;margin:0 auto 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.bar button{border:0;cursor:pointer;background:var(--amber);color:var(--deep);font:inherit;font-weight:800;padding:12px 24px;border-radius:99px;font-size:16px}
+.cert{width:1000px;max-width:100%;aspect-ratio:11/8.5;margin:0 auto;background:#fffdf8;position:relative;overflow:hidden;
+  border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.18);display:grid;grid-template-columns:47% 53%}
+.art{position:relative;background:url('../assets/art/canes-snow-2x.jpg') 37% center/cover}
+.art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 85%,#fffdf8)}
+.frame{position:absolute;inset:14px;border:3px solid var(--red);border-radius:4px;pointer-events:none;z-index:2}
+.frame::after{content:"";position:absolute;inset:6px;border:1.5px solid var(--green);border-radius:2px}
+.body{padding:48px 46px 40px 18px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.kicker{font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:12.5px;color:var(--red)}
+h1{font-family:'Great Vibes',cursive;font-weight:400;font-size:64px;line-height:1;color:var(--deep);margin:6px 0 10px}
+.for{font-size:15px;color:#5b7384}
+.name{font-family:'Fredoka',sans-serif;font-size:34px;font-weight:700;color:var(--deep);line-height:1.15;margin:2px 0 12px;border-bottom:2px dotted var(--line);padding-bottom:8px}
+.cls{font-family:'Fredoka',sans-serif;font-size:22px;font-weight:700;color:var(--blue)}
+.meta{font-size:14px;color:#5b7384;margin-top:2px}
+.msg{font-style:italic;font-size:16px;margin:14px 0 4px;color:var(--ink);max-height:5.2em;overflow:hidden}
+.from{font-weight:700;margin-top:6px}
+.code{margin-top:16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.code b{font-family:ui-monospace,Menlo,monospace;font-size:22px;letter-spacing:2px;background:#F4F7FA;border:2px dashed var(--amber);padding:8px 14px;border-radius:10px;color:var(--deep)}
+.how{font-size:12.5px;color:#5b7384;line-height:1.45}
+.sign{margin-top:16px;font-size:13px;color:#5b7384}
+.flake{position:absolute;color:#cfe0ec;font-size:22px;z-index:0}
+.status{max-width:1000px;margin:60px auto;text-align:center;font-size:18px}
+@media(max-width:760px){.cert{grid-template-columns:1fr;aspect-ratio:auto}.art{height:220px}.art::after{background:linear-gradient(transparent 60%,#fffdf8)}.body{padding:20px 30px 40px}h1{font-size:48px}}
+@page{size:letter landscape;margin:0}
+@media print{
+  body{background:#fff;padding:0} .bar{display:none}
+  .cert{width:11in;height:8.5in;max-width:none;box-shadow:none;border-radius:0;aspect-ratio:auto;grid-template-columns:47% 53%}
+  .art{height:auto} *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="bar">
+  <a href="../index.html"><img src="../assets/cane-logo.png" alt="Cane's Weather School" style="height:46px"></a>
+  <button onclick="window.print()">🖨️ Print or save as PDF</button>
+</div>
+<div id="out"><p class="status">Loading your gift…</p></div>
+<script>
+(function () {
+  const q = new URLSearchParams(location.search);
+  const out = document.getElementById('out');
+  const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const day = (d) => d ? new Date(String(d).slice(0, 10) + 'T12:00:00Z').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }) : '';
+  async function load(tries) {
+    const r = await fetch(`/api/gift?g=${encodeURIComponent(q.get('g') || '')}&k=${encodeURIComponent(q.get('k') || '')}`);
+    const d = await r.json();
+    if (r.status === 409 && tries > 0) { out.innerHTML = '<p class="status">Finishing up your gift…</p>'; return setTimeout(() => load(tries - 1), 4000); }
+    if (!r.ok) { out.innerHTML = `<p class="status">${esc(d.error || 'Gift not found')}</p>`; return; }
+    document.title = `Gift for ${d.recipientName} — Cane's Weather School`;
+    out.innerHTML = `
+      <div class="cert">
+        <div class="art"></div>
+        <div class="body">
+          <span class="flake" style="top:26px;right:40px">❄</span><span class="flake" style="bottom:40px;right:80px;font-size:16px">❄</span>
+          <div class="kicker">🎄 Holiday Gift Certificate</div>
+          <h1>A gift for you</h1>
+          <div class="for">This certificate is for</div>
+          <div class="name">${esc(d.recipientName)}</div>
+          <div class="cls">${esc(d.className)}</div>
+          <div class="meta">Grades ${esc(d.gradeBand)} · Cane's Weather School${d.cohortStart ? ' · Begins ' + day(d.cohortStart) : ''}</div>
+          ${d.message ? `<div class="msg">“${esc(d.message)}”</div>` : ''}
+          <div class="from">With love from ${esc(d.fromName)}</div>
+          <div class="code"><b>${esc(d.code)}</b>
+            <div class="how">To redeem: go to <strong>canesweatherschool.com/app</strong>,<br>create a family account, enter this code.</div></div>
+          <div class="sign">Scott Withers &amp; Cane the Weather Dog</div>
+        </div>
+        <div class="frame"></div>
+      </div>`;
+  }
+  load(8).catch(() => { out.innerHTML = '<p class="status">Could not load this gift — please refresh.</p>'; });
+})();
+</script>
+</body>
+</html>

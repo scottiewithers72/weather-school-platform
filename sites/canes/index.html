@@ -161,6 +161,7 @@ footer .fine{border-top:1px solid rgba(255,255,255,.15);margin-top:30px;padding-
     <a href="index.html"><img src="assets/cane-logo.png" alt="Cane the Weather Dog — Cane's Weather School"
         onerror="this.onerror=null;this.src='assets/logo-canes.svg'"></a>
     <nav>
+      <a href="gift.html">🎁 Gift a Class</a>
       <a href="#classes">Classes</a>
       <a href="#app-promo">The App</a>
       <a href="#graduate">Graduation Gift</a>
@@ -171,6 +172,13 @@ footer .fine{border-top:1px solid rgba(255,255,255,.15);margin-top:30px;padding-
   </div>
   <div class="rainbar"></div>
 </header>
+<!-- Holiday gift banner: shows through Dec 24 (Eastern) -->
+<a id="giftStrip" href="gift.html" hidden
+   style="display:block;background:#B3262E;color:#fff;text-align:center;font-weight:800;padding:11px 16px;text-decoration:none;font-size:15.5px">
+  🎄 Give a class this Christmas — starts January 4. We'll email it Christmas morning, or print a certificate. <u>Shop gifts →</u></a>
+<script>(function(){var t=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York'}).format(new Date());
+if(t<=t.slice(0,4)+'-12-24'&&t>=t.slice(0,4)+'-11-01')document.getElementById('giftStrip').hidden=false;})();</script>
+
 
 <!-- HERO -->
 <div class="hero">

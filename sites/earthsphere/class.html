@@ -95,6 +95,7 @@ footer a{color:#8FC1D6}
     <div class="price"><span class="was" id="was"></span><span id="price"></span><small> /family</small></div>
     <div class="early">Early-bird price — through December 31</div>
     <a class="btn" id="buyBtn" href="#">Enroll Now →</a>
+    <a id="giftBtn" href="gift.html" style="display:block;margin-top:12px;font-weight:800;text-decoration:none">🎁 Give this course as a gift →</a>
     <ul class="incl">
       <li><strong>Family license</strong> — up to 4 student profiles in your household</li>
       <li><strong>12 months of streaming access</strong> — weekly unlock during the cohort, rewatch any time</li>
@@ -135,7 +136,9 @@ if (c) {
   document.getElementById('price').textContent = '$' + (c.price_cents/100).toFixed(0);
   document.getElementById('was').textContent = c.was_cents ? '$' + (c.was_cents/100).toFixed(0) : '';
   document.getElementById('buyBtn').href = c.shopify_url || ('enroll.html?class=' + c.id);
+  document.getElementById('giftBtn').href = 'gift.html?class=' + c.id;
   if (/^Coming/i.test(c.semester || '')) {
+    document.getElementById('giftBtn').style.display = 'none';
     const b = document.getElementById('buyBtn');
     b.textContent = 'Enrollment opens soon'; b.removeAttribute('href');
     b.style.opacity = '.6'; b.style.pointerEvents = 'none';

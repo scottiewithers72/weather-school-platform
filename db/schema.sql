@@ -181,3 +181,26 @@ CREATE TABLE IF NOT EXISTS office_hours_skips (
   skip_date      DATE NOT NULL,
   PRIMARY KEY (office_hour_id, skip_date)
 );
+
+-- Holiday gifting: "Give a class as a gift"
+ALTER TABLE classes ADD COLUMN IF NOT EXISTS shopify_variant_id TEXT;
+
+CREATE TABLE IF NOT EXISTS gifts (
+  id              SERIAL PRIMARY KEY,
+  token           TEXT UNIQUE NOT NULL,   -- rides through checkout as the gift_token cart attribute
+  view_key        TEXT NOT NULL,          -- secret for the printable certificate link
+  class_id        TEXT NOT NULL REFERENCES classes(id),
+  from_name       TEXT,
+  recipient_name  TEXT NOT NULL,
+  recipient_email TEXT,                   -- optional: if set, we email the gift on deliver_on
+  message         TEXT,
+  deliver_on      DATE,                   -- Eastern calendar date; NULL = deliver at purchase
+  status          TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','paid','delivered')),
+  order_id        TEXT,
+  purchaser_email TEXT,
+  code            TEXT,
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
+  paid_at         TIMESTAMPTZ,
+  delivered_at    TIMESTAMPTZ
+);
+CREATE INDEX IF NOT EXISTS gifts_due ON gifts (status, deliver_on);

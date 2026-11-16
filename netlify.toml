@@ -26,3 +26,7 @@
   for = "/app/sw.js"
   [headers.values]
     Cache-Control = "no-cache"
+
+# Holiday gifts: hourly check for scheduled gift emails (7 am ET onward)
+[functions."gift-delivery"]
+  schedule = "0 * * * *"
