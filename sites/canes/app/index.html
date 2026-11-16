@@ -4,23 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Cane's Class Companion</title>
-<meta name="description" content="The companion app for Cane's Weather School — study guides, flash cards, games, and quizzes for every lesson.">
+<meta name="description" content="Cane's Class Companion — picture study guides, flash cards, quizzes and games for every Cane's Weather School week. Works offline.">
 <meta name="theme-color" content="#1B6CA8">
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="../assets/logo-canes.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Cane's Class">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app.css">
 </head>
-<body class="k4">
+<body class="k4 companion">
 <div id="app"><p class="loading">Cane is fetching your classes… 🐕</p></div>
 <script>
 window.SCHOOL = {
   schoolId: "canes",
   name: "Cane's Weather School",
   uxMode: "k4",
-  logo: "../assets/logo-canes.svg"
+  logo: "/assets/logo-canes.svg",
+  mode: "companion",
+  appName: "Cane's Class Companion",
+  appUrl: "/app/",
+  classroomUrl: "/classroom/",
+  emptyArt: "/app/media/common/finish-week.jpg"
 };
 </script>
 <script src="app-engine.js"></script>

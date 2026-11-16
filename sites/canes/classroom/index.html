@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cane's Weather School — Classroom</title>
+<meta name="description" content="The Cane's Weather School Classroom: weekly video lessons, printables, live office hours and practice activities.">
+<meta name="theme-color" content="#1B6CA8">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/app/app.css">
+</head>
+<body class="k4 classroom">
+<div id="app"><p class="loading">Cane is fetching your classes… 🐕</p></div>
+<script>
+window.SCHOOL = {
+  schoolId: "canes",
+  name: "Cane's Weather School",
+  uxMode: "k4",
+  logo: "/assets/logo-canes.svg",
+  mode: "classroom",
+  appName: "Cane's Class Companion",
+  appUrl: "/app/",
+  classroomUrl: "/classroom/",
+  emptyArt: "/app/media/common/finish-week.jpg"
+};
+</script>
+<script src="/app/app-engine.js"></script>
+</body>
+</html>

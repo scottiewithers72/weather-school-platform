@@ -70,8 +70,8 @@ export const handler = handle(async (event) => {
       }
       const schoolName = cls.school_id === 'canes' ? "Cane's Weather School" : 'EarthSphere Academy';
       const appUrl = cls.school_id === 'canes'
-        ? 'https://canesweatherschool.com/app/'
-        : 'https://earthsphereacademy.com/app/';
+        ? 'https://canesweatherschool.com/classroom/'
+        : 'https://earthsphereacademy.com/classroom/';
       await sendEmail({
         to: email,
         subject: `Your ${cls.title} access code (app included!)`,

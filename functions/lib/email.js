@@ -35,20 +35,30 @@ export async function sendEmail({ to, subject, html, template, ref, school = 'ca
 }
 
 export function codeDeliveryHtml({ schoolName, className, code, appUrl }) {
+  const classroom = appUrl;                                   // e.g. https://canesweatherschool.com/classroom/
+  const companion = appUrl.replace(/classroom\/?$/, 'app/');
+  const appName = /earthsphere/i.test(appUrl) ? 'EarthSphere Study Companion' : "Cane's Class Companion";
   return `
   <div style="font-family:system-ui,sans-serif;max-width:560px;margin:auto">
     <h2>Welcome to ${schoolName}!</h2>
-    <p>Your purchase of <strong>${className}</strong> is confirmed — and it includes the
-       companion app (a $29 value, included free).</p>
+    <p>Your purchase of <strong>${className}</strong> is confirmed. Here is your class code:</p>
     <p style="font-size:22px;letter-spacing:2px;background:#f4f7fa;padding:14px 18px;
        border-radius:10px;text-align:center"><strong>${code}</strong></p>
-    <ol>
-      <li>Open <a href="${appUrl}">${appUrl}</a> on your phone or tablet</li>
-      <li>Tap <em>Add to Home Screen</em> when prompted (that installs the app)</li>
+    <h3 style="margin-bottom:4px">1. Open your Classroom</h3>
+    <ol style="margin-top:4px">
+      <li>Go to <a href="${classroom}">${classroom.replace('https://', '')}</a> on any computer, tablet or phone</li>
       <li>Create your family account — up to 4 student profiles</li>
       <li>Enter the code above. It works once and locks to your family.</li>
     </ol>
-    <p>Lessons stream inside the app — nothing to download.</p>
+    <p>Each week a new lesson opens in the Classroom: the video, six printables, and the live office-hours link.
+       Your first week opens the day you redeem (or on the class start date, if that's later).</p>
+    <h3 style="margin-bottom:4px">2. Get the free ${appName} app</h3>
+    <ol style="margin-top:4px">
+      <li>On your child's phone or tablet, open <a href="${companion}">${companion.replace('https://', '')}</a></li>
+      <li>Tap <em>Share → Add to Home Screen</em> (iPhone/iPad) or <em>Install</em> (Android)</li>
+      <li>Sign in with the same email and password</li>
+    </ol>
+    <p>The app has every unlocked week's study guide, flash cards, quiz and game — and it works offline, in the car or anywhere.</p>
     <p>— Scott Withers</p>
   </div>`;
 }
@@ -129,7 +139,7 @@ export function giftRecipientHtml({ school, className, fromName, recipientName, 
     ${cohortStart ? `<p>Class begins <strong>${fmtDate(cohortStart)}</strong> — one new lesson every week.</p>` : ''}
     <p style="font-size:22px;letter-spacing:2px;background:#f4f7fa;padding:14px 18px;border-radius:10px;text-align:center"><strong>${esc(code)}</strong></p>
     <ol>
-      <li>Open <a href="${s.site}/app/">${s.site.replace('https://', '')}/app</a> on a phone, tablet or computer</li>
+      <li>Open <a href="${s.site}/classroom/">${s.site.replace('https://', '')}/classroom</a> on a phone, tablet or computer</li>
       <li>Create your free family account (up to 4 student profiles)</li>
       <li>Enter the code above — it unlocks the class for your whole family</li>
     </ol>

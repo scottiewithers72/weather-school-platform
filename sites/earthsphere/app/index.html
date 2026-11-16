@@ -4,23 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>EarthSphere Study Companion</title>
-<meta name="description" content="The study companion for EarthSphere Academy — study guides, flash cards, timed quizzes, and progress tracking for every course.">
+<meta name="description" content="EarthSphere Study Companion — study guides, flash cards and practice quizzes for your course. Works offline.">
 <meta name="theme-color" content="#0B3D54">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="EarthSphere">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app.css">
 </head>
-<body class="secondary">
+<body class="secondary companion">
 <div id="app"><p class="loading">Loading your library…</p></div>
 <script>
 window.SCHOOL = {
   schoolId: "earthsphere",
   name: "EarthSphere Academy",
   uxMode: "secondary",
-  logo: "../assets/esa-logo.png"
+  logo: "/assets/esa-logo.png",
+  mode: "companion",
+  appName: "EarthSphere Study Companion",
+  appUrl: "/app/",
+  classroomUrl: "/classroom/",
+  emptyArt: ""
 };
 </script>
 <script src="app-engine.js"></script>

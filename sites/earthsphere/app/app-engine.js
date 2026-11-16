@@ -32,6 +32,18 @@
   // ---------- rendering ----------
   const app = $('#app');
   const kid = S.uxMode === 'k4';
+  // 'classroom' = full learning site (video, printables, Zoom, activities)
+  // 'companion' = installable practice app (activities only, works offline)
+  const COMPANION = S.mode === 'companion';
+  const CLASSROOM_URL = S.classroomUrl || '/classroom/';
+  const APP_URL = S.appUrl || '/app/';
+  const store = {
+    get: (k, d = null) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+    set: (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }
+  };
+  const fmtDay = (d) => { try { return new Date(d + 'T12:00:00').toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' }); } catch (e) { return d; } };
+  const OFFLINE_KEY = `wsp_offline_${S.schoolId}`;   // { library, content: {lessonId: payload}, savedAt }
+  const QUEUE_KEY = 'wsp_progress_queue';
   const say = (k4, big) => (kid ? k4 : big);
 
   // ---------- PWA install ("download") support ----------
@@ -47,6 +59,7 @@
   const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent);
 
   function installUI() {
+    if (!COMPANION) return `<p class="hint appplug">📲 Practice on the go: <a href="${APP_URL}">get the free ${S.appName || 'Companion App'}</a></p>`;
     if (isInstalled()) return '';
     if (isIOS()) {
       return `<div class="installbar">📲 <strong>Install this app:</strong> tap the
@@ -82,8 +95,10 @@
     screen(`
       <div class="authbox">
         <img src="${S.logo}" alt="${S.name}" class="logo">
-        <h1>${say('Hi! Ready to learn? 🐾', 'Family Sign-In')}</h1>
-        <div class="tabs">
+        <h1>${COMPANION ? say('Hi! Ready to practice? 🐾', 'Sign in') : say('Hi! Ready to learn? 🐾', 'Family Sign-In')}</h1>
+        ${COMPANION ? `<p class="hint">Use the same email and password as the ${S.name} Classroom.
+          New family? <a href="${CLASSROOM_URL}">Start in the Classroom →</a></p>` : ''}
+        <div class="tabs" ${COMPANION ? 'hidden' : ''}>
           <button class="${mode === 'login' ? 'on' : ''}" id="tabLogin">Sign in</button>
           <button class="${mode === 'register' ? 'on' : ''}" id="tabReg">New family</button>
         </div>
@@ -115,7 +130,14 @@
   }
 
   async function loadStudents() {
-    students = (await post('/auth', { action: 'list_students' })).students;
+    try {
+      students = (await post('/auth', { action: 'list_students' })).students;
+      store.set('wsp_students', students);
+    } catch (e) {
+      const cached = store.get('wsp_students');
+      if (COMPANION && cached && token && !navigator.onLine) { students = cached; return; }
+      throw e;
+    }
   }
 
   // ---------- profile picker ----------
@@ -158,11 +180,19 @@
   // ---------- library ----------
   async function renderLibrary() {
     screen(`<div class="page"><p class="loading">${say('Fetching your classes… 🐕', 'Loading your library…')}</p></div>`);
+    let offline = false;
     try { library = (await api(`/library?school=${S.schoolId}`)).library; }
-    catch (e) { return renderAuth(); }
-    try { officeHours = (await api(`/office-hours?school=${S.schoolId}`)).officeHours || []; }
-    catch (e) { officeHours = []; }
+    catch (e) {
+      const cache = COMPANION && store.get(OFFLINE_KEY);
+      if (cache && cache.library) { library = cache.library; offline = true; }
+      else return renderAuth();
+    }
+    if (!COMPANION) {
+      try { officeHours = (await api(`/office-hours?school=${S.schoolId}`)).officeHours || []; }
+      catch (e) { officeHours = []; }
+    }
     const head = headerBar();
+    if (COMPANION) return renderCompanionLibrary(head, offline);
     if (!library.length) {
       return screen(`${head}
         <div class="page">
@@ -183,7 +213,7 @@
               ${c.source === 'graduation_gift' ? '<span class="gifttag">🎓 Graduation gift</span>' : ''}
               <strong>${c.title}</strong>
               <span class="sub2">${c.lessons.filter(l => l.unlocked).length}/${c.lessons.length} lessons unlocked
-                ${c.nextUnlock ? ` · next: ${c.nextUnlock}` : ''}</span>
+                ${c.nextUnlock ? ` · next: ${fmtDay(c.nextUnlock)}` : ''}</span>
               <span class="bar"><i style="width:${Math.round(done / c.lessons.length * 100)}%"></i></span>
             </button>`;
           }).join('')}
@@ -191,6 +221,7 @@
         ${officeHoursBlock(officeHours)}
         <details class="redeem"><summary>＋ ${say('Add a new class code', 'Redeem another access code')}</summary>
           ${redeemForm()}</details>
+        ${installUI()}
       </div>`);
     document.querySelectorAll('.libcard').forEach(b => b.onclick = () => renderClass(library[b.dataset.i]));
     wireRedeem();
@@ -262,17 +293,111 @@
           ${c.lessons.map(l => `
             <button class="lesson ${l.unlocked ? '' : 'locked'}" ${l.unlocked ? `data-id="${l.id}"` : 'disabled'}>
               <span class="num">${l.unlocked ? l.position : '🔒'}</span>
-              <span class="ltitle">${l.title}<small>${l.durationMin ? l.durationMin + ' min' : ''}
-                ${progressCache[l.id]?.video_done ? ' · ✅ watched' : ''}</small></span>
+              <span class="ltitle">${l.title}<small>${!COMPANION && l.durationMin ? l.durationMin + ' min' : ''}
+                ${!COMPANION && progressCache[l.id]?.video_done ? ' · ✅ watched' : ''}
+                ${COMPANION && store.get(OFFLINE_KEY, {}).content?.[l.id] ? '📥 ready offline' : ''}</small></span>
             </button>`).join('')}
         </div>
-        ${c.nextUnlock ? `<p class="hint">📅 ${say('Next lesson opens', 'Next lesson unlocks')} ${c.nextUnlock}</p>` : ''}
-        ${officeHoursBlock(officeHours.filter(o => o.classId === c.classId || (!o.classId && c.schoolId === S.schoolId)))}
+        ${c.nextUnlock ? `<p class="hint">📅 ${say('Next lesson opens', 'Next lesson unlocks')} ${fmtDay(c.nextUnlock)}</p>` : ''}
+        ${COMPANION ? '' : officeHoursBlock(officeHours.filter(o => o.classId === c.classId || (!o.classId && c.schoolId === S.schoolId)))}
       </div>`);
     document.querySelectorAll('.lesson[data-id]').forEach(b => {
       const l = c.lessons.find(x => String(x.id) === b.dataset.id);
-      b.onclick = () => renderLesson(c, l);
+      b.onclick = () => (COMPANION ? renderPractice(c, l) : renderLesson(c, l));
     });
+  }
+
+  // ---------- companion: library with offline download ----------
+  function renderCompanionLibrary(head, offline) {
+    if (!library.length) {
+      return screen(`${head}
+        <div class="page">
+          <div class="stage">
+            <img class="stage-art" src="${S.emptyArt || ''}" alt="" ${S.emptyArt ? '' : 'hidden'}>
+            <h3>${say('No classes yet! 🐕', 'No classes yet')}</h3>
+            <p>${say('Ask a grown-up to unlock a class in the Classroom. Then come back here to practice!',
+              'Redeem your access code in the Classroom, then your practice activities appear here.')}</p>
+            <a class="cta" href="${CLASSROOM_URL}">Open the Classroom</a>
+          </div>
+        </div>`);
+    }
+    screen(`${head}
+      <div class="page">
+        <h2>${say(`${activeStudent.first_name}'s practice`, 'Practice')}</h2>
+        <p class="sync" id="syncLine">${offline ? '📴 ' + say('Offline — using your downloaded weeks', 'Offline mode — downloaded weeks only') : '⏳ ' + say('Getting your weeks ready…', 'Downloading for offline use…')}</p>
+        <div class="libgrid">
+          ${library.map((c, i) => `
+            <button class="libcard" data-i="${i}">
+              <strong>${c.title}</strong>
+              <span class="sub2">${c.lessons.filter(l => l.unlocked).length}/${c.lessons.length} weeks unlocked
+                ${c.nextUnlock ? ` · next: ${fmtDay(c.nextUnlock)}` : ''}</span>
+            </button>`).join('')}
+        </div>
+        <p class="hint">🎬 Videos, printables and live Q&A are in the <a href="${CLASSROOM_URL}">Classroom</a>.</p>
+        ${installUI()}
+      </div>`);
+    document.querySelectorAll('.libcard').forEach(b => b.onclick = () => renderClass(library[b.dataset.i]));
+    if (!offline) syncOffline();
+    flushQueue();
+  }
+
+  // Download every unlocked week's activities + pictures so the app works with no signal.
+  async function syncOffline() {
+    const line = () => document.getElementById('syncLine');
+    const cache = store.get(OFFLINE_KEY, { content: {} });
+    const content = cache.content || {};
+    const lessons = library.flatMap(c => c.lessons.filter(l => l.unlocked));
+    let done = 0;
+    for (const l of lessons) {
+      try { content[l.id] = (await api(`/content?lessonId=${l.id}`)).content; } catch (e) {}
+      done++;
+      if (line()) line().textContent = `⏳ ${say('Getting your weeks ready…', 'Downloading…')} ${done}/${lessons.length}`;
+    }
+    store.set(OFFLINE_KEY, { library, content, savedAt: Date.now() });
+    // Warm the picture cache (service worker keeps /app/media/ for offline)
+    const imgs = new Set();
+    Object.values(content).forEach(ct => JSON.stringify(ct || {}).replace(/"(\/app\/media\/[^"]+\.jpg)"/g, (_, u) => imgs.add(u)));
+    let n = 0;
+    await Promise.all([...imgs].map(u => fetch(u).then(() => { n++; }).catch(() => {})));
+    if (line()) line().innerHTML = `✅ ${say('Ready to play offline!', 'Ready offline')} <small>${lessons.length} ${lessons.length === 1 ? 'week' : 'weeks'} · ${n} pictures</small>`;
+  }
+
+  function flushQueue() {
+    const q = store.get(QUEUE_KEY, []);
+    if (!q.length || !navigator.onLine) return;
+    store.set(QUEUE_KEY, []);
+    q.forEach(item => post('/progress', item).catch(() => {
+      const again = store.get(QUEUE_KEY, []); again.push(item); store.set(QUEUE_KEY, again);
+    }));
+  }
+  window.addEventListener('online', flushQueue);
+
+  // ---------- companion: practice screen for one week ----------
+  async function renderPractice(c, l) {
+    screen(`${headerBar()}
+      <div class="page">
+        <button class="linkbtn" id="backToClass">← ${c.title}</button>
+        <h2>${l.title}</h2>
+        <div class="player" id="player" hidden></div>
+        <nav class="lessontabs four">
+          <button class="on" data-t="study_guide">📚 ${say('Read', 'Study Guide')}</button>
+          <button data-t="flashcards">🃏 ${say('Cards', 'Flash Cards')}</button>
+          <button data-t="quiz">⭐ Quiz</button>
+          <button data-t="game">🎮 ${say('Play', 'Game')}</button>
+        </nav>
+        <div id="tabBody"><p class="loading">${say('Opening…', 'Loading…')}</p></div>
+      </div>`);
+    $('#backToClass').onclick = () => renderClass(c);
+    let content = store.get(OFFLINE_KEY, {}).content?.[l.id];
+    if (!content) {
+      try { content = (await api(`/content?lessonId=${l.id}`)).content; } catch (e) { content = {}; }
+    }
+    const tabs = document.querySelectorAll('.lessontabs button');
+    tabs.forEach(t => t.onclick = () => {
+      tabs.forEach(x => x.classList.remove('on')); t.classList.add('on');
+      showTab(t.dataset.t, content, l);
+    });
+    showTab('study_guide', content, l);
   }
 
   // ---------- lesson ----------
@@ -609,7 +734,12 @@
         if (n.type === 'graduation') toast(say(`🎓 CANE'S GIFT: ${n.giftClass} is FREE at EarthSphere Academy!`,
           `🎓 Graduation! ${n.giftClass} unlocked free at EarthSphere Academy`), '🎓');
       });
-    } catch (e) { console.error(e); }
+    } catch (e) {
+      const q = store.get(QUEUE_KEY, []);
+      q.push({ studentId: activeStudent.id, lessonId: l.id, ...fields });
+      store.set(QUEUE_KEY, q);
+      if (msg) toast(msg);
+    }
   }
 
   // ---------- boot ----------
@@ -617,7 +747,7 @@
     profiles: renderProfiles,
     library: renderLibrary
   };
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+  if (COMPANION && 'serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
   (async () => {
     if (!token) return renderAuth();
     try { await loadStudents(); activeStudent && students.find(s => s.id === activeStudent.id) ? renderLibrary() : renderProfiles(); }

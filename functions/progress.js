@@ -116,7 +116,7 @@ export const handler = handle(async (event) => {
           subject: '🎓 Cane has a graduation gift for your family!',
           html: graduationHtml({
             giftClassName: gift.title,
-            academyUrl: 'https://earthsphereacademy.com/app/'
+            academyUrl: 'https://earthsphereacademy.com/classroom/'
           }),
           template: 'graduation', ref: `family-${session.familyId}`, school: 'earthsphere'
         });
