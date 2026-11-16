@@ -2,11 +2,16 @@
 // GET /api/documents?dl=<signed token>     -> the PDF itself
 // Documents unlock on the same weekly schedule as the video. Links are signed
 // per family and expire after 30 minutes, so a shared link stops working.
-import { connectLambda, getDeployStore, getStore } from '@netlify/blobs';
+import { getDeployStore, getStore } from '@netlify/blobs';
 import { sql } from './lib/db.js';
 import { requireFamily, signToken, verifyToken } from './lib/auth.js';
-import { handle, ok, bad } from './lib/http.js';
+
 import { unlockedPositions } from './lib/core.js';
+
+const J = (status, body) => new Response(JSON.stringify(body), {
+  status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
+const ok = (b) => J(200, b);
+const bad = (msg, code = 400) => J(code, { error: msg });
 
 const LABELS = {
   'parent-guide':    { label: 'Parent & Teacher Guide', group: 'parent',  order: 1 },
@@ -35,8 +40,17 @@ async function unlockedLesson(db, familyId, lessonId) {
   return { row };
 }
 
-export const handler = handle(async (event) => {
-  const q = event.queryStringParameters || {};
+// Modern (v2) function: Netlify injects the Blobs region/context automatically.
+export default async (req) => {
+  try { return await run(req); }
+  catch (e) {
+    if (e.statusCode && e.statusCode < 500) return bad(e.message, e.statusCode);
+    console.error(e); return bad('Server error', 500);
+  }
+};
+
+async function run(req) {
+  const q = Object.fromEntries(new URL(req.url).searchParams);
   const db = sql();
 
   // ----- download -----
@@ -48,26 +62,20 @@ export const handler = handle(async (event) => {
     const { error } = await unlockedLesson(db, t.familyId, doc.lesson_id);
     if (error) return error;
 
-    connectLambda(event);
     // Admin replacements (site store) win over the files shipped with the deploy.
     let data = await getStore('course-docs').get(doc.blob_key, { type: 'arrayBuffer' });
     if (!data) data = await getDeployStore().get(doc.blob_key, { type: 'arrayBuffer' });
     if (!data) return bad('File missing — we have been notified.', 404);
 
-    return {
-      statusCode: 200,
-      isBase64Encoded: true,
-      headers: {
-        'Content-Type': 'application/pdf',
-        'Content-Disposition': `${q.view ? 'inline' : 'attachment'}; filename="${doc.file_name}"`,
-        'Cache-Control': 'private, no-store'
-      },
-      body: Buffer.from(data).toString('base64')
-    };
+    return new Response(data, { status: 200, headers: {
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': `${q.view ? 'inline' : 'attachment'}; filename="${doc.file_name}"`,
+      'Cache-Control': 'private, no-store'
+    } });
   }
 
   // ----- list -----
-  const session = requireFamily(event);
+  const session = requireFamily({ headers: { authorization: req.headers.get('authorization') || '' } });
   const lessonId = Number(q.lessonId);
   if (!lessonId) return bad('lessonId required');
   const { error } = await unlockedLesson(db, session.familyId, lessonId);
@@ -85,4 +93,4 @@ export const handler = handle(async (event) => {
                url, viewUrl: url + '&view=1' };
     });
   return ok({ documents });
-});
+}
