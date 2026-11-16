@@ -32,7 +32,7 @@ export const handler = handle(async (event) => {
   }
 
   const db = sql();
-  const [cls] = await db`SELECT id, semester, shopify_url, shopify_variant_id FROM classes WHERE id=${String(b.classId || '')}`;
+  const [cls] = await db`SELECT id, semester, shopify_variant_id FROM classes WHERE id=${String(b.classId || '')}`;
   if (!cls) return bad('Pick a class');
   if (/^Coming/i.test(cls.semester || '') || !cls.shopify_variant_id) return bad('That class is not open for gifting yet');
 
@@ -43,7 +43,8 @@ export const handler = handle(async (event) => {
     VALUES (${token}, ${viewKey}, ${cls.id}, ${fromName}, ${recipientName}, ${recipientEmail || null},
             ${message || null}, ${deliverOn})`;
 
-  const store = new URL(cls.shopify_url).origin; // e.g. https://shop.canetheweatherdog.com
+  // Checkout for both schools runs through the Cane the Weather Dog store.
+  const store = process.env.STOREFRONT_URL || 'https://shop.canetheweatherdog.com';
   const checkoutUrl = `${store}/cart/${cls.shopify_variant_id}:1?attributes[gift_token]=${token}`;
   return ok({ checkoutUrl });
 });
